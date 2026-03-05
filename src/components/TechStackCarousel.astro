@@ -1,0 +1,103 @@
+<div class="mt-20 flex justify-center">
+
+  <div class="carousel-wrapper">
+
+    <div class="flex gap-12 items-center tech-carousel text-gray-500 dark:text-gray-400">
+
+      <img src="https://cdn.simpleicons.org/php" class="h-6 transition-transform duration-200 filter" alt="PHP" />
+      <img src="https://cdn.simpleicons.org/symfony" class="h-6 transition-transform duration-200 filter dark:invert" alt="Symfony" />
+      <img src="https://cdn.simpleicons.org/laravel" class="h-6 transition-transform duration-200 filter" alt="Laravel" />
+      <img src="https://cdn.simpleicons.org/mysql" class="h-6 transition-transform duration-200 filter" alt="MySQL" />
+      <img src="https://cdn.simpleicons.org/docker" class="h-6 transition-transform duration-200 filter" alt="Docker" />
+      <img src="https://cdn.simpleicons.org/aws" class="h-6 transition-transform duration-200 filter" alt="AWS" />
+      <img src="https://cdn.simpleicons.org/javascript" class="h-6 transition-transform duration-200 filter" alt="JavaScript" />
+      <img src="https://cdn.simpleicons.org/react" class="h-6 transition-transform duration-200 filter" alt="React" />
+      <img src="https://cdn.simpleicons.org/astro" class="h-6 transition-transform duration-200 filter" alt="Astro" />
+      <img src="https://cdn.simpleicons.org/vuedotjs" class="h-6 transition-transform duration-200 filter" alt="Vue" />
+      <img src="https://cdn.simpleicons.org/html5" class="h-6 transition-transform duration-200 filter" alt="HTML" />
+      <img src="https://cdn.simpleicons.org/css" class="h-6 transition-transform duration-200 filter" alt="CSS" />
+
+      <!-- duplicated for infinite loop -->
+
+      <img src="https://cdn.simpleicons.org/php" class="h-6 transition-transform duration-200 filter" alt="PHP" />
+      <img src="https://cdn.simpleicons.org/symfony" class="h-6 transition-transform duration-200 filter dark:invert" alt="Symfony" />
+      <img src="https://cdn.simpleicons.org/laravel" class="h-6 transition-transform duration-200 filter" alt="Laravel" />
+      <img src="https://cdn.simpleicons.org/mysql" class="h-6 transition-transform duration-200 filter" alt="MySQL" />
+      <img src="https://cdn.simpleicons.org/docker" class="h-6 transition-transform duration-200 filter" alt="Docker" />
+      <img src="https://cdn.simpleicons.org/aws" class="h-6 transition-transform duration-200 filter" alt="AWS" />
+      <img src="https://cdn.simpleicons.org/javascript" class="h-6 transition-transform duration-200 filter" alt="JavaScript" />
+      <img src="https://cdn.simpleicons.org/react" class="h-6 transition-transform duration-200 filter" alt="React" />
+      <img src="https://cdn.simpleicons.org/astro" class="h-6 transition-transform duration-200 filter" alt="Astro" />
+      <img src="https://cdn.simpleicons.org/vuedotjs" class="h-6 transition-transform duration-200 filter" alt="Vue" />
+      <img src="https://cdn.simpleicons.org/html5" class="h-6 transition-transform duration-200 filter" alt="HTML" />
+      <img src="https://cdn.simpleicons.org/css" class="h-6 transition-transform duration-200 filter" alt="CSS" />
+
+       <!-- duplicated for infinite loop -->
+
+      <img src="https://cdn.simpleicons.org/php" class="h-6 transition-transform duration-200 filter" alt="PHP" />
+      <img src="https://cdn.simpleicons.org/symfony" class="h-6 transition-transform duration-200 filter dark:invert" alt="Symfony" />
+      <img src="https://cdn.simpleicons.org/laravel" class="h-6 transition-transform duration-200 filter" alt="Laravel" />
+      <img src="https://cdn.simpleicons.org/mysql" class="h-6 transition-transform duration-200 filter" alt="MySQL" />
+      <img src="https://cdn.simpleicons.org/docker" class="h-6 transition-transform duration-200 filter" alt="Docker" />
+      <img src="https://cdn.simpleicons.org/aws" class="h-6 transition-transform duration-200 filter" alt="AWS" />
+      <img src="https://cdn.simpleicons.org/javascript" class="h-6 transition-transform duration-200 filter" alt="JavaScript" />
+      <img src="https://cdn.simpleicons.org/react" class="h-6 transition-transform duration-200 filter" alt="React" />
+      <img src="https://cdn.simpleicons.org/astro" class="h-6 transition-transform duration-200 filter" alt="Astro" />
+      <img src="https://cdn.simpleicons.org/vuedotjs" class="h-6 transition-transform duration-200 filter" alt="Vue" />
+      <img src="https://cdn.simpleicons.org/html5" class="h-6 transition-transform duration-200 filter" alt="HTML" />
+      <img src="https://cdn.simpleicons.org/css" class="h-6 transition-transform duration-200 filter" alt="CSS" />
+
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+
+.carousel-wrapper {
+  width: 100%;
+  max-width: 720px;
+  overflow: hidden;
+  padding: 18px 24px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(59,130,246,0.08),
+    rgba(59,130,246,0.02)
+  );
+
+  border-radius: 14px;
+
+  transform: rotate(-2deg);
+
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.tech-carousel {
+  animation: techScroll 30s linear infinite;
+  white-space: nowrap;
+}
+
+.tech-carousel img {
+  opacity: 0.75;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.tech-carousel img:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+@keyframes techScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+</style>

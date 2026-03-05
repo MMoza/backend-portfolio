@@ -1,11 +1,134 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TechStackCarousel from "../components/TechStackCarousel.astro";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout>
+  <section
+    class="relative max-w-3xl mx-auto py-24 text-center animate-fade-in overflow-hidden rounded-2xl"
+  >
+    <!-- Code editor style background -->
+    <div
+      class="pointer-events-none absolute inset-0 flex items-center justify-center"
+    >
+      <div
+        class="bg-gray-100/40 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 rounded-xl p-6 font-mono text-xs md:text-sm leading-relaxed opacity-[0.18] dark:opacity-[0.22] blur-[0.3px] select-none shadow-sm"
+      >
+        <pre class="whitespace-pre text-left code-scroll">
+        <span class="text-purple-600">class</span> <span class="text-blue-600">ReservationService</span> &#123;
+
+          <span class="text-green-600">public function</span> <span class="text-blue-600">calculateTotal</span>()
+              &#123;
+                  <span class="text-purple-600">return</span> $this->pricingService
+                      ->applySeasonModifier()
+                      ->applyDiscountRules()
+                      ->applyTaxes();
+              &#125;
+            &#125;
+
+          <span class="text-gray-500">// Domain rules evolve</span>
+          <span class="text-gray-500">// architecture decisions matter</span>
+          <span class="text-gray-500">// complexity grows over time</span>
+        </pre>
+      </div>
+    </div>
+
+    <!-- Foreground content -->
+    <div class="relative z-10">
+      <p
+        class="text-3xl tracking-wider text-yellow-500 mb-16 opacity-0 animate-fade-in-delay -rotate-6"
+      >
+        Hi, I'm Miguel Ángel Moza Barquilla!
+      </p>
+
+      <h1
+        class="text-4xl md:text-5xl font-bold leading-tight mb-6 opacity-0 animate-slide-up"
+      >
+        Backend developer focused on
+        <span class="text-blue-600">architectural decisions</span>
+        and software evolution
+      </h1>
+
+      <p
+        class="text-lg text-gray-600 dark:text-gray-400 mb-10 opacity-0 animate-slide-up-delay"
+      >
+        I enjoy understanding how systems evolve, how architectural decisions
+        age, and how backend systems adapt as business rules grow in complexity.
+      </p>
+
+      <div class="flex justify-center gap-4 opacity-0 animate-slide-up-delay-2">
+        <a
+          href="/projects"
+          class="px-6 py-3 rounded-lg bg-gray-900 text-white dark:bg-white dark:text-black font-medium hover:opacity-90 transition"
+        >
+          View Projects
+        </a>
+
+        <a
+          href="/contact"
+          class="px-6 py-3 rounded-lg border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+        >
+          Contact
+        </a>
+      </div>
+
+      <TechStackCarousel />
+    </div>
+  </section>
+
+  <style>
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    .animate-fade-in-delay {
+      animation: fadeIn 0.8s ease forwards;
+      animation-delay: 0.1s;
+    }
+
+    .animate-slide-up {
+      animation: slideUp 0.7s ease forwards;
+      animation-delay: 0.15s;
+    }
+
+    .animate-slide-up-delay {
+      animation: slideUp 0.7s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    .animate-slide-up-delay-2 {
+      animation: slideUp 0.7s ease forwards;
+      animation-delay: 0.45s;
+    }
+
+    .code-scroll {
+      animation: codeDrift 40s linear infinite;
+    }
+
+    @keyframes codeDrift {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(-20px); }
+      100% { transform: translateX(0); }
+    }
+  </style>
+</BaseLayout>
