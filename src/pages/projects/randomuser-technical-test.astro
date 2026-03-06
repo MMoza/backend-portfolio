@@ -1,0 +1,211 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import MetricCard from "../../components/MetricCard.astro";
+import BackLink from "../../components/BackLink.astro";
+---
+
+<BaseLayout>
+    <article class="max-w-3xl mx-auto">
+        <BackLink href="/projects" label="Back to projects" />
+
+        <header class="mb-14">
+            <p class="text-sm text-gray-500 mb-2">2023 — Technical Test</p>
+
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">
+                RandomUser API Technical Test
+            </h1>
+
+            <p class="text-lg text-gray-600 dark:text-gray-400">
+                This project represents the technical test I completed during
+                the selection process for my first professional role as a web
+                developer.
+            </p>
+        </header>
+
+        <section class="mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+                <div
+                    class="group border border-gray-200 dark:border-gray-800 rounded-lg p-5
+                            bg-white/95 dark:bg-gray-900/95
+                            backdrop-blur-sm
+                            flex flex-col h-full
+                            transition-all duration-300
+                            hover:-translate-y-1 hover:shadow-lg
+                            hover:border-blue-500/40"
+                >
+                    <p
+                        class="font-semibold text-gray-800 dark:text-gray-200 mb-1"
+                    >
+                        External API Integration
+                    </p>
+
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-auto">
+                        Consuming third-party APIs using PHP and cURL.
+                    </p>
+                </div>
+
+                <div
+                    class="group border border-gray-200 dark:border-gray-800 rounded-lg p-5
+                            bg-white/95 dark:bg-gray-900/95
+                            backdrop-blur-sm
+                            flex flex-col h-full
+                            transition-all duration-300
+                            hover:-translate-y-1 hover:shadow-lg
+                            hover:border-blue-500/40"
+                >
+                    <p
+                        class="font-semibold text-gray-800 dark:text-gray-200 mb-1"
+                    >
+                        Backend–Frontend Communication
+                    </p>
+
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-auto">
+                        AJAX requests retrieving JSON data from a PHP endpoint.
+                    </p>
+                </div>
+
+                <div
+                    class="group border border-gray-200 dark:border-gray-800 rounded-lg p-5
+                            bg-white/95 dark:bg-gray-900/95
+                            backdrop-blur-sm
+                            flex flex-col h-full
+                            transition-all duration-300
+                            hover:-translate-y-1 hover:shadow-lg
+                            hover:border-blue-500/40"
+                >
+                    <p
+                        class="font-semibold text-gray-800 dark:text-gray-200 mb-1"
+                    >
+                        First Technical Assessment
+                    </p>
+
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-auto">
+                        Project completed during the hiring process for my first
+                        developer role.
+                    </p>
+                </div>
+            </div>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                The goal of the exercise was to build a small web application
+                capable of retrieving user data from the 
+                <a
+                    href="https://randomuser.me/documentation"
+                    target="_blank"
+                    class="text-blue-600 dark:text-blue-400 hover:underline underline-offset-2 transition-colors"
+                    >
+                    RandomUser API 
+                </a> and displaying it dynamically in the browser.
+            </p>
+
+            <p class="text-gray-600 dark:text-gray-400">
+                Although the problem itself was relatively simple, the challenge
+                was designed to evaluate several fundamental skills expected
+                from a junior developer entering a professional environment.
+            </p>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">Technical Objectives</h2>
+
+            <ul
+                class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+            >
+                <li>Consume an external REST API using PHP</li>
+                <li>Implement HTTP requests using cURL</li>
+                <li>Return structured JSON responses</li>
+                <li>Perform AJAX requests from the frontend</li>
+                <li>Render dynamic data in the browser</li>
+            </ul>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">
+                Architecture of the Solution
+            </h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                The solution was intentionally simple but structured around
+                clear responsibilities between backend and frontend.
+            </p>
+
+            <ul
+                class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+            >
+                <li>
+                    A dedicated PHP class responsible for performing the HTTP
+                    request to the RandomUser API using cURL.
+                </li>
+
+                <li>An endpoint exposing the data in JSON format.</li>
+
+                <li>
+                    A frontend implementation using JavaScript and AJAX requests
+                    to retrieve the data asynchronously.
+                </li>
+
+                <li>
+                    Rendering of the returned user data inside a simple HTML
+                    interface.
+                </li>
+            </ul>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">Backend Implementation</h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                The backend layer was implemented using PHP and focused on
+                interacting with the external API.
+            </p>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                A PHP class was created to encapsulate the HTTP request logic
+                using cURL, handling the communication with the RandomUser API
+                and returning a JSON response to the frontend.
+            </p>
+
+            <p class="text-gray-600 dark:text-gray-400">
+                This separation helped keep the API communication logic isolated
+                from the presentation layer.
+            </p>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">Frontend Interaction</h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                On the frontend, JavaScript was used to perform an asynchronous
+                request to the PHP endpoint.
+            </p>
+
+            <p class="text-gray-600 dark:text-gray-400">
+                The returned JSON payload was parsed and rendered dynamically in
+                the HTML page, displaying the user information retrieved from
+                the API.
+            </p>
+        </section>
+
+        <section class="mb-14">
+            <h2 class="text-xl font-semibold mb-6">Learning Experience</h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                This technical challenge marked my first real exposure to a
+                professional software selection process.
+            </p>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                It required applying several concepts I had recently learned,
+                such as working with APIs, performing HTTP requests in PHP and
+                structuring a small web application with clear separation
+                between frontend and backend.
+            </p>
+
+            <p class="text-gray-600 dark:text-gray-400">
+                Completing this test successfully allowed me to secure my first
+                position as a developer, making this project a significant
+                milestone in my professional journey.
+            </p>
+        </section>
+    </article>
+</BaseLayout>

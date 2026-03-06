@@ -1,0 +1,158 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import MetricCard from "../../components/MetricCard.astro";
+import BackLink from "../../components/BackLink.astro";
+---
+
+<BaseLayout>
+    <article class="max-w-3xl mx-auto">
+        <BackLink href="/projects" label="Back to projects" />
+
+        <header class="mb-14">
+            <p class="text-sm text-gray-500 mb-2">Architecture Experiment</p>
+
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">
+                PHP API Benchmark
+            </h1>
+
+            <p class="text-lg text-gray-600 dark:text-gray-400">
+                Experimental project comparing how different PHP frameworks
+                behave when implementing the same small REST API.
+            </p>
+        </header>
+
+        <section class="mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+                <div
+                    class="border border-gray-200 dark:border-gray-800 rounded-lg p-5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm"
+                >
+                    <p class="font-semibold mb-1">3 Implementations</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Plain PHP, Laravel and Symfony implementations.
+                    </p>
+                </div>
+
+                <div
+                    class="border border-gray-200 dark:border-gray-800 rounded-lg p-5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm"
+                >
+                    <p class="font-semibold mb-1">Single Domain</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        The same entity and rules implemented in all frameworks.
+                    </p>
+                </div>
+
+                <div
+                    class="border border-gray-200 dark:border-gray-800 rounded-lg p-5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm"
+                >
+                    <p class="font-semibold mb-1">Architecture Focus</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Comparing complexity, DX and evolution capacity.
+                    </p>
+                </div>
+            </div>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                This project explores how different architectural approaches
+                affect the development and evolution of a small backend API.
+            </p>
+
+            <p class="text-gray-600 dark:text-gray-400">
+                The goal is not to determine which framework is "better", but to
+                analyze how each approach handles complexity, structure and
+                developer experience when solving the same problem.
+            </p>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">Domain Model</h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                The benchmark is built around a very small domain: a habit
+                tracking API. The system allows users to define personal habits
+                and track their completion progress over time.
+            </p>
+
+            <ul
+                class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+            >
+                <li>Create habits</li>
+                <li>List existing habits</li>
+                <li>Update habit configuration</li>
+                <li>Register habit completion</li>
+            </ul>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">Entity: Habit</h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Each habit represents a recurring activity the user wants to
+                track.
+            </p>
+
+            <div
+                class="bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-5 font-mono text-sm mb-6"
+            >
+                id name description frequency (daily / weekly) target_count
+                completed_count created_at
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">
+                Framework Implementations
+            </h2>
+
+            <ul class="space-y-4 text-gray-600 dark:text-gray-400">
+                <li>
+                    <strong>Plain PHP</strong> — Minimal implementation without a
+                    framework, focusing on explicit routing and manual dependency
+                    management.
+                </li>
+
+                <li>
+                    <strong>Laravel</strong> — Implementation using Eloquent models,
+                    controllers and Laravel's typical service architecture.
+                </li>
+
+                <li>
+                    <strong>Symfony</strong> — Implementation using Symfony controllers,
+                    dependency injection and Doctrine ORM.
+                </li>
+            </ul>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">Evaluation Criteria</h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Each implementation will be evaluated across several dimensions:
+            </p>
+
+            <ul
+                class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+            >
+                <li>Structural complexity</li>
+                <li>Developer experience during implementation</li>
+                <li>Ease of adding new features</li>
+                <li>Testability of the system</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="text-xl font-semibold mb-6">Project Goal</h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                The purpose of this experiment is to better understand the
+                trade-offs between simplicity and abstraction in backend
+                development.
+            </p>
+
+            <p class="text-gray-600 dark:text-gray-400">
+                By implementing the same API with different architectural
+                approaches, it becomes easier to evaluate how frameworks
+                influence the evolution of a codebase as complexity grows.
+            </p>
+        </section>
+    </article>
+</BaseLayout>
