@@ -8,7 +8,12 @@ import BackLink from "../../../components/BackLink.astro";
 
 <article class="max-w-3xl mx-auto">
 
-<BackLink href="/experience/backend-developer" label="Back to FullStack Developer in MisterPlan" />
+<BackLink
+href="/experience/backend-developer"
+label="Back to FullStack Developer in MisterPlan"
+/>
+
+<!-- HEADER -->
 
 <header class="mb-14">
 
@@ -24,27 +29,162 @@ different countries.
 
 </header>
 
+<!-- METRICS -->
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
 
-<MetricCard value="+5000" label="invoices per day" />
+<MetricCard value="+5000" label="invoices generated per day" />
+
 <MetricCard value="3" label="billing domains unified" />
+
 <MetricCard value="6" label="regulatory integrations" />
 
 </div>
 
+<!-- CONTEXT -->
+
+<section class="mb-12">
+
+<h2 class="text-xl font-semibold mb-4">
+Context of the Problem
+</h2>
 
 <p class="text-gray-600 dark:text-gray-400 mb-6">
-The invoicing module consolidates billing from three independent
-products: hotel PMS, activity management software and internal
-management tools.
+Initially, the system only supported electronic invoicing through
+the TicketBai integration. All the required fiscal logic and
+validation rules were implemented inside a single service handling
+different regional variations of the TicketBai protocol.
+</p>
+
+<p class="text-gray-600 dark:text-gray-400 mb-6">
+As the platform evolved, new electronic invoicing integrations had
+to be implemented, including VeriFactu for Spain and SWSapien for
+Mexico. Additionally, invoicing functionality needed to be
+implemented across two different products: the internal management
+system and the activity management software.
 </p>
 
 <p class="text-gray-600 dark:text-gray-400">
-The architecture was designed to support multiple regulatory
-integrations, allowing new countries or administrations to be
-added without affecting the core billing domain.
+Continuing to extend the existing service with more special cases
+would quickly lead to a complex and difficult-to-maintain system.
+Instead of adding new logic to the existing implementation, the
+decision was made to redesign the invoicing architecture around a
+unified billing domain.
 </p>
+
+</section>
+
+<!-- DOMAIN UNIFICATION -->
+
+<section class="mb-12">
+
+<h2 class="text-xl font-semibold mb-4">
+Unified Billing Domain
+</h2>
+
+<p class="text-gray-600 dark:text-gray-400 mb-6">
+A unified billing domain model was introduced to consolidate
+invoice generation across the different products of the platform.
+This domain acts as the single source of truth for invoice
+creation, fiscal data validation and invoice lifecycle management.
+</p>
+
+<p class="text-gray-600 dark:text-gray-400 mb-6">
+Both the internal management system and the activity management
+software now generate invoices using the same domain model. This
+approach removes duplicated logic between products and guarantees
+consistent fiscal data across the entire platform.
+</p>
+
+<p class="text-gray-600 dark:text-gray-400">
+Once invoices are generated within the unified domain, the system
+delegates the responsibility of communicating with external fiscal
+administrations to dedicated integration services.
+</p>
+
+</section>
+
+<!-- INTEGRATION ARCHITECTURE -->
+
+<section class="mb-12">
+
+<h2 class="text-xl font-semibold mb-4">
+Regulatory Integration Architecture
+</h2>
+
+<p class="text-gray-600 dark:text-gray-400 mb-6">
+Electronic invoicing regulations vary significantly depending on
+the country and, in some cases, even between regional
+administrations. Each integration exposes different APIs,
+validation requirements and communication protocols.
+</p>
+
+<p class="text-gray-600 dark:text-gray-400 mb-6">
+To handle this variability, the invoicing system was designed with
+an integration layer that decouples the billing domain from the
+external regulatory services.
+</p>
+
+<p class="text-gray-600 dark:text-gray-400">
+Each integration implements a dedicated adapter responsible for
+translating the internal invoice representation into the format
+required by the corresponding administration or platform.
+</p>
+
+</section>
+
+<!-- CURRENT INTEGRATIONS -->
+
+<section class="mb-12">
+
+<h2 class="text-xl font-semibold mb-4">
+Current Integrations
+</h2>
+
+<ul class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6">
+
+<li>
+<strong>TicketBai</strong> integration for the Basque Country,
+supporting the three regional implementations: Araba, Bizkaia and
+Gipuzkoa.
+</li>
+
+<li>
+<strong>VeriFactu</strong> integration implementing the national
+electronic invoicing requirements in Spain.
+</li>
+
+<li>
+<strong>SWSapien</strong> integration acting as a middleware
+platform responsible for communicating invoice data with the
+Mexican tax authority (SAT).
+</li>
+
+</ul>
+
+</section>
+
+<!-- EXTENSIBILITY -->
+
+<section class="mb-12">
+
+<h2 class="text-xl font-semibold mb-4">
+Extensible Architecture
+</h2>
+
+<p class="text-gray-600 dark:text-gray-400 mb-6">
+One of the primary design goals of this system was long-term
+extensibility. New fiscal integrations can be implemented by
+creating new adapters without modifying the core billing domain.
+</p>
+
+<p class="text-gray-600 dark:text-gray-400">
+This architectural approach allows the platform to evolve as new
+regulatory requirements appear while keeping the internal domain
+model stable and maintainable.
+</p>
+
+</section>
 
 </article>
 
