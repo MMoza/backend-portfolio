@@ -1,0 +1,128 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import MetricCard from "../../../components/MetricCard.astro";
+---
+
+<BaseLayout>
+
+<article class="max-w-3xl mx-auto">
+
+<header class="mb-14">
+
+<h1 class="text-3xl md:text-4xl font-bold mb-4">
+Electronic Lock Integrations
+</h1>
+
+<p class="text-gray-600 dark:text-gray-400">
+Development of integrations with multiple smart lock providers used
+by hotels and short-term rental accommodations. The system allows
+automated guest access management by generating and distributing
+temporary access credentials linked to reservations.
+</p>
+
+</header>
+
+
+<!-- METRICS -->
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+
+<MetricCard value="7" label="lock providers integrated" />
+
+<MetricCard value="+3000" label="locks managed" />
+
+<MetricCard value="+250" label="accommodations connected" />
+
+</div>
+
+
+<!-- ARCHITECTURE -->
+
+<section class="mb-12">
+
+<h2 class="text-xl font-semibold mb-4">
+Access abstraction model
+</h2>
+
+<p class="text-gray-600 dark:text-gray-400 mb-4">
+Different providers expose completely different ways of granting
+access to a lock: numeric codes, temporary links, eKeys, mobile
+app permissions or provider-specific tokens.
+</p>
+
+<p class="text-gray-600 dark:text-gray-400 mb-4">
+To handle this variability, the system introduces an abstract
+domain entity called <strong>Key</strong>. This entity represents a
+generic access credential independently of the underlying provider
+implementation.
+</p>
+
+<p class="text-gray-600 dark:text-gray-400">
+Each integration adapts its provider-specific access mechanism
+to this domain abstraction, allowing the system to support new
+providers and access types without changing the core domain logic.
+</p>
+
+</section>
+
+
+<!-- WORKFLOW -->
+
+<section class="mb-12">
+
+<h2 class="text-xl font-semibold mb-4">
+Access provisioning workflow
+</h2>
+
+<p class="text-gray-600 dark:text-gray-400 mb-6">
+The module supports two different integration strategies depending
+on the capabilities of the lock provider.
+</p>
+
+<ul class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6">
+
+<li>
+<strong>Direct lock mapping:</strong>
+our system maps a room to one or more locks and generates access
+credentials directly through the provider API.
+</li>
+
+<li>
+<strong>Room synchronization:</strong>
+our system maps our room with the room entity in the provider
+system and sends reservation information. The provider then
+generates the required access credentials for all locks associated
+with that room.
+</li>
+
+</ul>
+
+</section>
+
+
+<!-- TECHNICAL NOTES -->
+
+<section>
+
+<h2 class="text-xl font-semibold mb-4">
+Technical highlights
+</h2>
+
+<ul class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6">
+
+<li>Integrations with TTLock, Nuki, Tesa, Yacan, Padword, Omnitec and Akiles</li>
+
+<li>Domain-driven abstraction for access credentials</li>
+
+<li>Decoupled architecture supporting multiple providers</li>
+
+<li>Event-driven processes to ensure consistency across distributed systems</li>
+
+</ul>
+
+</section>
+
+
+</article>
+
+</BaseLayout>

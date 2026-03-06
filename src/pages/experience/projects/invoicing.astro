@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import MetricCard from "../../../components/MetricCard.astro";
+---
+
+<BaseLayout>
+
+<article class="max-w-3xl mx-auto">
+
+<header class="mb-14">
+
+<h1 class="text-3xl font-bold mb-4">
+Electronic Invoicing SaaS
+</h1>
+
+<p class="text-gray-600 dark:text-gray-400">
+Unified invoicing system consolidating billing from multiple
+products and integrating electronic invoicing regulations across
+different countries.
+</p>
+
+</header>
+
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+
+<MetricCard value="+5000" label="invoices per day" />
+<MetricCard value="3" label="billing domains unified" />
+<MetricCard value="6" label="regulatory integrations" />
+
+</div>
+
+
+<p class="text-gray-600 dark:text-gray-400 mb-6">
+The invoicing module consolidates billing from three independent
+products: hotel PMS, activity management software and internal
+management tools.
+</p>
+
+<p class="text-gray-600 dark:text-gray-400">
+The architecture was designed to support multiple regulatory
+integrations, allowing new countries or administrations to be
+added without affecting the core billing domain.
+</p>
+
+</article>
+
+</BaseLayout>

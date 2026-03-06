@@ -1,0 +1,108 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import MetricCard from "../../../components/MetricCard.astro";
+---
+
+<BaseLayout>
+
+<article class="max-w-3xl mx-auto">
+
+<header class="mb-14">
+
+<h1 class="text-3xl md:text-4xl font-bold mb-4">
+Activity Channel Manager
+</h1>
+
+<p class="text-gray-600 dark:text-gray-400">
+Refactoring and evolution of the activity distribution system,
+connecting tourism activity providers with major international
+distribution platforms.
+</p>
+
+</header>
+
+
+<!-- METRICS -->
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+
+<MetricCard value="5" label="distribution platforms integrated" />
+
+<MetricCard value="Millions" label="reservations processed" />
+
+<MetricCard value="Full" label="system refactor" />
+
+</div>
+
+
+<!-- DESCRIPTION -->
+
+<section class="mb-12">
+
+<p class="text-gray-600 dark:text-gray-400 mb-4">
+The channel manager allows activity providers to distribute their
+products across multiple tourism marketplaces while maintaining
+centralized control over availability, pricing and booking
+synchronization.
+</p>
+
+<p class="text-gray-600 dark:text-gray-400">
+The system was progressively refactored to improve maintainability
+and scalability, applying clean architecture principles and
+decoupling external integrations from the core business logic.
+</p>
+
+</section>
+
+
+<!-- INTEGRATIONS -->
+
+<section class="mb-12">
+
+<h2 class="text-xl font-semibold mb-4">
+Distribution platforms
+</h2>
+
+<ul class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6">
+
+<li>Civitatis</li>
+
+<li>GetYourGuide</li>
+
+<li>Viator</li>
+
+<li>Tiqets (OCTO protocol)</li>
+
+<li>Axess</li>
+
+</ul>
+
+</section>
+
+
+<!-- ARCHITECTURE -->
+
+<section>
+
+<h2 class="text-xl font-semibold mb-4">
+Technical highlights
+</h2>
+
+<ul class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6">
+
+<li>Large scale API integrations with tourism distribution platforms</li>
+
+<li>Refactoring applying Clean Code and Hexagonal Architecture</li>
+
+<li>Improved maintainability of external integrations</li>
+
+<li>Scalable architecture for adding new distribution channels</li>
+
+</ul>
+
+</section>
+
+
+</article>
+
+</BaseLayout>
