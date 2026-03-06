@@ -2,14 +2,69 @@
 const { value, label } = Astro.props;
 ---
 
-<div class="border border-gray-200 dark:border-gray-800 rounded-lg p-5 bg-white dark:bg-gray-900 text-center transition hover:shadow-sm">
+<div
+  class="metric-card border border-gray-200 dark:border-gray-800
+  rounded-lg p-5
+  bg-white/95 dark:bg-gray-900/90
+  backdrop-blur-sm
+  text-center
+  transition-all duration-200
+  hover:shadow-md hover:-translate-y-[1px]"
+>
 
-  <p class="text-2xl font-semibold text-blue-600">
+  <p
+    class="metric-value text-2xl font-semibold text-blue-600"
+    data-value={value}
+  >
     {value}
   </p>
 
-  <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+  <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
     {label}
   </p>
 
 </div>
+
+<script>
+const counters = document.querySelectorAll(".metric-value");
+
+const observer = new IntersectionObserver((entries) => {
+
+  entries.forEach(entry => {
+
+    if (!entry.isIntersecting) return;
+
+    const el = entry.target;
+    const rawValue = el.dataset.value;
+
+    const numericValue = parseInt(rawValue.replace(/[^0-9]/g, ""));
+    const prefix = rawValue.startsWith("+") ? "+" : "";
+
+    let current = 0;
+
+    const duration = 1200;
+    const stepTime = 20;
+    const steps = duration / stepTime;
+    const increment = numericValue / steps;
+
+    const counter = setInterval(() => {
+
+      current += increment;
+
+      if (current >= numericValue) {
+        el.textContent = prefix + numericValue;
+        clearInterval(counter);
+      } else {
+        el.textContent = prefix + Math.floor(current);
+      }
+
+    }, stepTime);
+
+    observer.unobserve(el);
+
+  });
+
+}, { threshold: 0.6 });
+
+counters.forEach(counter => observer.observe(counter));
+</script>
