@@ -1,53 +1,57 @@
 <button
-  id="theme-toggle"
-  class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-300 dark:bg-gray-700 transition-colors duration-300"
+    class="theme-toggle relative inline-flex h-6 w-11 items-center rounded-full bg-gray-300 dark:bg-gray-700 transition-colors duration-300"
+    aria-label="Toggle dark mode"
+    title="Toggle dark mode"
 >
+    <!-- Toggle knob -->
+    <span
+        class="inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform duration-300 translate-x-1 dark:translate-x-6"
+    ></span>
 
-  <!-- Toggle knob -->
-  <span
-    class="inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform duration-300 translate-x-1 dark:translate-x-6"
-  ></span>
+    <!-- Sun icon -->
+    <svg
+        class="absolute left-1 w-4 h-3 text-yellow-500 pointer-events-none transition-opacity duration-300 dark:opacity-40"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+    >
+        <path
+            d="M12 18a6 6 0 100-12 6 6 0 000 12zm0 2a8 8 0 110-16 8 8 0 010 16z"
+        ></path>
+    </svg>
 
-  <!-- Sun icon -->
-  <svg
-    class="absolute left-1 w-4 h-3 text-yellow-500 pointer-events-none transition-opacity duration-300 dark:opacity-40"
-    xmlns="http://www.w3.org/2000/svg"
-    fill="currentColor"
-    viewBox="0 0 24 24"
-  >
-    <path d="M12 18a6 6 0 100-12 6 6 0 000 12zm0 2a8 8 0 110-16 8 8 0 010 16z"/>
-  </svg>
-
-  <!-- Moon icon -->
-  <svg
-    class="absolute right-1 w-4 h-3 text-blue-300 pointer-events-none transition-opacity duration-300 opacity-40 dark:opacity-100"
-    xmlns="http://www.w3.org/2000/svg"
-    fill="currentColor"
-    viewBox="0 0 24 24"
-  >
-    <path d="M21 12.79A9 9 0 1111.21 3c.1 0 .19 0 .29.01A7 7 0 0021 12.79z"/>
-  </svg>
-
+    <!-- Moon icon -->
+    <svg
+        class="absolute right-1 w-4 h-3 text-blue-300 pointer-events-none transition-opacity duration-300 opacity-40 dark:opacity-100"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+    >
+        <path d="M21 12.79A9 9 0 1111.21 3c.1 0 .19 0 .29.01A7 7 0 0021 12.79z"
+        ></path>
+    </svg>
 </button>
 
 <script is:inline>
-  const button = document.getElementById("theme-toggle");
+    function setTheme(theme) {
+        document.documentElement.classList.toggle("dark", theme === "dark");
+        localStorage.setItem("theme", theme);
+    }
 
-  function setTheme(theme) {
-    document.documentElement.classList.toggle("dark", theme === "dark");
-    localStorage.setItem("theme", theme);
-  }
+    const savedTheme = localStorage.getItem("theme");
 
-  const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+        setTheme(savedTheme);
+    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        setTheme("dark");
+    }
 
-  if (savedTheme) {
-    setTheme(savedTheme);
-  } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    setTheme("dark");
-  }
+    document.addEventListener("click", (event) => {
+        const button = event.target.closest(".theme-toggle");
 
-  button?.addEventListener("click", () => {
-    const isDark = document.documentElement.classList.contains("dark");
-    setTheme(isDark ? "light" : "dark");
-  });
+        if (!button) return;
+
+        const isDark = document.documentElement.classList.contains("dark");
+        setTheme(isDark ? "light" : "dark");
+    });
 </script>
