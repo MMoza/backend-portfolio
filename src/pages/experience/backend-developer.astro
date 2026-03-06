@@ -4,240 +4,292 @@ import MetricCard from "../../components/MetricCard.astro";
 ---
 
 <BaseLayout>
-
-<article class="max-w-3xl mx-auto">
-
-<!-- HEADER -->
-
-<header class="mb-14">
-
-<p class="text-sm text-gray-500 mb-2">
-May 2023 — Present
-</p>
-
-<h1 class="text-3xl md:text-4xl font-bold mb-4">
-Backend Developer
-</h1>
-
-<p class="text-lg text-gray-600 dark:text-gray-400">
-Backend developer working on SaaS products in the tourism sector,
-including PMS, Channel Manager and booking engines managing more
-than <strong class="text-blue-600">2 million reservations per year</strong>.
-</p>
-
-</header>
-
-
-<!-- ABOUT -->
-
-<section class="mb-14">
-
-<h2 class="text-xl font-semibold mb-4">
-About the role
-</h2>
-
-<p class="text-gray-600 dark:text-gray-400 mb-4">
-I work on backend systems that support business-critical SaaS products
-used by hotels and tourism companies. The platform processes large
-amounts of reservations, billing operations and third-party integrations.
-</p>
-
-<p class="text-gray-600 dark:text-gray-400">
-My daily work focuses on evolving legacy systems towards cleaner
-architectures using principles such as SOLID, Domain Driven Design
-and Hexagonal Architecture.
-</p>
-
-</section>
-
-
-<!-- PROJECT 1 -->
-
-<section class="mb-16">
-
-<h2 class="text-xl font-semibold mb-6">
-Electronic Invoicing SaaS
-</h2>
-
-<p class="text-gray-600 dark:text-gray-400 mb-8">
-Development of a unified invoicing system that consolidates billing
-from three independent products: hotel PMS, activity management
-software and internal management systems.
-
-The module also implements electronic invoicing integrations for
-multiple countries and administrations.
-</p>
-
-
-<!-- METRICS -->
-
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
-
-<MetricCard
-value="+5000"
-label="invoices generated per day"
-/>
-
-<MetricCard
-value="3"
-label="billing domains unified"
-/>
-
-<MetricCard
-value="6"
-label="electronic billing integrations"
-/>
-
-</div>
-
-
-<!-- DETAILS -->
-
-<ul class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6">
-
-<li>TicketBai integration for the Basque Country (Araba, Bizkaia and Gipuzkoa)</li>
-
-<li>VeriFactu integration for Spain</li>
-
-<li>SWSapien integration for Mexico</li>
-
-<li>Architecture designed to support new regulatory integrations</li>
-
-</ul>
-
-</section>
-
-
-
-<!-- PROJECT 2 -->
-
-<section class="mb-16">
-
-<h2 class="text-xl font-semibold mb-6">
-Electronic Lock Integrations
-</h2>
-
-<p class="text-gray-600 dark:text-gray-400 mb-8">
-Development of integrations with multiple smart lock providers used
-by hotels and short-term rentals. The system allows automated
-check-ins and secure access management for guests.
-</p>
-
-
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
-
-<MetricCard
-value="7"
-label="lock providers integrated"
-/>
-
-<MetricCard
-value="API"
-label="REST integrations"
-/>
-
-<MetricCard
-value="Async"
-label="event-driven processes"
-/>
-
-</div>
-
-
-<ul class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6">
-
-<li>Integrations with TTLock, Nuki, Tesa, Yacan, Padword, Omnitec and Akiles</li>
-
-<li>Decoupled architecture supporting multiple providers</li>
-
-<li>Event-driven processes ensuring system consistency</li>
-
-</ul>
-
-</section>
-
-
-
-<!-- PROJECT 3 -->
-
-<section class="mb-16">
-
-<h2 class="text-xl font-semibold mb-6">
-Activity Channel Manager
-</h2>
-
-<p class="text-gray-600 dark:text-gray-400 mb-8">
-Refactoring and evolution of the activity distribution system,
-integrating major tourism distribution platforms.
-</p>
-
-
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
-
-<MetricCard
-value="5"
-label="distribution platforms"
-/>
-
-<MetricCard
-value="Millions"
-label="reservations processed"
-/>
-
-<MetricCard
-value="Full"
-label="system refactor"
-/>
-
-</div>
-
-
-<ul class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6">
-
-<li>Integrations with Civitatis, GetYourGuide, Viator, Tiqets (OCTO) and Axess</li>
-
-<li>Refactoring applying Clean Code and Hexagonal Architecture</li>
-
-<li>Improved maintainability and scalability</li>
-
-</ul>
-
-</section>
-
-
-
-<!-- TECH -->
-
-<section>
-
-<h2 class="text-xl font-semibold mb-4">
-Technologies
-</h2>
-
-<div class="flex flex-wrap gap-2">
-
-<span class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm">PHP 8+</span>
-
-<span class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm">Laravel</span>
-
-<span class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm">MySQL</span>
-
-<span class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm">Docker</span>
-
-<span class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm">Vue.js</span>
-
-<span class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm">DDD</span>
-
-<span class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm">Hexagonal Architecture</span>
-
-<span class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm">TDD</span>
-
-<span class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm">REST / SOAP APIs</span>
-
-</div>
-
-</section>
-
-</article>
-
+    <article class="max-w-3xl mx-auto">
+        <!-- HEADER -->
+
+        <header class="mb-14">
+            <p class="text-sm text-gray-500 mb-2">May 2023 — Present</p>
+
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">
+                FullStack Developer
+            </h1>
+
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">
+                Working as a FullStack developer at
+                <a
+                    href="https://www.mrplan.es"
+                    target="_blank"
+                    class="text-blue-600 hover:underline"
+                >
+                    MisterPlan S.L
+                </a>, developing SaaS products in the tourism sector including
+                PMS systems, Channel Managers and booking engines managing more
+                than
+                <strong class="text-blue-600"
+                    >2 million reservations per year</strong
+                >.
+            </p>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                My work is mainly focused on backend architecture, integrations
+                and evolution of complex domain systems, while also contributing
+                to the frontend when required. I work daily with PHP, MySQL,
+                Docker and JavaScript within a product-oriented environment
+                where scalability, reliability and maintainability are critical.
+            </p>
+
+            <p class="text-gray-600 dark:text-gray-400">
+                The platform integrates with multiple third-party providers
+                across different domains including distribution platforms,
+                electronic invoicing administrations and smart lock systems used
+                by hotels and short-term rentals.
+            </p>
+        </header>
+
+        <!-- ABOUT -->
+
+        <section class="mb-14">
+            <h2 class="text-xl font-semibold mb-4">About the role</h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                I work on backend systems that support business-critical SaaS
+                products used by hotels and tourism companies. The platform
+                processes large amounts of reservations, billing operations and
+                third-party integrations.
+            </p>
+
+            <p class="text-gray-600 dark:text-gray-400">
+                My daily work focuses on evolving legacy systems towards cleaner
+                architectures using principles such as SOLID, Domain Driven
+                Design and Hexagonal Architecture.
+            </p>
+        </section>
+
+        <!-- PROJECT 1 -->
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">
+                Electronic Invoicing SaaS
+            </h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-8">
+                Development of a unified invoicing system that consolidates
+                billing from three independent products: hotel PMS, activity
+                management software and internal management systems. The module
+                also implements electronic invoicing integrations for multiple
+                countries and administrations.
+            </p>
+
+            <!-- METRICS -->
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+                <MetricCard value="+5000" label="invoices generated per day" />
+
+                <MetricCard value="3" label="billing domains unified" />
+
+                <MetricCard value="6" label="electronic billing integrations" />
+            </div>
+
+            <!-- DETAILS -->
+
+            <ul
+                class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+            >
+                <li>
+                    TicketBai integration for the Basque Country (Araba, Bizkaia
+                    and Gipuzkoa)
+                </li>
+
+                <li>VeriFactu integration for Spain</li>
+
+                <li>SWSapien integration for Mexico</li>
+
+                <li>
+                    Architecture designed to support new regulatory integrations
+                </li>
+            </ul>
+        </section>
+
+        <!-- PROJECT 2 -->
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">
+                Electronic Lock Integrations
+            </h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-8">
+                Development of integrations with multiple smart lock providers
+                used by hotels and short-term rental accommodations. The system
+                allows automated guest access management by generating and
+                distributing temporary access credentials linked to
+                reservations.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+                <MetricCard value="7" label="lock providers integrated" />
+
+                <MetricCard value="+3000" label="locks managed" />
+
+                <MetricCard value="+250" label="accommodations connected" />
+            </div>
+
+            <!-- Architecture highlight -->
+
+            <h3 class="font-semibold mb-3">Access abstraction model</h3>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-6">
+                Different providers expose completely different ways of granting
+                access to a lock: numeric codes, temporary links, eKeys, mobile
+                app permissions or provider-specific tokens.
+            </p>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-6">
+                To handle this variability, the system introduces an abstract
+                domain entity called <strong>Key</strong>. This entity
+                represents a generic access credential independently of the
+                underlying provider implementation.
+            </p>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-8">
+                Each integration adapts its provider-specific access mechanism
+                to this domain abstraction, allowing the system to support new
+                providers and access types without changing the core domain
+                logic.
+            </p>
+
+            <!-- Functional behaviour -->
+
+            <h3 class="font-semibold mb-3">Access provisioning workflow</h3>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-6">
+                The module supports two different integration strategies
+                depending on the capabilities of the lock provider.
+            </p>
+
+            <ul
+                class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6 mb-8"
+            >
+                <li>
+                    <strong>Direct lock mapping:</strong>
+                    our system maps a room to one or more locks and generates access
+                    credentials directly through the provider API.
+                </li>
+
+                <li>
+                    <strong>Room synchronization:</strong>
+                    our system maps our room with the room entity in the provider
+                    system and sends reservation information. The provider then generates
+                    the required access credentials for all locks associated with
+                    that room.
+                </li>
+            </ul>
+
+            <!-- Technical notes -->
+
+            <ul
+                class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+            >
+                <li>
+                    Integrations with TTLock, Nuki, Tesa, Yacan, Padword,
+                    Omnitec and Akiles
+                </li>
+
+                <li>Domain-driven abstraction for access credentials</li>
+
+                <li>Decoupled architecture supporting multiple providers</li>
+
+                <li>
+                    Event-driven processes to ensure consistency across
+                    distributed systems
+                </li>
+            </ul>
+        </section>
+
+        <!-- PROJECT 3 -->
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">Activity Channel Manager</h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-8">
+                Refactoring and evolution of the activity distribution system,
+                integrating major tourism distribution platforms.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+                <MetricCard value="5" label="distribution platforms" />
+
+                <MetricCard value="Millions" label="reservations processed" />
+
+                <MetricCard value="Full" label="system refactor" />
+            </div>
+
+            <ul
+                class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+            >
+                <li>
+                    Integrations with Civitatis, GetYourGuide, Viator, Tiqets
+                    (OCTO) and Axess
+                </li>
+
+                <li>
+                    Refactoring applying Clean Code and Hexagonal Architecture
+                </li>
+
+                <li>Improved maintainability and scalability</li>
+            </ul>
+        </section>
+
+        <!-- TECH -->
+
+        <section>
+            <h2 class="text-xl font-semibold mb-4">Technologies</h2>
+
+            <div class="flex flex-wrap gap-2">
+                <span
+                    class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm"
+                    >PHP 8+</span
+                >
+
+                <span
+                    class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm"
+                    >Laravel</span
+                >
+
+                <span
+                    class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm"
+                    >MySQL</span
+                >
+
+                <span
+                    class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm"
+                    >Docker</span
+                >
+
+                <span
+                    class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm"
+                    >Vue.js</span
+                >
+
+                <span
+                    class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm"
+                    >DDD</span
+                >
+
+                <span
+                    class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm"
+                    >Hexagonal Architecture</span
+                >
+
+                <span
+                    class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm"
+                    >TDD</span
+                >
+
+                <span
+                    class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm"
+                    >REST / SOAP APIs</span
+                >
+            </div>
+        </section>
+    </article>
 </BaseLayout>
