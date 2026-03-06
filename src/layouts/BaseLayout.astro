@@ -6,51 +6,94 @@ import "../styles/global.css";
 ---
 
 <script>
-  const theme = localStorage.getItem("theme");
+    const theme = localStorage.getItem("theme");
 
-  if (
-    theme === "dark" ||
-    (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
-    document.documentElement.classList.add("dark");
-  }
+    if (
+        theme === "dark" ||
+        (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+        document.documentElement.classList.add("dark");
+    }
 </script>
 
 <html lang="en" class="scroll-smooth">
+    <head>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Miguel Ángel Moza Barquilla",
+                "url": "https://mmoza.github.io",
+                "image": "https://mmoza.github.io/og-image.png",
+                "jobTitle": "Backend Developer",
+                "sameAs": [
+                    "https://github.com/MMoza",
+                    "https://www.linkedin.com/in/miguel-angel-moza-barquilla-040b63256/"
+                ],
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "MisterPlan S.L"
+                },
+                "knowsAbout": [
+                    "Backend Development",
+                    "Software Architecture",
+                    "PHP",
+                    "Laravel",
+                    "Symfony",
+                    "MySQL",
+                    "Docker",
+                    "API Integrations",
+                    "SaaS Systems"
+                ]
+            }
+        </script>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Backend developer focused on architectural decisions, system integrations and SaaS platforms in the tourism sector." />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta
+            name="description"
+            content="Backend developer focused on architectural decisions, system integrations and SaaS platforms in the tourism sector."
+        />
 
-    <meta property="og:title" content="Miguel Ángel Moza Barquilla | Backend Developer" />
-    <meta property="og:description" content="Backend developer focused on architecture, integrations and evolving complex domain systems." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://mmoza.github.io" />
-    <meta property="og:image" content="/og-image.png" />
+        <meta
+            property="og:title"
+            content="Miguel Ángel Moza Barquilla | Backend Developer"
+        />
+        <meta
+            property="og:description"
+            content="Backend developer focused on architecture, integrations and evolving complex domain systems."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://mmoza.github.io" />
+        <meta property="og:image" content="/og-image.png" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Miguel Ángel Moza Barquilla | Backend Developer" />
-    <meta name="twitter:description" content="Backend developer focused on architecture, integrations and SaaS systems." />
-    <meta name="twitter:image" content="/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content="Miguel Ángel Moza Barquilla | Backend Developer"
+        />
+        <meta
+            name="twitter:description"
+            content="Backend developer focused on architecture, integrations and SaaS systems."
+        />
+        <meta name="twitter:image" content="/og-image.png" />
 
-    <link rel="canonical" href="https://mmoza.github.io" />
+        <link rel="canonical" href="https://mmoza.github.io" />
 
-    <title>Miguel Ángel Moza Barquilla</title>
-</head>
+        <title>Miguel Ángel Moza Barquilla</title>
+    </head>
 
-<body class="bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 min-h-screen flex flex-col">
+    <body
+        class="bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 min-h-screen flex flex-col"
+    >
+        <CodeBackground />
 
-    <CodeBackground />
+        <Header />
 
-  <Header />
+        <main class="flex-1 max-w-5xl mx-auto px-6 py-16 w-full">
+            <slot />
+        </main>
 
-  <main class="flex-1 max-w-5xl mx-auto px-6 py-16 w-full">
-    <slot />
-  </main>
-
-  <Footer />
-
-</body>
-
+        <Footer />
+    </body>
 </html>
