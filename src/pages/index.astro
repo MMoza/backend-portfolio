@@ -9,11 +9,11 @@ import TechStackCarousel from "../components/TechStackCarousel.astro";
   >
     <!-- Foreground content -->
     <div class="relative z-10">
-      <p
-        class="text-3xl tracking-wider text-yellow-500 mb-16 opacity-0 animate-fade-in-delay -rotate-6"
-      >
-        Hi, I'm Miguel Ángel Moza Barquilla!
-      </p>
+      <div class="neon-wrapper mb-16 -rotate-6">
+        <p class="neon-text">Hi, I'm Miguel Ángel Moza Barquilla!</p>
+
+        <p class="neon-glow">Hi, I'm Miguel Ángel Moza Barquilla!</p>
+      </div>
 
       <h1
         class="text-4xl md:text-5xl font-bold leading-tight mb-6 opacity-0 animate-slide-up"
@@ -100,9 +100,95 @@ import TechStackCarousel from "../components/TechStackCarousel.astro";
     }
 
     @keyframes codeDrift {
-      0% { transform: translateX(0); }
-      50% { transform: translateX(-20px); }
-      100% { transform: translateX(0); }
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(-20px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .neon-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .neon-text {
+      position: relative;
+      font-size: 1.875rem;
+      letter-spacing: 0.05em;
+      color: #facc15;
+
+      text-shadow:
+        0 0 1px currentColor,
+        0 0 2px currentColor,
+        0 0 3px currentColor;
+
+      animation:
+        neonFloat 6s ease-in-out infinite,
+        neonFlicker 5s infinite;
+    }
+
+    .neon-glow {
+      position: absolute;
+      inset: 0;
+
+      font-size: 1.875rem;
+      letter-spacing: 0.05em;
+
+      color: #facc15;
+
+      filter: blur(10px);
+      opacity: 0.7;
+
+      animation: neonGlowPulse 3s ease-in-out infinite;
+    }
+
+    html:not(.dark) .neon-text {
+      color: #84cc16;
+    }
+
+    html:not(.dark) .neon-glow {
+      color: #84cc16;
+    }
+
+    .neon-text,
+    .neon-glow {
+      transition: color 0.6s ease;
+    }
+
+    @keyframes neonGlowPulse {
+      0%,
+      100% {
+        opacity: 0.65;
+        filter: blur(10px);
+      }
+
+      50% {
+        opacity: 1;
+        filter: blur(14px);
+      }
+    }
+
+    @keyframes neonFlicker {
+      0%,
+      18%,
+      22%,
+      25%,
+      53%,
+      57%,
+      100% {
+        opacity: 1;
+      }
+
+      20%,
+      24%,
+      55% {
+        opacity: 0.4;
+      }
     }
   </style>
 </BaseLayout>
