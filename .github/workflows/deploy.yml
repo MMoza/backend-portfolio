@@ -1,20 +1,16 @@
-name: Deploy Astro site to GitHub Pages
+name: Deploy Astro site
 
 on:
   push:
-    branches: [main]
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+    branches:
+      - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Node
@@ -25,18 +21,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build Astro site
+      - name: Build Astro
         run: npm run build
 
-      - name: Upload build artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to GitHub Pages repo
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: ./dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+          personal_token: ${{ secrets.GH_PAGES_TOKEN }}
+          external_repository: MMoza/mmoza.github.io
+          publish_dir: ./dist
