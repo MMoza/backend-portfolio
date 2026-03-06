@@ -1,0 +1,106 @@
+<!-- Code editor style background -->
+<div class="pointer-events-none absolute inset-0 flex items-center justify-center">
+
+  <div class="bg-gray-100/40 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 rounded-xl p-6 font-mono text-xs md:text-sm leading-relaxed opacity-[0.18] dark:opacity-[0.22] blur-[0.3px] select-none shadow-sm">
+
+<pre class="code-scroll code-editor">
+
+<span class="text-purple-600">class</span> <span class="text-blue-600">ReservationService</span> &#123;
+
+  <span class="text-green-600">public function</span> <span class="text-blue-600">calculateTotal</span>()
+  &#123;
+      <span class="text-purple-600">return</span> $this->pricingService
+          ->applySeasonModifier()
+          ->applyDiscountRules()
+          ->applyChannelCommission()
+          ->applyTaxes()
+          ->buildInvoice();<span class="cursor"></span>
+  &#125;
+
+&#125;
+
+<span class="text-gray-500">// Domain rules evolve</span>
+<span class="text-gray-500">// architecture decisions matter</span>
+<span class="text-gray-500">// complexity grows over time</span>
+
+</pre>
+
+  </div>
+
+</div>
+
+<style>
+
+.code-scroll {
+  animation: codeDrift 60s ease-in-out infinite;
+}
+
+/* drift animation */
+
+@keyframes codeDrift {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-20px); }
+  100% { transform: translateX(0); }
+}
+
+/* blinking cursor */
+
+.cursor {
+  display: inline-block;
+  width: 6px;
+  height: 1em;
+  margin-left: 2px;
+  background: currentColor;
+  animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+
+  0%,45%,100% { opacity: 1; }
+
+  50%,95% { opacity: 0; }
+
+}
+
+/* line numbers */
+
+.code-editor {
+  counter-reset: line;
+}
+
+.code-editor span,
+.code-editor br,
+.code-editor {
+  position: relative;
+}
+
+.code-editor {
+  padding-left: 2.5rem;
+}
+
+.code-editor::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* create numbers */
+
+.code-editor {
+  display: block;
+}
+
+.code-editor {
+  background-repeat: no-repeat;
+}
+
+.code-editor {
+  line-height: 1.6;
+}
+
+.code-editor {
+  counter-increment: line;
+}
+
+</style>

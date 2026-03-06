@@ -7,32 +7,6 @@ import TechStackCarousel from "../components/TechStackCarousel.astro";
   <section
     class="relative max-w-3xl mx-auto py-24 text-center animate-fade-in overflow-hidden rounded-2xl"
   >
-    <!-- Code editor style background -->
-    <div
-      class="pointer-events-none absolute inset-0 flex items-center justify-center"
-    >
-      <div
-        class="bg-gray-100/40 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 rounded-xl p-6 font-mono text-xs md:text-sm leading-relaxed opacity-[0.18] dark:opacity-[0.22] blur-[0.3px] select-none shadow-sm"
-      >
-        <pre class="whitespace-pre text-left code-scroll">
-        <span class="text-purple-600">class</span> <span class="text-blue-600">ReservationService</span> &#123;
-
-          <span class="text-green-600">public function</span> <span class="text-blue-600">calculateTotal</span>()
-              &#123;
-                  <span class="text-purple-600">return</span> $this->pricingService
-                      ->applySeasonModifier()
-                      ->applyDiscountRules()
-                      ->applyTaxes();
-              &#125;
-            &#125;
-
-          <span class="text-gray-500">// Domain rules evolve</span>
-          <span class="text-gray-500">// architecture decisions matter</span>
-          <span class="text-gray-500">// complexity grows over time</span>
-        </pre>
-      </div>
-    </div>
-
     <!-- Foreground content -->
     <div class="relative z-10">
       <p
