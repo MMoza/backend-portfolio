@@ -1,0 +1,25 @@
+---
+const { href = "/", label = "Back" } = Astro.props;
+---
+
+<a
+  href={href}
+  class="group inline-flex items-center gap-2 inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors mb-8"
+>
+
+  <!-- Arrow -->
+
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-4 h-4 transition-transform group-hover:-translate-x-1"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    viewBox="0 0 24 24"
+  >
+    <path stroke-linecap="round" stroke-linejoin="round" d="M15 18l-6-6 6-6" />
+  </svg>
+
+  {label}
+
+</a>

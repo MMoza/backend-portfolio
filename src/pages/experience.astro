@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ExperienceCard from "../components/ExperienceCard.astro";
+import BackLink from "../components/BackLink.astro";
 
 const experiences = [
   {
@@ -34,6 +35,8 @@ const experiences = [
 <BaseLayout>
 
 <section>
+
+<BackLink href="/" label="Back to home" />
 
 <header class="mb-16 max-w-2xl">
 

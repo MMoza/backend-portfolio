@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
+import BackLink from "../components/BackLink.astro";
 
 const projects = [
   {
@@ -36,6 +37,8 @@ const projects = [
 <BaseLayout>
 
 <section class="max-w-5xl mx-auto">
+
+<BackLink href="/" label="Back to home" />
 
   <header class="mb-16">
 
