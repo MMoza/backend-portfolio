@@ -10,9 +10,13 @@ import TechStackCarousel from "../components/TechStackCarousel.astro";
     <!-- Foreground content -->
     <div class="relative z-10">
       <div class="neon-wrapper mb-16 -rotate-6">
-        <p class="neon-text">Hi, I'm Miguel Ángel Moza Barquilla!</p>
+        <p class="neon-text">
+          Hi, I'm Miguel Ángel Moza Barquilla<span class="neon-exclamation">!</span>
+        </p>
 
-        <p class="neon-glow">Hi, I'm Miguel Ángel Moza Barquilla!</p>
+        <p class="neon-glow">
+          Hi, I'm Miguel ángel Moza Barquilla<span class="neon-exclamation">!</span>
+        </p>
       </div>
 
       <h1
@@ -189,6 +193,27 @@ import TechStackCarousel from "../components/TechStackCarousel.astro";
       55% {
         opacity: 0.4;
       }
+    }
+
+    .neon-exclamation {
+      animation: neonFlickerStrong 2.5s infinite;
+      font-size: 36px
+    }
+
+    @keyframes neonFlickerStrong {
+
+      0%, 19%, 23%, 60%, 100% {
+        opacity: 1;
+      }
+
+      20%, 22% {
+        opacity: 0.1;
+      }
+
+      61% {
+        opacity: 0.3;
+      }
+
     }
   </style>
 </BaseLayout>
