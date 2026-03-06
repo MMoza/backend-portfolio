@@ -4,13 +4,79 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout>
 
-<h1>Experience</h1>
+<section>
 
-<p>
-Backend developer working mainly with PHP, APIs and system integrations.
+  <!-- Header -->
+  <header class="mb-16 max-w-2xl">
+    <h1 class="text-3xl md:text-4xl font-bold mb-4">
+      Experience
+    </h1>
 
-Focused on understanding legacy systems and evolving software safely in
-production environments.
-</p>
+    <p class="text-gray-600 dark:text-gray-400">
+      My professional background combines backend development with over 10 years of experience in other professional fields that helped shape my problem-solving mindset.
+    </p>
+  </header>
+
+  <!-- Experience Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+    <!-- Main developer experience (2x) -->
+    <article class="md:col-span-2 border border-gray-200 dark:border-gray-800 rounded-xl p-8 bg-white dark:bg-gray-900 hover:shadow-md transition-all duration-300">
+
+      <span class="text-xs text-gray-500">
+        2023 — Present
+      </span>
+
+      <h2 class="text-xl font-semibold mt-2 mb-3">
+        Backend Developer
+      </h2>
+
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">
+        Full-stack developer mainly focused on backend architecture and API
+        integrations. Responsible for designing and maintaining integrations
+        with external platforms, working with legacy systems and evolving
+        business-critical software safely in production environments.
+      </p>
+
+      <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
+        <li>• API integrations with external services</li>
+        <li>• Backend development with PHP</li>
+        <li>• Legacy system evolution</li>
+        <li>• Architecture decisions for growing business rules</li>
+      </ul>
+
+      <div class="flex flex-wrap gap-2">
+        <span class="text-xs px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800">PHP</span>
+        <span class="text-xs px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800">APIs</span>
+        <span class="text-xs px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800">Integrations</span>
+        <span class="text-xs px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800">Architecture</span>
+      </div>
+
+    </article>
+
+
+    <!-- Other experience -->
+    <article class="border border-gray-200 dark:border-gray-800 rounded-xl p-6 bg-white dark:bg-gray-900 hover:shadow-md transition-all duration-300">
+
+      <span class="text-xs text-gray-500">
+        Previous experience
+      </span>
+
+      <h2 class="text-lg font-semibold mt-2 mb-3">
+        Professional background
+      </h2>
+
+      <p class="text-sm text-gray-600 dark:text-gray-400">
+        Before transitioning into software development, I worked in other
+        professional areas where I developed strong problem-solving,
+        responsibility and analytical thinking skills that I now apply to
+        software engineering.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
 
 </BaseLayout>
