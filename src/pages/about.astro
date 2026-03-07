@@ -1,0 +1,159 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BackLink from "../components/BackLink.astro";
+---
+
+<BaseLayout>
+    <article class="max-w-3xl mx-auto">
+        <BackLink href="/" label="Back to home" />
+
+        <!-- HERO -->
+
+        <section class="mb-20 flex flex-col md:flex-row items-center gap-10">
+
+            <img
+                src="../../src/assets/images/avatar_ia.jpg"
+                alt="Miguel Ángel Moza Barquilla"
+                class="w-80 h-80 rounded-full object-cover border border-gray-200 dark:border-gray-800 shadow-md ring-2 ring-blue-500/20"
+            />
+
+            <div>
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">About Me</h1>
+
+                <p class="text-gray-600 dark:text-gray-400 mb-4">
+                    I'm Miguel Ángel, a backend developer passionate about
+                    software architecture, system evolution and solving complex
+                    problems through clean and maintainable code.
+                </p>
+
+                <p class="text-gray-600 dark:text-gray-400">
+                    My path into software development was not linear. It was
+                    shaped by experiences across hospitality, industrial
+                    environments and a growing curiosity about how systems work
+                    behind the scenes.
+                </p>
+            </div>
+        </section>
+
+        <!-- MY JOURNEY -->
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">My Journey</h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Since I was young I always felt drawn to technical subjects and
+                scientific thinking. However, the academic path I initially
+                chose didn't fully match my interests and I eventually moved
+                into the workforce instead of continuing my studies at that
+                time.
+            </p>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                For several years I worked in the hospitality sector, an
+                environment that requires discipline, teamwork and the ability
+                to perform under pressure. These years shaped my work ethic and
+                taught me the value of consistency and responsibility.
+            </p>
+
+            <p class="text-gray-600 dark:text-gray-400">
+                Later I transitioned into the industrial sector, working with
+                additive manufacturing systems. This experience would
+                unexpectedly become the turning point that led me into
+                programming.
+            </p>
+        </section>
+
+        <!-- DISCOVERING PROGRAMMING -->
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">Discovering Programming</h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                While working with industrial 3D printers I began interacting
+                with
+                <strong>G-Code</strong>, a command-based language used to
+                control manufacturing machines.
+            </p>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Understanding how sequences of instructions could control
+                complex mechanical behaviour fascinated me. I started
+                experimenting with small automation macros that simplified
+                printing workflows and improved machine operations.
+            </p>
+
+            <p class="text-gray-600 dark:text-gray-400">
+                That curiosity quickly evolved into a deeper interest in
+                programming and software systems. After some reflection and
+                personal circumstances that forced me to stop working for a
+                period of time, I decided to take the opportunity to return to
+                education and formally study web development.
+            </p>
+        </section>
+
+        <!-- BECOMING A DEVELOPER -->
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">Becoming a Developer</h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                I enrolled in the Web Application Development program (DAW)
+                while continuing to work full-time. This period required strong
+                discipline and time management, but it confirmed that software
+                development was the field I wanted to pursue professionally.
+            </p>
+
+            <p class="text-gray-600 dark:text-gray-400">
+                Since then I have focused my career on backend development,
+                working on systems involving integrations, APIs and complex
+                business domains in the tourism software industry.
+            </p>
+        </section>
+
+        <!-- OUTSIDE TECH -->
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">Outside of Tech</h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Outside of software development I enjoy activities that help me
+                keep a clear mind and maintain balance.
+            </p>
+
+            <ul
+                class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+            >
+                <li>
+                    Cycling — I enjoy long rides that allow me to disconnect and
+                    think.
+                </li>
+
+                <li>
+                    Music — especially punk rock, which has been part of my life
+                    for many years.
+                </li>
+            </ul>
+        </section>
+
+        <!-- MINDSET -->
+
+        <section>
+            <h2 class="text-xl font-semibold mb-6">
+                How I Approach Technology
+            </h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                My background outside the software industry shaped how I
+                approach technology today. I value systems that are
+                understandable, maintainable and designed to evolve as business
+                complexity grows.
+            </p>
+
+            <p class="text-gray-600 dark:text-gray-400">
+                I'm particularly interested in how architectural decisions age
+                over time and how backend systems adapt when real-world
+                constraints start to shape the design.
+            </p>
+        </section>
+    </article>
+</BaseLayout>
