@@ -1,6 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import TechStackCarousel from "../components/TechStackCarousel.astro";
+import { getLangFromUrl } from "../i18n/getLang";
+import { getTranslations } from "../i18n";
+
+
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations(lang);
 ---
 
 <BaseLayout>
@@ -11,27 +17,26 @@ import TechStackCarousel from "../components/TechStackCarousel.astro";
     <div class="relative z-10">
       <div class="neon-wrapper mb-16 -rotate-6">
         <p class="neon-text">
-          Hi, I'm Miguel Ángel Moza Barquilla<span class="neon-exclamation">!</span>
+          {t.home.hero.greeting}<span class="neon-exclamation">!</span>
         </p>
 
         <p class="neon-glow">
-          Hi, I'm Miguel ángel Moza Barquilla<span class="neon-exclamation">!</span>
+          {t.home.hero.greeting}<span class="neon-exclamation">!</span>
         </p>
       </div>
 
       <h1
         class="text-4xl md:text-5xl font-bold leading-tight mb-6 opacity-0 animate-slide-up"
       >
-        Backend developer focused on
-        <span class="text-blue-600">architectural decisions</span>
-        and software evolution
+        {t.home.hero.titleBefore}
+        <span class="text-blue-600">{t.home.hero.titleAccent}</span>
+        {t.home.hero.titleAfter}
       </h1>
 
       <p
         class="text-lg text-gray-600 dark:text-gray-400 mb-10 opacity-0 animate-slide-up-delay"
       >
-        I enjoy understanding how systems evolve, how architectural decisions
-        age, and how backend systems adapt as business rules grow in complexity.
+        {t.home.hero.description}
       </p>
 
       <div class="flex justify-center gap-4 opacity-0 animate-slide-up-delay-2">
@@ -39,14 +44,14 @@ import TechStackCarousel from "../components/TechStackCarousel.astro";
           href="/projects"
           class="px-6 py-3 rounded-lg bg-gray-900 text-white dark:bg-white dark:text-black font-medium hover:opacity-90 transition"
         >
-          View Projects
+          {t.home.cta.projects}
         </a>
 
         <a
           href="/contact"
           class="px-6 py-3 rounded-lg border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
         >
-          Contact
+          {t.home.cta.contact}
         </a>
       </div>
 

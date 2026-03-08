@@ -1,5 +1,12 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
+import LanguageToggle from "./LanguageToggle.astro";
+
+import { getLangFromUrl } from "../i18n/getLang";
+import { getTranslations } from "../i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations(lang);
 
 const currentPath = Astro.url.pathname;
 
@@ -28,8 +35,8 @@ const linkClass = (path: string) => {
     <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
         <!-- Brand -->
         <a
-        href="/"
-        class="font-semibold text-lg whitespace-nowrap transition-colors duration-200 hover:text-blue-600"
+            href="/"
+            class="font-semibold text-lg whitespace-nowrap transition-colors duration-200 hover:text-blue-600"
         >
             <span class="hidden sm:inline">Miguel Ángel Moza Barquilla</span>
             <span class="sm:hidden">Miguel Ángel</span>
@@ -37,14 +44,15 @@ const linkClass = (path: string) => {
 
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex items-center gap-6 text-sm">
-            <a href="/projects" class={linkClass("/projects")}>Projects</a>
-            <a href="/experience" class={linkClass("/experience")}>Experience</a
+            <a href="/projects" class={linkClass("/projects")}>{t.header.nav.projects}</a>
+            <a href="/experience" class={linkClass("/experience")}>{t.header.nav.experience}</a
             >
-            <a href="/contact" class={linkClass("/contact")}>Contact</a>
-            <a href="/about" class={linkClass("/about")}>About me</a>
+            <a href="/contact" class={linkClass("/contact")}>{t.header.nav.contact}</a>
+            <a href="/about" class={linkClass("/about")}>{t.header.nav.about}</a>
 
             <!-- Settings / Toggles -->
             <div class="flex items-center gap-2 ml-2">
+                <LanguageToggle />
                 <ThemeToggle />
             </div>
         </nav>
@@ -76,14 +84,15 @@ const linkClass = (path: string) => {
         class="hidden md:hidden border-t border-gray-200 dark:border-gray-800"
     >
         <nav class="max-w-5xl mx-auto px-6 py-4 flex flex-col gap-4 text-sm">
-            <a href="/projects" class={linkClass("/projects")}>Projects</a>
-            <a href="/experience" class={linkClass("/experience")}>Experience</a
+            <a href="/projects" class={linkClass("/projects")}>{t.header.nav.projects}</a>
+            <a href="/experience" class={linkClass("/experience")}>{t.header.nav.experience}</a
             >
-            <a href="/contact" class={linkClass("/contact")}>Contact</a>
-            <a href="/about" class={linkClass("/about")}>About me</a>
+            <a href="/contact" class={linkClass("/contact")}>{t.header.nav.contact}</a>
+            <a href="/about" class={linkClass("/about")}>{t.header.nav.about}</a>
 
-            <div class="pt-2">
-                <ThemeToggle />
+            <div class="pt-2 flex flex-col items-start gap-4">
+            <LanguageToggle />
+            <ThemeToggle />
             </div>
         </nav>
     </div>

@@ -3,42 +3,36 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import BackLink from "../components/BackLink.astro";
 
+import { getLangFromUrl } from "../i18n/getLang";
+import { getTranslations } from "../i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations(lang);
+
 const projects = [
   {
     slug: "architecture-comparison",
     date: "2026",
-    title: "Architecture Comparison Lab",
     tech: ["PHP", "Laravel", "Architecture"],
-    github: "https://github.com/MMoza/reservations",
-    description:
-      "Experiment comparing multiple backend architectures and how they evolve as domain complexity increases."
+    github: "https://github.com/MMoza/reservations"
   },
   {
     slug: "api-benchmark",
     date: "2026",
-    title: "API Architecture Benchmark",
     tech: ["PHP", "Symfony", "Laravel", "REST", "API"],
-    github: "https://github.com/MMoza/api-benchmark",
-    description:
-      "Comparison of API implementations using native PHP, Symfony and Laravel analysing complexity and maintainability."
+    github: "https://github.com/MMoza/api-benchmark"
   },
   {
     slug: "patterns-playground",
     date: "2026",
-    title: "Design Patterns Playground",
     tech: ["PHP", "Design Patterns"],
-    github: "https://github.com/MMoza/design-patterns",
-    description:
-      "Practical exploration of backend design patterns applied to real business rules and domain modelling."
+    github: "https://github.com/MMoza/design-patterns"
   },
   {
     slug: "randomuser-technical-test",
     date: "2023",
-    title: "First Technical Test",
     tech: ["PHP", "Ajax", "JQuery"],
-    github: "https://github.com/MMoza/pruebaAjax",
-    description:
-      "This project represents the technical test I completed during the selection process for my first professional role as a web developer."
+    github: "https://github.com/MMoza/pruebaAjax"
   }
 ];
 ---
@@ -47,31 +41,40 @@ const projects = [
 
 <section class="max-w-5xl mx-auto">
 
-<BackLink href="/" label="Back to home" />
+<BackLink href="/" label={t.projects.back} />
 
   <header class="mb-16">
 
     <h1 class="text-3xl md:text-4xl font-bold mb-4">
-      Projects
+      {t.projects.title}
     </h1>
 
     <p class="text-gray-600 dark:text-gray-400 max-w-2xl">
-      Experiments and projects focused on backend architecture, system
-      evolution and software design decisions.
+      {t.projects.description}
     </p>
 
   </header>
 
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-    {projects.map((project) => (
+{projects.map((project) => {
 
-        <ProjectCard project={project} />
+  const translation = t.projects.items[project.slug];
 
-    ))}
+  return (
+    <ProjectCard
+      project={{
+        ...project,
+        title: translation.title,
+        description: translation.description
+      }}
+    />
+  );
 
-  </div>
+})}
+
+</div>
 
 </section>
 
