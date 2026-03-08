@@ -1,0 +1,26 @@
+<div hidden></div>
+
+<script>
+console.log("ejecutando redirect");
+
+if (typeof window !== "undefined" && window.location.pathname === "/") {
+
+  const savedLang = localStorage.getItem("lang");
+
+  if (!savedLang) {
+
+    const browserLang = navigator.language || navigator.userLanguage;
+
+    if (browserLang.startsWith("es")) {
+
+      localStorage.setItem("lang", "es");
+      window.location.replace("/es");
+
+    } else {
+
+      localStorage.setItem("lang", "en");
+
+    }
+  }
+}
+</script>
