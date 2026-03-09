@@ -7,17 +7,22 @@ import { header as headerES } from "../translations/es/header";
 import { projectsPage as projectsEN } from "../translations/en/projects";
 import { projectsPage as projectsES } from "../translations/es/projects";
 
+import { architectureComparison as architectureComparisonEN } from "../translations/en/architectureComparison";
+import { architectureComparison as architectureComparisonES } from "../translations/es/architectureComparison";
+
 export const translations = {
   en: {
     home: homeEN,
     header: headerEN,
-    projects: projectsEN
+    projects: projectsEN,
+    architectureComparison: architectureComparisonEN
   },
 
   es: {
     home: homeES,
     header: headerES,
-    projects: projectsES
+    projects: projectsES,
+    architectureComparison: architectureComparisonES
   }
 };
 

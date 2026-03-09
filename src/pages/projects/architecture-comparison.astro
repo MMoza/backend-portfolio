@@ -1,256 +1,211 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BackLink from "../../components/BackLink.astro";
+
+import { getLangFromUrl } from "../../i18n/getLang";
+import { getTranslations } from "../../i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations(lang);
 ---
 
 <BaseLayout>
-
-<article class="max-w-3xl mx-auto">
-
-<BackLink href="/projects" label="Back to projects" />
-
-<header class="mb-14">
-
-<h1 class="text-3xl md:text-4xl font-bold mb-4">
-Architecture Comparison — Reservation System
-</h1>
-
-<p class="text-lg text-gray-600 dark:text-gray-400">
-A practical experiment exploring how different architectural
-approaches respond to increasing domain complexity.
-</p>
-
-</header>
-
-<section class="mb-14">
-
-<h2 class="text-xl font-semibold mb-4">
-Project Goal
-</h2>
-
-<p class="text-gray-600 dark:text-gray-400 mb-4">
-This project is a practical laboratory designed to compare different
-architectural styles applied to the same functional domain.
-</p>
-
-<p class="text-gray-600 dark:text-gray-400">
-The objective is not to demonstrate that one architecture is superior
-to another, but to analyse how each approach behaves as business
-complexity increases.
-</p>
-
-</section>
-
-<section class="mb-14">
-
-<h2 class="text-xl font-semibold mb-6">
-What is evaluated
-</h2>
-
-<ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600 dark:text-gray-400 list-disc pl-6">
-
-<li>Structural complexity</li>
-<li>Cognitive complexity</li>
-<li>Testability</li>
-<li>Coupling level</li>
-<li>Scalability of the design</li>
-<li>Evolution capacity</li>
-<li>Cost of change when adding new rules</li>
-
-</ul>
-
-</section>
-
-<section class="mb-14">
-
-<h2 class="text-xl font-semibold mb-4">
-Common Domain
-</h2>
-
-<p class="text-gray-600 dark:text-gray-400 mb-4">
-All architectures implement the same domain: a multi-product reservation
-system with progressively more complex business rules.
-</p>
-
-<ul class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6">
-
-<li>Products reservable by date ranges</li>
-<li>Optional extras (fixed or per-night)</li>
-<li>Total price calculation</li>
-<li>Progressively more complex business rules</li>
-
-</ul>
-
-</section>
-
-<section class="mb-16">
-
-<h2 class="text-xl font-semibold mb-6">
-Architectures Compared
-</h2>
-
-<div class="space-y-6">
-
-<div class="border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-
-<h3 class="font-semibold mb-2">
-A01 — Monolithic Eloquent
-</h3>
-
-<p class="text-gray-600 dark:text-gray-400 text-sm mb-2">
-Pure Active Record approach using Eloquent directly.
-</p>
-
-<p class="text-gray-600 dark:text-gray-400 text-sm">
-Fast to develop but tightly coupled to the framework. Complexity grows
-rapidly as domain rules increase.
-</p>
-
-</div>
-
-<div class="border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-
-<h3 class="font-semibold mb-2">
-A02 — Repository Pattern
-</h3>
-
-<p class="text-gray-600 dark:text-gray-400 text-sm mb-2">
-Separation between controller, service layer and repository abstraction.
-</p>
-
-<p class="text-gray-600 dark:text-gray-400 text-sm">
-Introduces dependency inversion and improves testability while keeping
-a relatively simple domain model.
-</p>
-
-</div>
-
-<div class="border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-
-<h3 class="font-semibold mb-2">
-A03 — Strategy + Polymorphism
-</h3>
-
-<p class="text-gray-600 dark:text-gray-400 text-sm mb-2">
-Reservation behaviour varies depending on reservation type.
-</p>
-
-<p class="text-gray-600 dark:text-gray-400 text-sm">
-Encapsulates business rules using polymorphism and strategy objects,
-making the domain model more expressive.
-</p>
-
-</div>
-
-<div class="border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-
-<h3 class="font-semibold mb-2">
-A04 — Decorator Domain
-</h3>
-
-<p class="text-gray-600 dark:text-gray-400 text-sm mb-2">
-Behaviour is composed dynamically through decorators.
-</p>
-
-<p class="text-gray-600 dark:text-gray-400 text-sm">
-Applies the Open/Closed principle allowing rules and modifiers to be
-added without modifying existing logic.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="mb-16">
-
-<h2 class="text-xl font-semibold mb-6">
-Evolution Phases
-</h2>
-
-<div class="space-y-4 text-gray-600 dark:text-gray-400">
-
-<p>
-<strong>Phase 01 — Base Calculation</strong><br/>
-Base price, extras and total calculation.
-</p>
-
-<p>
-<strong>Phase 02 — Conditional Rules</strong><br/>
-Volume discounts, promotions and cross-rule validations.
-</p>
-
-<p>
-<strong>Phase 03 — Polymorphic Behaviour</strong><br/>
-Different reservation types with distinct pricing logic.
-</p>
-
-<p>
-<strong>Phase 04 — Composable Rules</strong><br/>
-Dynamic modifiers, chained rules and complex interactions.
-</p>
-
-</div>
-
-</section>
-
-<section class="mb-16">
-
-<h2 class="text-xl font-semibold mb-6">
-Evaluation Criteria
-</h2>
-
-<p class="text-gray-600 dark:text-gray-400 mb-4">
-During the experiment each architecture is evaluated based on how
-the design evolves when complexity increases.
-</p>
-
-<ul class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6">
-
-<li>Number of classes</li>
-<li>Lines of code</li>
-<li>Structural complexity</li>
-<li>Ease of introducing new business rules</li>
-<li>Testing difficulty</li>
-<li>Clarity of the domain model</li>
-
-</ul>
-
-</section>
-
-<section class="mb-14">
-
-<h2 class="text-xl font-semibold mb-4">
-Architectural Philosophy
-</h2>
-
-<p class="text-gray-600 dark:text-gray-400 mb-4">
-Architectures are not inherently good or bad.
-</p>
-
-<p class="text-gray-600 dark:text-gray-400">
-They are appropriate or inappropriate depending on the domain
-complexity, expected evolution and long-term maintenance cost.
-</p>
-
-</section>
-
-<section>
-
-<h2 class="text-xl font-semibold mb-4">
-Purpose of the Project
-</h2>
-
-<p class="text-gray-600 dark:text-gray-400">
-This project is intended as an educational exploration of software
-design and architectural decision-making. It provides a controlled
-environment to observe how different design strategies respond to
-growing business complexity.
-</p>
-
-</section>
-
-</article>
-
+    <article class="max-w-3xl mx-auto">
+        <BackLink href="/projects" label={t.architectureComparison.back} />
+
+        <header class="mb-14">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">
+                {t.architectureComparison.header.title}
+            </h1>
+
+            <p class="text-lg text-gray-600 dark:text-gray-400">
+                {t.architectureComparison.header.description}
+            </p>
+        </header>
+
+        <section class="mb-14">
+            <h2 class="text-xl font-semibold mb-4">
+                {t.architectureComparison.goal.title}
+            </h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                {t.architectureComparison.goal.p1}
+            </p>
+
+            <p class="text-gray-600 dark:text-gray-400">
+                {t.architectureComparison.goal.p2}
+            </p>
+        </section>
+
+        <section class="mb-14">
+            <h2 class="text-xl font-semibold mb-6">{t.architectureComparison.evaluation.title}</h2>
+
+            <ul
+                class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600 dark:text-gray-400 list-disc pl-6"
+            >
+                <li>{t.architectureComparison.evaluation.items[0]}</li>
+                <li>{t.architectureComparison.evaluation.items[1]}</li>
+                <li>{t.architectureComparison.evaluation.items[2]}</li>
+                <li>{t.architectureComparison.evaluation.items[3]}</li>
+                <li>{t.architectureComparison.evaluation.items[4]}</li>
+                <li>{t.architectureComparison.evaluation.items[5]}</li>
+                <li>{t.architectureComparison.evaluation.items[6]}</li>
+            </ul>
+        </section>
+
+        <section class="mb-14">
+            <h2 class="text-xl font-semibold mb-4">{t.architectureComparison.domain.title}</h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                {t.architectureComparison.domain.p1}
+            </p>
+
+            <ul
+                class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+            >
+                <li>{t.architectureComparison.domain.items[0]}</li>
+                <li>{t.architectureComparison.domain.items[1]}</li>
+                <li>{t.architectureComparison.domain.items[2]}</li>
+                <li>{t.architectureComparison.domain.items[3]}</li>
+            </ul>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">{t.architectureComparison.architectures.title}</h2>
+
+            <div class="space-y-6">
+                <div
+                    class="border border-gray-200 dark:border-gray-800 rounded-xl p-6"
+                >
+                    <h3 class="font-semibold mb-2">
+                        {t.architectureComparison.phases.title}
+                    </h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">
+                        Pure Active Record approach using Eloquent directly.
+                    </p>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">
+                        Fast to develop but tightly coupled to the framework.
+                        Complexity grows rapidly as domain rules increase.
+                    </p>
+                </div>
+
+                <div
+                    class="border border-gray-200 dark:border-gray-800 rounded-xl p-6"
+                >
+                    <h3 class="font-semibold mb-2">A02 — Repository Pattern</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">
+                        Separation between controller, service layer and
+                        repository abstraction.
+                    </p>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">
+                        Introduces dependency inversion and improves testability
+                        while keeping a relatively simple domain model.
+                    </p>
+                </div>
+
+                <div
+                    class="border border-gray-200 dark:border-gray-800 rounded-xl p-6"
+                >
+                    <h3 class="font-semibold mb-2">
+                        A03 — Strategy + Polymorphism
+                    </h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">
+                        Reservation behaviour varies depending on reservation
+                        type.
+                    </p>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">
+                        Encapsulates business rules using polymorphism and
+                        strategy objects, making the domain model more
+                        expressive.
+                    </p>
+                </div>
+
+                <div
+                    class="border border-gray-200 dark:border-gray-800 rounded-xl p-6"
+                >
+                    <h3 class="font-semibold mb-2">A04 — Decorator Domain</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">
+                        Behaviour is composed dynamically through decorators.
+                    </p>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">
+                        Applies the Open/Closed principle allowing rules and
+                        modifiers to be added without modifying existing logic.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">{t.architectureComparison.phases.title}</h2>
+
+            <div class="space-y-4 text-gray-600 dark:text-gray-400">
+                <p>
+                    <strong>Phase 01 — Base Calculation</strong><br />
+                    {t.architectureComparison.phases.phase1}
+                </p>
+
+                <p>
+                    <strong>Phase 02 — Conditional Rules</strong><br />
+                    {t.architectureComparison.phases.phase2}
+                </p>
+
+                <p>
+                    <strong>Phase 03 — Polymorphic Behaviour</strong><br />
+                    {t.architectureComparison.phases.phase3}
+                </p>
+
+                <p>
+                    <strong>Phase 04 — Composable Rules</strong><br />
+                    {t.architectureComparison.phases.phase4}
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">{t.architectureComparison.criteria.title}</h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                {t.architectureComparison.criteria.p1}
+            </p>
+
+            <ul
+                class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+            >
+                <li>{t.architectureComparison.criteria.items[0]}</li>
+                <li>{t.architectureComparison.criteria.items[1]}</li>
+                <li>{t.architectureComparison.criteria.items[2]}</li>
+                <li>{t.architectureComparison.criteria.items[3]}</li>
+                <li>{t.architectureComparison.criteria.items[4]}</li>
+                <li>{t.architectureComparison.criteria.items[5]}</li>
+            </ul>
+        </section>
+
+        <section class="mb-14">
+            <h2 class="text-xl font-semibold mb-4">{t.architectureComparison.philosophy.title}</h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                {t.architectureComparison.philosophy.p1}
+            </p>
+
+            <p class="text-gray-600 dark:text-gray-400">
+                {t.architectureComparison.philosophy.p2}
+            </p>
+        </section>
+
+        <section>
+            <h2 class="text-xl font-semibold mb-4">{t.architectureComparison.purpose.title}</h2>
+
+            <p class="text-gray-600 dark:text-gray-400">
+                {t.architectureComparison.purpose.p1}
+            </p>
+        </section>
+    </article>
 </BaseLayout>
