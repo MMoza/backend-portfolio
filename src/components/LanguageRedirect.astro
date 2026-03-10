@@ -1,25 +1,31 @@
 <div hidden></div>
 
 <script>
+  if (typeof window !== "undefined") {
+    const pathname = window.location.pathname;
 
-if (typeof window !== "undefined" && window.location.pathname === "/") {
+    let savedLang = localStorage.getItem("lang");
 
-  const savedLang = localStorage.getItem("lang");
+    if (!savedLang) {
+      const browserLang = navigator.languages?.[0] || navigator.language;
 
-  if (!savedLang) {
+      if (browserLang.startsWith("es")) {
+        savedLang = "es";
+      } else {
+        savedLang = "en";
+      }
 
-    const browserLang = navigator.language || navigator.userLanguage;
+      localStorage.setItem("lang", savedLang);
+    }
 
-    if (browserLang.startsWith("es")) {
+    const isSpanishPath = pathname.startsWith("/es");
 
-      localStorage.setItem("lang", "es");
-      window.location.replace("/es");
+    if (savedLang === "es" && !isSpanishPath && pathname !== "/") {
+      window.location.replace("/es" + pathname);
+    }
 
-    } else {
-
-      localStorage.setItem("lang", "en");
-
+    if (savedLang === "en" && isSpanishPath) {
+      window.location.replace(pathname.replace(/^\/es/, "") || "/");
     }
   }
-}
 </script>
