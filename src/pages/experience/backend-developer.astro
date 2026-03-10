@@ -2,29 +2,34 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import HighlightProjectCard from "../../components/HighlightProjectCard.astro";
 import BackLink from "../../components/BackLink.astro";
+import { getLangFromUrl } from "../../i18n/getLang";
+import { getTranslations } from "../../i18n/index";
+
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations(lang);
 ---
 
 <BaseLayout>
     <article class="max-w-3xl mx-auto">
 
-        <BackLink href="/experience" label="Back to experience" />
+        <BackLink href="/experience" label={t.backendDeveloper.back} />
         <!-- HEADER -->
 
         <header class="mb-14">
-            <p class="text-sm text-gray-500 mb-2">May 2023 — Present</p>
+            <p class="text-sm text-gray-500 mb-2">{t.backendDeveloper.header.period}</p>
 
             <h1 class="text-3xl md:text-4xl font-bold mb-4">
-                FullStack Developer
+                {t.backendDeveloper.header.title}
             </h1>
 
             <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">
                 Working as a FullStack developer at
                 <a
-                    href="https://www.mrplan.es"
+                    href={t.backendDeveloper.header.companyUrl}
                     target="_blank"
                     class="text-blue-600 hover:underline"
                 >
-                    MisterPlan S.L
+                    {t.backendDeveloper.header.companyName}
                 </a>, developing SaaS products in the tourism sector including
                 PMS systems, Channel Managers and booking engines managing more
                 than
@@ -34,75 +39,35 @@ import BackLink from "../../components/BackLink.astro";
             </p>
 
             <p class="text-gray-600 dark:text-gray-400 mb-4">
-                My work is mainly focused on backend architecture, integrations
-                and evolution of complex domain systems, while also contributing
-                to the frontend when required. I work daily with PHP, MySQL,
-                Docker and JavaScript within a product-oriented environment
-                where scalability, reliability and maintainability are critical.
+                {t.backendDeveloper.header.focus}
             </p>
 
             <p class="text-gray-600 dark:text-gray-400">
-                The platform integrates with multiple third-party providers
-                across different domains including distribution platforms,
-                electronic invoicing administrations and smart lock systems used
-                by hotels and short-term rentals.
+                {t.backendDeveloper.header.integrations}
             </p>
         </header>
 
         <!-- ABOUT -->
 
         <section class="mb-14">
-            <h2 class="text-xl font-semibold mb-4">About the role</h2>
+            <h2 class="text-xl font-semibold mb-4">{t.backendDeveloper.about.title}</h2>
 
-            <p class="text-gray-600 dark:text-gray-400 mb-4">
-                I work on backend systems that support business-critical SaaS
-                products used by hotels and tourism companies. The platform
-                processes large amounts of reservations, billing operations and
-                third-party integrations.
-            </p>
-
-            <p class="text-gray-600 dark:text-gray-400">
-                My daily work focuses on evolving legacy systems towards cleaner
-                architectures using principles such as SOLID, Domain Driven
-                Design and Hexagonal Architecture.
-            </p>
+            {t.backendDeveloper.about.paragraphs.map((paragraph) => (
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                {paragraph}
+              </p>
+            ))}
         </section>
 
         <!-- HIGHLIGHT PROJECTS -->
 
         <section class="mb-16">
-            <h2 class="text-xl font-semibold mb-8">Highlighted Projects</h2>
+            <h2 class="text-xl font-semibold mb-8">{t.backendDeveloper.projects.title}</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <HighlightProjectCard
-                    project={{
-                        slug: "invoicing",
-                        title: "Electronic Invoicing SaaS",
-                        description:
-                            "Unified invoicing system supporting multiple products and electronic billing regulations across Spain and Mexico.",
-                        tags: ["Billing", "Regulations", "Architecture"],
-                    }}
-                />
-
-                <HighlightProjectCard
-                    project={{
-                        slug: "smart-locks",
-                        title: "Electronic Lock Integrations",
-                        description:
-                            "Unified access management system integrating multiple smart lock providers used by hotels and rentals.",
-                        tags: ["Integrations", "IoT", "Domain Design"],
-                    }}
-                />
-
-                <HighlightProjectCard
-                    project={{
-                        slug: "channel-manager",
-                        title: "Activity Channel Manager",
-                        description:
-                            "Distribution platform connecting tourism activity providers with major booking marketplaces.",
-                        tags: ["APIs", "Distribution", "Refactor"],
-                    }}
-                />
+                {t.backendDeveloper.projects.items.map((project) => (
+                  <HighlightProjectCard project={project} />
+                ))}
             </div>
         </section>
     </article>

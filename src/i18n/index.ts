@@ -28,6 +28,9 @@ import { contact as contactES } from "../translations/es/contact";
 import { about as aboutEN } from "../translations/en/about";
 import { about as aboutES } from "../translations/es/about";
 
+import { backendDeveloper as backendDeveloperEN } from "../translations/en/backend-developer";
+import { backendDeveloper as backendDeveloperES } from "../translations/es/backend-developer";
+
 export const translations = {
   en: {
     home: homeEN,
@@ -39,7 +42,8 @@ export const translations = {
     randomuserTechnicalTest: randomuserTechnicalTestEN,
     experience: experienceEN,
     contact: contactEN,
-    about: aboutEN
+    about: aboutEN,
+    backendDeveloper: backendDeveloperEN
   },
 
   es: {
@@ -52,7 +56,8 @@ export const translations = {
     randomuserTechnicalTest: randomuserTechnicalTestES,
     experience: experienceES,
     contact: contactES,
-    about: aboutES
+    about: aboutES,
+    backendDeveloper: backendDeveloperES
   }
 };
 
