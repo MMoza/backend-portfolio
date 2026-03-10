@@ -37,6 +37,9 @@ import { previousExperience as previousExperienceES } from "../translations/es/p
 import { invoicing as invoicingEN } from "../translations/en/invoicing";
 import { invoicing as invoicingES } from "../translations/es/invoicing";
 
+import { channelManager as channelManagerEN } from "../translations/en/channel-manager";
+import { channelManager as channelManagerES } from "../translations/es/channel-manager";
+
 export const translations = {
   en: {
     home: homeEN,
@@ -51,7 +54,8 @@ export const translations = {
     about: aboutEN,
     backendDeveloper: backendDeveloperEN,
     previousExperience: previousExperienceEN,
-    invoicing: invoicingEN
+    invoicing: invoicingEN,
+    channelManager: channelManagerEN
   },
 
   es: {
@@ -67,7 +71,8 @@ export const translations = {
     about: aboutES,
     backendDeveloper: backendDeveloperES,
     previousExperience: previousExperienceES,
-    invoicing: invoicingES
+    invoicing: invoicingES,
+    channelManager: channelManagerES
   }
 };
 
