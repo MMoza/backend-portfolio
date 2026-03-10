@@ -11,7 +11,7 @@ export const about = {
   journey: {
     title: "Mi camino",
     paragraphs: [
-      "Desde joven siempre sentí atracción por los temas técnicos y el pensamiento científico. Sin embargo, el camino académico que inicialmente elegí no encajaba del todo con mis intereses y eventualmente me incorporé a la fuerza laboral en lugar de continuar mis estudios en ese momento.",
+      "Desde joven siempre sentí atracción por los temas técnicos y el pensamiento científico. Sin embargo, el camino académico que inicialmente elegí no encajaba del todo con mis intereses y finalmente decidí incorporarme al mercado laboral en lugar de continuar mis estudios en ese momento.",
       "Durante varios años trabajé en el sector de la hostelería, un entorno que requiere disciplina, trabajo en equipo y la capacidad de rendir bajo presión. Estos años moldearon mi ética laboral y me enseñaron el valor de la consistencia y la responsabilidad.",
       "Más tarde hice la transición al sector industrial, trabajando con sistemas de fabricación aditiva. Esta experiencia sería inesperadamente el punto de inflexión que me llevaría a la programación."
     ]
@@ -29,7 +29,7 @@ export const about = {
   becoming: {
     title: "Convirtiéndome en desarrollador",
     paragraphs: [
-      "Me inscribí en el programa de Desarrollo de Aplicaciones Web (DAW) mientras continuaba trabajando a tiempo completo. Este período requería fuerte disciplina y gestión del tiempo, pero confirmó que el desarrollo de software era el campo que quería perseguir profesionalmente.",
+      "Me matriculé en el CFGS de Desarrollo de Aplicaciones Web (DAW) mientras continuaba trabajando a tiempo completo. Este período requirió una gran disciplina y una buena gestión del tiempo, pero confirmó que el desarrollo de software era el campo al que quería dedicarme profesionalmente.",
       "Desde entonces he enfocado mi carrera en el desarrollo backend, trabajando en sistemas que involucran integraciones, APIs y dominios comerciales complejos en la industria de software turístico."
     ]
   },
@@ -39,14 +39,24 @@ export const about = {
     intro: "Fuera del desarrollo de software disfruto de actividades que me ayudan a mantener la mente clara y el equilibrio.",
     activities: [
       {
-        name: "Ciclismo",
+        name: "🚴‍♂️ Ciclismo",
         description:
           "Disfruto de los paseos largos que me permiten desconectar y pensar."
       },
       {
-        name: "Música",
+        name: "🎸 Música",
         description:
-          "especialmente el punk rock, que ha sido parte de mi vida durante muchos años."
+          "Especialmente el punk rock, que ha sido parte de mi vida durante muchos años."
+      },
+      {
+        name: "🍻 Amigos",
+        description:
+          "Valoro mucho pasar tiempo con amigos, compartir conversaciones y buenos momentos."
+      },
+      {
+        name: "🌿 Campo",
+        description:
+          "Me gusta pasar tiempo en la naturaleza, caminar y desconectar del ritmo diario."
       }
     ]
   },

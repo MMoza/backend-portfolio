@@ -39,13 +39,23 @@ export const about = {
     intro: "Outside of software development I enjoy activities that help me keep a clear mind and maintain balance.",
     activities: [
       {
-        name: "Cycling",
+        name: "????? Cycling",
         description: "I enjoy long rides that allow me to disconnect and think."
       },
       {
-        name: "Music",
+        name: "?? Music",
         description:
-          "especially punk rock, which has been part of my life for many years."
+          "Especially punk rock, which has been part of my life for many years."
+      },
+      {
+        name: "?? Friends",
+        description:
+          "I enjoy spending time with friends, sharing conversations and good moments."
+      },
+      {
+        name: "?? Countryside",
+        description:
+          "I enjoy spending time in nature, walking and disconnecting from the daily routine."
       }
     ]
   },
