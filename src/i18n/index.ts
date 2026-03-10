@@ -34,6 +34,9 @@ import { backendDeveloper as backendDeveloperES } from "../translations/es/backe
 import { previousExperience as previousExperienceEN } from "../translations/en/previous-experience";
 import { previousExperience as previousExperienceES } from "../translations/es/previous-experience";
 
+import { invoicing as invoicingEN } from "../translations/en/invoicing";
+import { invoicing as invoicingES } from "../translations/es/invoicing";
+
 export const translations = {
   en: {
     home: homeEN,
@@ -47,7 +50,8 @@ export const translations = {
     contact: contactEN,
     about: aboutEN,
     backendDeveloper: backendDeveloperEN,
-    previousExperience: previousExperienceEN
+    previousExperience: previousExperienceEN,
+    invoicing: invoicingEN
   },
 
   es: {
@@ -62,7 +66,8 @@ export const translations = {
     contact: contactES,
     about: aboutES,
     backendDeveloper: backendDeveloperES,
-    previousExperience: previousExperienceES
+    previousExperience: previousExperienceES,
+    invoicing: invoicingES
   }
 };
 
