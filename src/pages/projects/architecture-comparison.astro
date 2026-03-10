@@ -74,8 +74,8 @@ const t = getTranslations(lang);
             <h2 class="text-xl font-semibold mb-6">{t.architectureComparison.architectures.title}</h2>
 
             <div class="space-y-6">
-                <div
-                    class="border border-gray-200 dark:border-gray-800 rounded-xl p-6"
+                <div 
+                    class="arch-gradient border border-gray-200 dark:border-gray-800 rounded-xl p-6 bg-gradient-to-br from-blue-500/10 via-transparent to-blue-400/10"
                 >
                     <h3 class="font-semibold mb-2">
                         {t.architectureComparison.architectures.a01.name}
@@ -90,8 +90,8 @@ const t = getTranslations(lang);
                     </p>
                 </div>
 
-                <div
-                    class="border border-gray-200 dark:border-gray-800 rounded-xl p-6"
+                <div 
+                    class="arch-gradient border border-gray-200 dark:border-gray-800 rounded-xl p-6 bg-gradient-to-br from-purple-500/10 via-transparent to-purple-400/10"
                 >
                     <h3 class="font-semibold mb-2">{t.architectureComparison.architectures.a02.name}</h3>
 
@@ -104,8 +104,8 @@ const t = getTranslations(lang);
                     </p>
                 </div>
 
-                <div
-                    class="border border-gray-200 dark:border-gray-800 rounded-xl p-6"
+                <div 
+                    class="arch-gradient border border-gray-200 dark:border-gray-800 rounded-xl p-6 bg-gradient-to-br from-emerald-500/10 via-transparent to-emerald-400/10"
                 >
                     <h3 class="font-semibold mb-2">
                         {t.architectureComparison.architectures.a03.name}
@@ -120,8 +120,8 @@ const t = getTranslations(lang);
                     </p>
                 </div>
 
-                <div
-                    class="border border-gray-200 dark:border-gray-800 rounded-xl p-6"
+                <div 
+                    class="arch-gradient border border-gray-200 dark:border-gray-800 rounded-xl p-6 bg-gradient-to-br from-amber-500/10 via-transparent to-amber-400/10"
                 >
                     <h3 class="font-semibold mb-2">{t.architectureComparison.architectures.a04.name}</h3>
 
@@ -137,30 +137,54 @@ const t = getTranslations(lang);
         </section>
 
         <section class="mb-16">
-            <h2 class="text-xl font-semibold mb-6">{t.architectureComparison.phases.title}</h2>
+            <h2 class="text-xl font-semibold mb-6">
+                {t.architectureComparison.phases.title}
+            </h2>
 
-            <div class="space-y-4 text-gray-600 dark:text-gray-400">
-                <p>
-                    <strong>{t.architectureComparison.phases.phase1Title}</strong><br />
+            <ul class="space-y-6 border-l border-gray-200 dark:border-gray-800 pl-4">
+
+                <li class="flex flex-col">
+                <span class="font-medium text-gray-900 dark:text-gray-100">
+                    {t.architectureComparison.phases.phase1Title}
+                </span>
+
+                <span class="text-sm text-gray-600 dark:text-gray-400 ml-4">
                     {t.architectureComparison.phases.phase1}
-                </p>
+                </span>
+                </li>
 
-                <p>
-                    <strong>{t.architectureComparison.phases.phase2Title}</strong><br />
+                <li class="flex flex-col">
+                <span class="font-medium text-gray-900 dark:text-gray-100">
+                    {t.architectureComparison.phases.phase2Title}
+                </span>
+
+                <span class="text-sm text-gray-600 dark:text-gray-400 ml-4">
                     {t.architectureComparison.phases.phase2}
-                </p>
+                </span>
+                </li>
 
-                <p>
-                    <strong>{t.architectureComparison.phases.phase3Title}</strong><br />
+                <li class="flex flex-col">
+                <span class="font-medium text-gray-900 dark:text-gray-100">
+                    {t.architectureComparison.phases.phase3Title}
+                </span>
+
+                <span class="text-sm text-gray-600 dark:text-gray-400 ml-4">
                     {t.architectureComparison.phases.phase3}
-                </p>
+                </span>
+                </li>
 
-                <p>
-                    <strong>{t.architectureComparison.phases.phase4Title}</strong><br />
+                <li class="flex flex-col">
+                <span class="font-medium text-gray-900 dark:text-gray-100">
+                    {t.architectureComparison.phases.phase4Title}
+                </span>
+
+                <span class="text-sm text-gray-600 dark:text-gray-400 ml-4">
                     {t.architectureComparison.phases.phase4}
-                </p>
-            </div>
-        </section>
+                </span>
+                </li>
+
+            </ul>
+            </section>
 
         <section class="mb-16">
             <h2 class="text-xl font-semibold mb-6">{t.architectureComparison.criteria.title}</h2>
@@ -172,8 +196,6 @@ const t = getTranslations(lang);
             <ul
                 class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
             >
-                <li>{t.architectureComparison.criteria.items[0]}</li>
-                <li>{t.architectureComparison.criteria.items[1]}</li>
                 <li>{t.architectureComparison.criteria.items[2]}</li>
                 <li>{t.architectureComparison.criteria.items[3]}</li>
                 <li>{t.architectureComparison.criteria.items[4]}</li>
