@@ -15,15 +15,25 @@ const t = getTranslations(lang);
         <BackLink href="/projects" label={t.randomuserTechnicalTest.back} />
 
         <header class="mb-14">
-            <p class="text-sm text-gray-500 mb-2">{t.randomuserTechnicalTest.header.label}</p>
+            <div
+                class="rounded-xl p-6
+                    bg-gradient-to-br
+                    from-white/80 via-white/50 to-transparent
+                    dark:from-gray-900/80 dark:via-gray-900/50 dark:to-transparent
+                    backdrop-blur-md"
+            >
+                <p class="text-sm text-gray-500 mb-2">
+                    {t.randomuserTechnicalTest.header.label}
+                </p>
 
-            <h1 class="text-3xl md:text-4xl font-bold mb-4">
-                {t.randomuserTechnicalTest.header.title}
-            </h1>
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">
+                    {t.randomuserTechnicalTest.header.title}
+                </h1>
 
-            <p class="text-lg text-gray-600 dark:text-gray-400">
-                {t.randomuserTechnicalTest.header.description}
-            </p>
+                <p class="text-lg text-gray-600 dark:text-gray-400">
+                    {t.randomuserTechnicalTest.header.description}
+                </p>
+            </div>
         </header>
 
         <section class="mb-16">
@@ -60,11 +70,17 @@ const t = getTranslations(lang);
                     <p
                         class="font-semibold text-gray-800 dark:text-gray-200 mb-1"
                     >
-                        {t.randomuserTechnicalTest.highlights.communication.title}
+                        {
+                            t.randomuserTechnicalTest.highlights.communication
+                                .title
+                        }
                     </p>
 
                     <p class="text-sm text-gray-500 dark:text-gray-400 mt-auto">
-                        {t.randomuserTechnicalTest.highlights.communication.description}
+                        {
+                            t.randomuserTechnicalTest.highlights.communication
+                                .description
+                        }
                     </p>
                 </div>
 
@@ -84,29 +100,40 @@ const t = getTranslations(lang);
                     </p>
 
                     <p class="text-sm text-gray-500 dark:text-gray-400 mt-auto">
-                        {t.randomuserTechnicalTest.highlights.assessment.description}
+                        {
+                            t.randomuserTechnicalTest.highlights.assessment
+                                .description
+                        }
                     </p>
                 </div>
             </div>
 
-            <p class="text-gray-600 dark:text-gray-400 mb-4">
-                {t.randomuserTechnicalTest.intro.p1}
-                <a
-                    href="https://randomuser.me/documentation"
-                    target="_blank"
-                    class="text-blue-600 dark:text-blue-400 hover:underline underline-offset-2 transition-colors"
+            <div class="mb-10 pl-6 border-l-2 border-blue-500/30 space-y-3">
+                <p
+                    class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
+                >
+                    {t.randomuserTechnicalTest.intro.p1}
+                    <a
+                        href="https://randomuser.me/documentation"
+                        target="_blank"
+                        class="text-blue-600 dark:text-blue-400 hover:underline underline-offset-2 transition-colors"
                     >
-                    RandomUser API 
-                </a>
-            </p>
+                        RandomUser API
+                    </a>
+                </p>
 
-            <p class="text-gray-600 dark:text-gray-400">
-                {t.randomuserTechnicalTest.intro.p2}
-            </p>
+                <p
+                    class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
+                >
+                    {t.randomuserTechnicalTest.intro.p2}
+                </p>
+            </div>
         </section>
 
         <section class="mb-16">
-            <h2 class="text-xl font-semibold mb-6">🎯 {t.randomuserTechnicalTest.objectives_section.title}</h2>
+            <h2 class="text-xl font-semibold mb-6">
+                🎯 {t.randomuserTechnicalTest.objectives_section.title}
+            </h2>
 
             <ul
                 class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
@@ -135,7 +162,9 @@ const t = getTranslations(lang);
                     {t.randomuserTechnicalTest.architecture_section.items[0]}
                 </li>
 
-                <li>{t.randomuserTechnicalTest.architecture_section.items[1]}</li>
+                <li>
+                    {t.randomuserTechnicalTest.architecture_section.items[1]}
+                </li>
 
                 <li>
                     {t.randomuserTechnicalTest.architecture_section.items[2]}
@@ -148,7 +177,9 @@ const t = getTranslations(lang);
         </section>
 
         <section class="mb-16">
-            <h2 class="text-xl font-semibold mb-6">⚙️ {t.randomuserTechnicalTest.backend_section.title}</h2>
+            <h2 class="text-xl font-semibold mb-6">
+                ⚙️ {t.randomuserTechnicalTest.backend_section.title}
+            </h2>
 
             <p class="text-gray-600 dark:text-gray-400 mb-4">
                 {t.randomuserTechnicalTest.backend_section.p1}
@@ -164,7 +195,9 @@ const t = getTranslations(lang);
         </section>
 
         <section class="mb-16">
-            <h2 class="text-xl font-semibold mb-6">🖥️ {t.randomuserTechnicalTest.frontend_section.title}</h2>
+            <h2 class="text-xl font-semibold mb-6">
+                🖥️ {t.randomuserTechnicalTest.frontend_section.title}
+            </h2>
 
             <p class="text-gray-600 dark:text-gray-400 mb-4">
                 {t.randomuserTechnicalTest.frontend_section.p1}
@@ -176,7 +209,9 @@ const t = getTranslations(lang);
         </section>
 
         <section class="mb-14">
-            <h2 class="text-xl font-semibold mb-6">🎓 {t.randomuserTechnicalTest.learning_section.title}</h2>
+            <h2 class="text-xl font-semibold mb-6">
+                🎓 {t.randomuserTechnicalTest.learning_section.title}
+            </h2>
 
             <p class="text-gray-600 dark:text-gray-400 mb-4">
                 {t.randomuserTechnicalTest.learning_section.p1}

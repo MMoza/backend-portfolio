@@ -15,15 +15,25 @@ const t = getTranslations(lang);
         <BackLink href="/projects" label={t.apiBenchmark.back} />
 
         <header class="mb-14">
-            <p class="text-sm text-gray-500 mb-2">{t.apiBenchmark.header.label}</p>
+            <div
+                class="rounded-xl p-6
+                    bg-gradient-to-br
+                    from-white/80 via-white/50 to-transparent
+                    dark:from-gray-900/80 dark:via-gray-900/50 dark:to-transparent
+                    backdrop-blur-md"
+            >
+                <p class="text-sm text-gray-500 mb-2">
+                    {t.apiBenchmark.header.label}
+                </p>
 
-            <h1 class="text-3xl md:text-4xl font-bold mb-4">
-                {t.apiBenchmark.header.title}
-            </h1>
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">
+                    {t.apiBenchmark.header.title}
+                </h1>
 
-            <p class="text-lg text-gray-600 dark:text-gray-400">
-                {t.apiBenchmark.header.description}
-            </p>
+                <p class="text-lg text-gray-600 dark:text-gray-400">
+                    {t.apiBenchmark.header.description}
+                </p>
+            </div>
         </header>
 
         <section class="mb-16">
@@ -31,7 +41,9 @@ const t = getTranslations(lang);
                 <div
                     class="border border-gray-200 dark:border-gray-800 rounded-lg p-5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm"
                 >
-                    <p class="font-semibold mb-1">{t.apiBenchmark.highlights.implementations.title}</p>
+                    <p class="font-semibold mb-1">
+                        {t.apiBenchmark.highlights.implementations.title}
+                    </p>
                     <p class="text-sm text-gray-500 dark:text-gray-400">
                         {t.apiBenchmark.highlights.implementations.description}
                     </p>
@@ -40,7 +52,9 @@ const t = getTranslations(lang);
                 <div
                     class="border border-gray-200 dark:border-gray-800 rounded-lg p-5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm"
                 >
-                    <p class="font-semibold mb-1">{t.apiBenchmark.highlights.domain.title}</p>
+                    <p class="font-semibold mb-1">
+                        {t.apiBenchmark.highlights.domain.title}
+                    </p>
                     <p class="text-sm text-gray-500 dark:text-gray-400">
                         {t.apiBenchmark.highlights.domain.description}
                     </p>
@@ -49,24 +63,30 @@ const t = getTranslations(lang);
                 <div
                     class="border border-gray-200 dark:border-gray-800 rounded-lg p-5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm"
                 >
-                    <p class="font-semibold mb-1">{t.apiBenchmark.highlights.focus.title}</p>
+                    <p class="font-semibold mb-1">
+                        {t.apiBenchmark.highlights.focus.title}
+                    </p>
                     <p class="text-sm text-gray-500 dark:text-gray-400">
                         {t.apiBenchmark.highlights.focus.description}
                     </p>
                 </div>
             </div>
 
-            <p class="text-gray-600 dark:text-gray-400 mb-4">
-                {t.apiBenchmark.intro.p1}
-            </p>
+            <div class="mb-10 pl-5 border-l-2 border-blue-500/40">
+                <p class="text-lg text-gray-700 dark:text-gray-300 mb-3">
+                    {t.apiBenchmark.intro.p1}
+                </p>
 
-            <p class="text-gray-600 dark:text-gray-400">
-                {t.apiBenchmark.intro.p2}
-            </p>
+                <p class="text-lg text-gray-700 dark:text-gray-300 mb-3">
+                    {t.apiBenchmark.intro.p2}
+                </p>
+            </div>
         </section>
 
         <section class="mb-16">
-            <h2 class="text-xl font-semibold mb-6">🧩 {t.apiBenchmark.domain_section.title}</h2>
+            <h2 class="text-xl font-semibold mb-6">
+                🧩 {t.apiBenchmark.domain_section.title}
+            </h2>
 
             <p class="text-gray-600 dark:text-gray-400 mb-4">
                 {t.apiBenchmark.domain_section.p1}
@@ -83,7 +103,9 @@ const t = getTranslations(lang);
         </section>
 
         <section class="mb-16">
-            <h2 class="text-xl font-semibold mb-6">🗂️ {t.apiBenchmark.entity_section.title}</h2>
+            <h2 class="text-xl font-semibold mb-6">
+                🗂️ {t.apiBenchmark.entity_section.title}
+            </h2>
 
             <p class="text-gray-600 dark:text-gray-400 mb-4">
                 {t.apiBenchmark.entity_section.description}
@@ -103,21 +125,29 @@ const t = getTranslations(lang);
 
             <ul class="space-y-4 text-gray-600 dark:text-gray-400">
                 <li>
-                    <strong>PHP</strong> — {t.apiBenchmark.implementations_section.plain_php}
+                    <strong>PHP</strong> — {
+                        t.apiBenchmark.implementations_section.plain_php
+                    }
                 </li>
 
                 <li>
-                    <strong>Laravel</strong> — {t.apiBenchmark.implementations_section.laravel}
+                    <strong>Laravel</strong> — {
+                        t.apiBenchmark.implementations_section.laravel
+                    }
                 </li>
 
                 <li>
-                    <strong>Symfony</strong> — {t.apiBenchmark.implementations_section.symfony}
+                    <strong>Symfony</strong> — {
+                        t.apiBenchmark.implementations_section.symfony
+                    }
                 </li>
             </ul>
         </section>
 
         <section class="mb-16">
-            <h2 class="text-xl font-semibold mb-6">📊 {t.apiBenchmark.criteria_section.title}</h2>
+            <h2 class="text-xl font-semibold mb-6">
+                📊 {t.apiBenchmark.criteria_section.title}
+            </h2>
 
             <p class="text-gray-600 dark:text-gray-400 mb-4">
                 {t.apiBenchmark.criteria_section.intro}
@@ -134,7 +164,9 @@ const t = getTranslations(lang);
         </section>
 
         <section>
-            <h2 class="text-xl font-semibold mb-6">🎯 {t.apiBenchmark.goal_section.title}</h2>
+            <h2 class="text-xl font-semibold mb-6">
+                🎯 {t.apiBenchmark.goal_section.title}
+            </h2>
 
             <p class="text-gray-600 dark:text-gray-400 mb-4">
                 {t.apiBenchmark.goal_section.p1}

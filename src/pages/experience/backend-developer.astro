@@ -11,62 +11,78 @@ const t = getTranslations(lang);
 
 <BaseLayout>
     <article class="max-w-3xl mx-auto">
-
         <BackLink href="/experience" label={t.backendDeveloper.back} />
         <!-- HEADER -->
 
         <header class="mb-14">
-            <p class="text-sm text-gray-500 mb-2">{t.backendDeveloper.header.period}</p>
+            <div class="rounded-xl p-6
+                bg-gradient-to-br
+                from-white/80 via-white/50 to-transparent
+                dark:from-gray-900/80 dark:via-gray-900/50 dark:to-transparent
+                backdrop-blur-md"
+            >
+                <p class="text-sm text-gray-500 mb-2">
+                    {t.backendDeveloper.header.period}
+                </p>
 
-            <h1 class="text-3xl md:text-4xl font-bold mb-4">
-                {t.backendDeveloper.header.title}
-            </h1>
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">
+                    {t.backendDeveloper.header.title}
+                </h1>
 
-            <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">
-                {t.backendDeveloper.header.introPart1}
-                <a
-                    href={t.backendDeveloper.header.companyUrl}
-                    target="_blank"
-                    class="text-blue-600 hover:underline"
-                >
-                    {t.backendDeveloper.header.companyName}
-                </a>
-                {t.backendDeveloper.header.introPart2}
-                <strong class="text-blue-600"
-                    >{t.backendDeveloper.header.reservationsPerYear}</strong
-                >.
-            </p>
+                <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">
+                    {t.backendDeveloper.header.introPart1}
+                    <a
+                        href={t.backendDeveloper.header.companyUrl}
+                        target="_blank"
+                        class="text-blue-600 hover:underline"
+                    >
+                        {t.backendDeveloper.header.companyName}
+                    </a>
+                    {t.backendDeveloper.header.introPart2}
+                    <strong class="text-blue-600"
+                        >{t.backendDeveloper.header.reservationsPerYear}</strong
+                    >.
+                </p>
 
-            <p class="text-gray-600 dark:text-gray-400 mb-4">
-                {t.backendDeveloper.header.focus}
-            </p>
+                <p class="text-gray-600 dark:text-gray-400 mb-4">
+                    {t.backendDeveloper.header.focus}
+                </p>
 
-            <p class="text-gray-600 dark:text-gray-400">
-                {t.backendDeveloper.header.integrations}
-            </p>
+                <p class="text-gray-600 dark:text-gray-400">
+                    {t.backendDeveloper.header.integrations}
+                </p>
+            </div>
         </header>
 
         <!-- ABOUT -->
 
         <section class="mb-14">
-            <h2 class="text-xl font-semibold mb-4">{t.backendDeveloper.about.title}</h2>
+            <h2 class="text-xl font-semibold mb-4">
+                {t.backendDeveloper.about.title}
+            </h2>
 
-            {t.backendDeveloper.about.paragraphs.map((paragraph) => (
-              <p class="text-gray-600 dark:text-gray-400 mb-4">
-                {paragraph}
-              </p>
-            ))}
+            {
+                t.backendDeveloper.about.paragraphs.map((paragraph) => (
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        {paragraph}
+                    </p>
+                ))
+            }
         </section>
 
         <!-- HIGHLIGHT PROJECTS -->
 
         <section class="mb-16">
-            <h2 class="text-xl font-semibold mb-8">{t.backendDeveloper.projects.title}</h2>
+            <h2 class="text-xl font-semibold mb-8">
+                {t.backendDeveloper.projects.title}
+            </h2>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {t.backendDeveloper.projects.items.map((project) => (
-                  <HighlightProjectCard project={project} />
-                ))}
+                {
+                    t.backendDeveloper.projects.items.map((project) => (
+                        <HighlightProjectCard project={project} />
+                    ))
+                }
             </div>
         </section>
     </article>

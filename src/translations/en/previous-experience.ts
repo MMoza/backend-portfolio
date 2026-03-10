@@ -2,6 +2,7 @@ export const previousExperience = {
   back: "Back to experience",
 
   header: {
+    period: "2010 - 2023",
     title: "Experiencia Profesional Anterior",
     introBefore: "Before transitioning into software development, I spent more than ",
     introStrong: "10 years working in different industries",
