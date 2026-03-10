@@ -1,254 +1,102 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BackLink from "../../components/BackLink.astro";
+import { getLangFromUrl } from "../../i18n/getLang";
+import { getTranslations } from "../../i18n/index";
+
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations(lang);
 ---
 
 <BaseLayout>
     <article class="max-w-3xl mx-auto">
-        <BackLink href="/experience" label="Back to experience" />
+        <BackLink href="/experience" label={t.previousExperience.back} />
 
         <header class="mb-14">
             <h1 class="text-3xl md:text-4xl font-bold mb-4">
-                Previous Professional Experience
+                {t.previousExperience.header.title}
             </h1>
 
             <p class="text-gray-600 dark:text-gray-400">
-                Before transitioning into software development, I spent more
-                than
-                <strong>10 years working in different industries</strong>. These
-                experiences shaped my work ethic, problem-solving mindset and
-                ability to adapt to complex operational environments.
+                {t.previousExperience.header.introBefore}
+                <strong>{t.previousExperience.header.introStrong}</strong>
+                {t.previousExperience.header.introAfter}
             </p>
         </header>
 
         <section class="mb-16">
-            <h2 class="text-xl font-semibold mb-8">Career Timeline</h2>
+            <h2 class="text-xl font-semibold mb-8">{t.previousExperience.timeline.title}</h2>
 
             <div
                 class="relative border-l border-gray-200 dark:border-gray-800 pl-6 space-y-10"
             >
-                <!-- Item -->
-                <div class="relative">
-                    <span
-                        class="absolute -left-[30px] top-1.5 w-3 h-3 rounded-full bg-blue-600 shadow-blue-500/40"
-                    ></span>
+                {t.previousExperience.timeline.items.map((item: any) => (
+                    <div class="relative">
+                        <span
+                            class={`absolute -left-[30px] top-1.5 w-3 h-3 rounded-full ${
+                                item.highlight ? 'bg-white shadow-md shadow-blue-500/40' : 'bg-blue-600 shadow-blue-500/40'
+                            }`}
+                        ></span>
 
-                    <p class="text-sm text-gray-500 mb-1">2010 — 2011</p>
+                        <p class="text-sm text-gray-500 mb-1">{item.period}</p>
 
-                    <h3 class="font-semibold">
-                        Administrative Assistant – Madroñera Town Hall
-                    </h3>
+                        <h3 class={`font-semibold ${item.highlight ? 'text-blue-600' : ''}`}>
+                            {item.title}
+                        </h3>
 
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">
-                        First professional experience working in public
-                        administration.
-                    </p>
-                </div>
-
-                <!-- Item -->
-                <div class="relative">
-                    <span
-                    class="absolute -left-[30px] top-1.5 w-3 h-3 rounded-full bg-white shadow-md shadow-blue-500/40"
-                    ></span>
-
-                    <p class="text-sm text-gray-500 mb-1">2011 — 2013</p>
-
-                    <h3 class="font-semibold text-blue-600">
-                        Civil Engineering Student – University of Extremadura
-                    </h3>
-
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">
-                        Studied Civil Engineering while working weekends in
-                        hospitality at Memphis Rock pub.
-                    </p>
-                </div>
-
-                <!-- Item -->
-                <div class="relative">
-                    <span
-                        class="absolute -left-[30px] top-1.5 w-3 h-3 rounded-full bg-blue-600 shadow-blue-500/40"
-                    ></span>
-
-                    <p class="text-sm text-gray-500 mb-1">2013 — 2015</p>
-
-                    <h3 class="font-semibold">
-                        Waiter / Receptionist – Hotel Rural Soterraña
-                    </h3>
-
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">
-                        Customer service, hospitality operations and front desk
-                        management in a rural hotel environment.
-                    </p>
-                </div>
-
-                <!-- Item -->
-                <div class="relative">
-                    <span
-                        class="absolute -left-[30px] top-1.5 w-3 h-3 rounded-full bg-blue-600 shadow-blue-500/40"
-                    ></span>
-
-                    <p class="text-sm text-gray-500 mb-1">2015 — 2019</p>
-
-                    <h3 class="font-semibold">Waiter – Restaurant El Cruce</h3>
-
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">
-                        Long-term experience in a high-volume restaurant
-                        environment, strengthening teamwork, operational
-                        efficiency and customer service.
-                    </p>
-                </div>
-
-                <!-- Item -->
-                <div class="relative">
-                    <span
-                        class="absolute -left-[30px] top-1.5 w-3 h-3 rounded-full bg-blue-600 shadow-blue-500/40"
-                    ></span>
-
-                    <p class="text-sm text-gray-500 mb-1">2019 — 2021</p>
-
-                    <h3 class="font-semibold">
-                        Additive Manufacturing Technician – CAF Digital
-                        Manufacturing
-                    </h3>
-
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">
-                        Maintenance and processing of industrial 3D printers.
-                        During this stage I began automating workflows and
-                        experimenting with G-Code, which sparked my interest in
-                        programming.
-                    </p>
-                </div>
-
-                <!-- Item -->
-                <div class="relative">
-                    <span
-                        class="absolute -left-[30px] top-1.5 w-3 h-3 rounded-full bg-white shadow-md shadow-blue-500/40"
-                    ></span>
-
-                    <p class="text-sm text-gray-500 mb-1">2021 — 2023</p>
-
-                    <h3 class="font-semibold text-blue-600">Web Development Studies (DAW)</h3>
-
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">
-                        Formal training in web development while working
-                        full-time in hospitality. This period marked the
-                        transition toward my current career as a software
-                        developer.
-                    </p>
-                </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">
+                            {item.description}
+                        </p>
+                    </div>
+                ))}
             </div>
         </section>
 
         <section class="mb-16">
-            <h2 class="text-xl font-semibold mb-6">Hospitality Industry</h2>
+            <h2 class="text-xl font-semibold mb-6">{t.previousExperience.hospitality.title}</h2>
 
-            <p class="text-gray-600 dark:text-gray-400 mb-4">
-                My professional career began in the hospitality sector, where I
-                worked for more than seven years across two restaurants.
-            </p>
-
-            <p class="text-gray-600 dark:text-gray-400 mb-4">
-                This environment demanded strong teamwork, fast decision making
-                and the ability to perform under pressure during high-volume
-                service periods.
-            </p>
-
-            <p class="text-gray-600 dark:text-gray-400">
-                Working in hospitality helped me develop discipline, attention
-                to detail and a strong customer-oriented mindset — skills that
-                continue to influence how I approach software development today.
-            </p>
+            {t.previousExperience.hospitality.paragraphs.map((paragraph: string) => (
+                <p class="text-gray-600 dark:text-gray-400 mb-4">
+                    {paragraph}
+                </p>
+            ))}
         </section>
 
         <section class="mb-16">
             <h2 class="text-xl font-semibold mb-6">
-                Industrial Experience – Additive Manufacturing
+                {t.previousExperience.industrial.title}
             </h2>
 
-            <p class="text-gray-600 dark:text-gray-400 mb-4">
-                After my time in hospitality, I moved into the industrial sector
-                working for <strong>CAF Digital Manufacturing</strong> as a technician
-                responsible for operating and maintaining additive manufacturing machines
-                (industrial 3D printers).
-            </p>
-
-            <p class="text-gray-600 dark:text-gray-400 mb-4">
-                My role involved monitoring production processes,
-                troubleshooting machine behaviour and optimizing printing
-                workflows.
-            </p>
-
-            <p class="text-gray-600 dark:text-gray-400">
-                During this period I started experimenting with small automation
-                scripts and printer macros to simplify pre-processing and
-                post-processing tasks.
-            </p>
+            {t.previousExperience.industrial.paragraphs.map((paragraph: string) => (
+                <p class="text-gray-600 dark:text-gray-400 mb-4">
+                    {paragraph}
+                </p>
+            ))}
         </section>
 
         <section class="mb-16">
-            <h2 class="text-xl font-semibold mb-6">Discovering Programming</h2>
+            <h2 class="text-xl font-semibold mb-6">{t.previousExperience.discovering.title}</h2>
 
-            <p class="text-gray-600 dark:text-gray-400 mb-4">
-                Working closely with additive manufacturing systems introduced
-                me to <strong>G-Code</strong>, a command language used to
-                control CNC and 3D printing machines.
-            </p>
-
-            <p class="text-gray-600 dark:text-gray-400 mb-4">
-                By learning how these instructions controlled machine behaviour,
-                I began experimenting with modifications and optimizations to
-                improve printing processes.
-            </p>
-
-            <p class="text-gray-600 dark:text-gray-400">
-                Understanding how a sequence of commands could control a complex
-                machine sparked my curiosity about programming and software
-                systems. This experience ultimately motivated me to pursue
-                formal training in web development and begin my transition into
-                software engineering.
-            </p>
+            {t.previousExperience.discovering.paragraphs.map((paragraph: string) => (
+                <p class="text-gray-600 dark:text-gray-400 mb-4">
+                    {paragraph}
+                </p>
+            ))}
         </section>
 
         <section>
-            <h2 class="text-xl font-semibold mb-6">Skills Developed</h2>
+            <h2 class="text-xl font-semibold mb-6">{t.previousExperience.skills.title}</h2>
 
             <div class="flex flex-wrap gap-2">
-                <span
-                    class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm transition hover:bg-blue-100 dark:hover:bg-gray-700"
-                >
-                    Problem Solving
-                </span>
-
-                <span
-                    class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm transition hover:bg-blue-100 dark:hover:bg-gray-700"
-                >
-                    Process Optimization
-                </span>
-
-                <span
-                    class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm transition hover:bg-blue-100 dark:hover:bg-gray-700"
-                >
-                    Technical Troubleshooting
-                </span>
-
-                <span
-                    class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm transition hover:bg-blue-100 dark:hover:bg-gray-700"
-                >
-                    G-Code Fundamentals
-                </span>
-
-                <span
-                    class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm transition hover:bg-blue-100 dark:hover:bg-gray-700"
-                >
-                    Operational Discipline
-                </span>
-
-                <span
-                    class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm transition hover:bg-blue-100 dark:hover:bg-gray-700"
-                >
-                    Working Under Pressure
-                </span>
+                {t.previousExperience.skills.items.map((skill: string) => (
+                    <span
+                        class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-sm transition hover:bg-blue-100 dark:hover:bg-gray-700"
+                    >
+                        {skill}
+                    </span>
+                ))}
             </div>
         </section>
     </article>
+</BaseLayout>
 </BaseLayout>

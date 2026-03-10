@@ -31,6 +31,9 @@ import { about as aboutES } from "../translations/es/about";
 import { backendDeveloper as backendDeveloperEN } from "../translations/en/backend-developer";
 import { backendDeveloper as backendDeveloperES } from "../translations/es/backend-developer";
 
+import { previousExperience as previousExperienceEN } from "../translations/en/previous-experience";
+import { previousExperience as previousExperienceES } from "../translations/es/previous-experience";
+
 export const translations = {
   en: {
     home: homeEN,
@@ -43,7 +46,8 @@ export const translations = {
     experience: experienceEN,
     contact: contactEN,
     about: aboutEN,
-    backendDeveloper: backendDeveloperEN
+    backendDeveloper: backendDeveloperEN,
+    previousExperience: previousExperienceEN
   },
 
   es: {
@@ -57,7 +61,8 @@ export const translations = {
     experience: experienceES,
     contact: contactES,
     about: aboutES,
-    backendDeveloper: backendDeveloperES
+    backendDeveloper: backendDeveloperES,
+    previousExperience: previousExperienceES
   }
 };
 
