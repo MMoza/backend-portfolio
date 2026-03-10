@@ -10,19 +10,24 @@ import { projectsPage as projectsES } from "../translations/es/projects";
 import { architectureComparison as architectureComparisonEN } from "../translations/en/architectureComparison";
 import { architectureComparison as architectureComparisonES } from "../translations/es/architectureComparison";
 
+import { apiBenchmark as apiBenchmarkEN } from "../translations/en/apiBenchmark";
+import { apiBenchmark as apiBenchmarkES } from "../translations/es/apiBenchmark";
+
 export const translations = {
   en: {
     home: homeEN,
     header: headerEN,
     projects: projectsEN,
-    architectureComparison: architectureComparisonEN
+    architectureComparison: architectureComparisonEN,
+    apiBenchmark: apiBenchmarkEN
   },
 
   es: {
     home: homeES,
     header: headerES,
     projects: projectsES,
-    architectureComparison: architectureComparisonES
+    architectureComparison: architectureComparisonES,
+    apiBenchmark: apiBenchmarkES
   }
 };
 
