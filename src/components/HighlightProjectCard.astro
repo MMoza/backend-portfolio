@@ -1,5 +1,10 @@
 ---
+import { getLangFromUrl } from "../i18n/getLang";
+
 const { project } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const langPrefix = lang === "es" ? "/es" : "";
 ---
 
 <style>
@@ -38,7 +43,7 @@ const { project } = Astro.props;
 </style>
 
 <a
-  href={`/experience/projects/${project.slug}`}
+  href={`${langPrefix}/experience/projects/${project.slug}`}
   class="block"
 >
 

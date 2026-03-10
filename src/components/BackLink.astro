@@ -1,14 +1,24 @@
 ---
+import { getLangFromUrl } from "../i18n/getLang";
+
 const { href = "/", label = "Back" } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+
+const langPrefix = lang === "es" ? "/es" : "";
+
+const finalHref =
+  lang === "es" && !href.startsWith("/es")
+    ? `${langPrefix}${href}`
+    : href;
 ---
 
 <a
-  href={href}
-  class="group inline-flex items-center gap-2 inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors mb-8"
+  href={finalHref}
+  class="group inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors mb-8"
 >
 
   <!-- Arrow -->
-
   <svg
     xmlns="http://www.w3.org/2000/svg"
     class="w-4 h-4 transition-transform group-hover:-translate-x-1"

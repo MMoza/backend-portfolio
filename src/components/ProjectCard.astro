@@ -1,5 +1,10 @@
 ---
+import { getLangFromUrl } from "../i18n/getLang";
+
 const { project } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const langPrefix = lang === "es" ? "/es" : "";
 ---
 
 <style>
@@ -76,7 +81,7 @@ const { project } = Astro.props;
 
   <!-- Overlay link -->
   <a
-    href={`/projects/${project.slug}`}
+    href={`${langPrefix}/projects/${project.slug}`}
     class="absolute inset-0 z-10"
     aria-label={project.title}
   ></a>

@@ -83,6 +83,25 @@ export const translations = {
 
 export type Language = "en" | "es";
 
+// Deep merge for nested translations - fallback to English if property doesn't exist
+function deepMergeWithFallback(target: any, fallback: any): any {
+  const result = { ...fallback };
+  
+  for (const key in target) {
+    if (target[key] !== null && typeof target[key] === 'object' && !Array.isArray(target[key])) {
+      result[key] = deepMergeWithFallback(target[key], fallback[key] || {});
+    } else {
+      result[key] = target[key];
+    }
+  }
+  
+  return result;
+}
+
 export function getTranslations(lang: Language) {
-  return translations[lang];
+  if (lang === "es") {
+    // Merge Spanish translations with English as fallback for missing properties
+    return deepMergeWithFallback(translations.es, translations.en);
+  }
+  return translations.en;
 }
