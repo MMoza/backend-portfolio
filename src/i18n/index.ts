@@ -16,6 +16,9 @@ import { apiBenchmark as apiBenchmarkES } from "../translations/es/apiBenchmark"
 import { patternsPlayground as patternsPlaygroundEN } from "../translations/en/patternsPlayground";
 import { patternsPlayground as patternsPlaygroundES } from "../translations/es/patternsPlayground";
 
+import { randomuserTechnicalTest as randomuserTechnicalTestEN } from "../translations/en/randomuserTechnicalTest";
+import { randomuserTechnicalTest as randomuserTechnicalTestES } from "../translations/es/randomuserTechnicalTest";
+
 export const translations = {
   en: {
     home: homeEN,
@@ -23,7 +26,8 @@ export const translations = {
     projects: projectsEN,
     architectureComparison: architectureComparisonEN,
     apiBenchmark: apiBenchmarkEN,
-    patternsPlayground: patternsPlaygroundEN
+    patternsPlayground: patternsPlaygroundEN,
+    randomuserTechnicalTest: randomuserTechnicalTestEN
   },
 
   es: {
@@ -32,7 +36,8 @@ export const translations = {
     projects: projectsES,
     architectureComparison: architectureComparisonES,
     apiBenchmark: apiBenchmarkES,
-    patternsPlayground: patternsPlaygroundES
+    patternsPlayground: patternsPlaygroundES,
+    randomuserTechnicalTest: randomuserTechnicalTestES
   }
 };
 
