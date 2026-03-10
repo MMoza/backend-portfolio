@@ -9,38 +9,44 @@ export const previousExperience = {
   },
 
   timeline: {
-    title: "Career Timeline",
+    title: "Carer timeline",
     items: [
       {
         period: "2010 — 2011",
-        title: "Administrative Assistant – Madroñera Town Hall",
+        title: "Administrative Assistant",
+        site: "Madroñera City Council",
         description: "First professional experience working in public administration."
       },
       {
         period: "2011 — 2013",
-        title: "Civil Engineering Student – University of Extremadura",
-        description: "Studied Civil Engineering while working weekends in hospitality at Memphis Rock pub.",
+        title: "Civil Engineering Student",
+        site: "University of Extremadura",
+        description: "Balanced university studies with weekend work at a disco pub, developing discipline, organization and time management.",
         highlight: true
       },
       {
         period: "2013 — 2015",
-        title: "Waiter / Receptionist – Hotel Rural Soterraña",
-        description: "Customer service, hospitality operations and front desk management in a rural hotel environment."
+        title: "Waiter / Receptionist",
+        site: "Hotel Rural Soterraña",
+        description: "Responsible for customer service and front desk management in a rural hotel, coordinating operational tasks in a dynamic service-oriented environment."
       },
       {
         period: "2015 — 2019",
-        title: "Waiter – Restaurant El Cruce",
+        title: "Waiter",
+        site: "Restaurante El Cruce",
         description: "Long-term experience in a high-volume restaurant environment, strengthening teamwork, operational efficiency and customer service."
       },
       {
         period: "2019 — 2021",
-        title: "Additive Manufacturing Technician – CAF Digital Manufacturing",
-        description: "Maintenance and processing of industrial 3D printers. During this stage I began automating workflows and experimenting with G-Code, which sparked my interest in programming."
+        title: "Additive Manufacturing Technician",
+        site: "CAF Digital Manufacturing",
+        description: "Operation and maintenance of industrial 3D printers. Began automating processes with G-Code, which sparked my interest in programming."
       },
       {
         period: "2021 — 2023",
-        title: "Web Development Studies (DAW)",
-        description: "Formal training in web development while working full-time in hospitality. This period marked the transition toward my current career as a software developer.",
+        title: "Higher Vocational Diploma in Web Application Development",
+        site: "Online",
+        description: "Balanced these studies with full-time work in hospitality, marking the transition to my career as a software developer.",
         highlight: true
       }
     ]

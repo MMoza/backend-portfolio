@@ -4,50 +4,56 @@ export const previousExperience = {
   header: {
     title: "Experiencia Profesional Anterior",
     introBefore: "Antes de hacer la transición al desarrollo de software, pasé más de ",
-    introStrong: "10 años trabajando en diferentes industrias",
-    introAfter: ". Estas experiencias moldearon mi ética laboral, mi mentalidad para resolver problemas y mi capacidad para adaptarme a entornos operativos complejos."
+    introStrong: "10 años trabajando en diferentes sectores",
+    introAfter: ", mientras seguía formándome. Estas experiencias moldearon mi ética laboral, mi mentalidad para resolver problemas y mi capacidad para adaptarme a entornos operativos complejos."
   },
 
   timeline: {
-    title: "Línea de tiempo de carrera",
+    title: "Trayectoria profesional",
     items: [
       {
         period: "2010 — 2011",
-        title: "Auxiliar Administrativo – Ayuntamiento de Madroñera",
-        description: "Primera experiencia profesional trabajando en administración pública."
+        title: "Auxiliar Administrativo",
+        site: "Ayuntamiento de Madroñera",
+        description: "Primera experiencia profesional trabajando en administración pública.",
       },
       {
         period: "2011 — 2013",
-        title: "Estudiante de Ingeniería Civil – Universidad de Extremadura",
-        description: "Cursé Ingeniería Civil mientras trabajaba los fines de semana en hostelería en el bar Memphis Rock.",
+        title: "Estudiante de Ingeniería Civil",
+        site: "Universidad de Extremadura",
+        description: "Compaginé la universidad con trabajo de fin de semana en un disco-pub, desarrollando disciplina, organización y gestión del tiempo.",
         highlight: true
       },
       {
         period: "2013 — 2015",
-        title: "Camarero / Recepcionista – Hotel Rural Soterraña",
-        description: "Atención al cliente, operaciones de hostelería y gestión de recepción en un entorno de hotel rural."
+        title: "Camarero / Recepcionista",
+        site: "Hotel Rural Soterraña",
+        description: "Responsable de atención al cliente y gestión de recepción en un hotel rural, coordinando tareas operativas en un entorno dinámico y orientado al servicio."
       },
       {
         period: "2015 — 2019",
-        title: "Camarero – Restaurante El Cruce",
+        title: "Camarero",
+        site: "Restaurante El Cruce",
         description: "Experiencia a largo plazo en un entorno de restaurante de alto volumen, fortaleciendo el trabajo en equipo, la eficiencia operativa y el servicio al cliente."
       },
       {
         period: "2019 — 2021",
-        title: "Técnico de Fabricación Aditiva – CAF Digital Manufacturing",
-        description: "Mantenimiento y procesamiento de impresoras 3D industriales. Durante esta etapa comencé a automatizar flujos de trabajo y experimentar con G-Code, lo que despertó mi interés en la programación."
+        title: "Técnico de Fabricación Aditiva",
+        site: "CAF Digital Manufacturing",
+        description: "Operación y mantenimiento de impresoras 3D industriales. Comencé a automatizar procesos con G-Code, despertando mi interés por la programación."
       },
       {
         period: "2021 — 2023",
-        title: "CFGS Desarrollo de Aplicaciones Web (DAW)",
-        description: "Formación Profesional de Grado Superior en Desarrollo de Aplicaciones Web mientras trabajaba a tiempo completo en hostelería. Este período marcó la transición hacia mi carrera actual como desarrollador de software.",
+        title: "CFGS Desarrollo de Aplicaciones Web",
+        site: "Online",
+        description: "Compaginé estos estudios con trabajo a tiempo completo en hostelería, marcando la transición hacia mi carrera como desarrollador de software.",
         highlight: true
       }
     ]
   },
 
   hospitality: {
-    title: "Industria de Hostelería",
+    title: "Hostelería",
     paragraphs: [
       "Mi carrera profesional comenzó en el sector de la hostelería, donde trabajé durante más de siete años en dos restaurantes.",
       "Este entorno demandaba un fuerte trabajo en equipo, toma rápida de decisiones y la capacidad de rendir bajo presión durante períodos de servicio de alto volumen.",
@@ -56,7 +62,7 @@ export const previousExperience = {
   },
 
   industrial: {
-    title: "Experiencia Industrial – Fabricación Aditiva",
+    title: "Industria",
     paragraphs: [
       "Después de mi tiempo en hostelería, me mudé al sector industrial trabajando para CAF Digital Manufacturing como técnico responsable de operar y mantener máquinas de fabricación aditiva (impresoras 3D industriales).",
       "Mi función involucraba monitorear procesos de producción, resolver problemas del comportamiento de la máquina y optimizar flujos de impresión.",
