@@ -22,6 +22,9 @@ import { randomuserTechnicalTest as randomuserTechnicalTestES } from "../transla
 import { experience as experienceEN } from "../translations/en/experience";
 import { experience as experienceES } from "../translations/es/experience";
 
+import { contact as contactEN } from "../translations/en/contact";
+import { contact as contactES } from "../translations/es/contact";
+
 export const translations = {
   en: {
     home: homeEN,
@@ -31,7 +34,8 @@ export const translations = {
     apiBenchmark: apiBenchmarkEN,
     patternsPlayground: patternsPlaygroundEN,
     randomuserTechnicalTest: randomuserTechnicalTestEN,
-    experience: experienceEN
+    experience: experienceEN,
+    contact: contactEN
   },
 
   es: {
@@ -42,7 +46,8 @@ export const translations = {
     apiBenchmark: apiBenchmarkES,
     patternsPlayground: patternsPlaygroundES,
     randomuserTechnicalTest: randomuserTechnicalTestES,
-    experience: experienceES
+    experience: experienceES,
+    contact: contactES
   }
 };
 
