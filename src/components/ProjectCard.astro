@@ -41,16 +41,28 @@ const { project } = Astro.props;
   class="relative group border border-gray-200 dark:border-gray-800 rounded-xl p-6 transition-all duration-300 hover:shadow-md hover:-translate-y-1 bg-white dark:bg-gray-900 cursor-pointer flex flex-col h-full overflow-hidden"
 >
   <!-- Borde superior degradado -->
-  <div class="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500/60 to-transparent transition-opacity duration-300 group-hover:opacity-100 opacity-50"></div>
+  <div class="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500/60 to-transparent transition-opacity duration-300 group-hover:opacity-100 opacity-50 z-20"></div>
 
   <!-- Borde inferior degradado -->
-  <div class="absolute bottom-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500/60 to-transparent transition-opacity duration-300 group-hover:opacity-100 opacity-50"></div>
+  <div class="absolute bottom-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500/60 to-transparent transition-opacity duration-300 group-hover:opacity-100 opacity-50 z-20"></div>
 
   <!-- Borde izquierdo degradado -->
-  <div class="absolute left-0 inset-y-0 w-[1px] bg-gradient-to-b from-transparent via-blue-500/60 to-transparent transition-opacity duration-300 group-hover:opacity-100 opacity-50"></div>
+  <div class="absolute left-0 inset-y-0 w-[1px] bg-gradient-to-b from-transparent via-blue-500/60 to-transparent transition-opacity duration-300 group-hover:opacity-100 opacity-50 z-20"></div>
 
   <!-- Borde derecho degradado -->
-  <div class="absolute right-0 inset-y-0 w-[1px] bg-gradient-to-b from-transparent via-blue-500/60 to-transparent transition-opacity duration-300 group-hover:opacity-100 opacity-50"></div>
+  <div class="absolute right-0 inset-y-0 w-[1px] bg-gradient-to-b from-transparent via-blue-500/60 to-transparent transition-opacity duration-300 group-hover:opacity-100 opacity-50 z-20"></div>
+
+  <!-- Image -->
+  {project.image && (
+    <img
+      src={project.image}
+      alt={project.title}
+      class="absolute top-0 left-0 right-0 w-full h-50 object-cover rounded-t-lg transition-transform duration-300 group-hover:scale-105 origin-top z-0"
+    />
+  )}
+
+  <!-- Image spacing -->
+  <div class="h-50 -mx-6 -mt-6 mb-4"></div>
 
   <!-- Overlay link -->
   <a
