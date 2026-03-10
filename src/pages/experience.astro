@@ -3,51 +3,29 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ExperienceCard from "../components/ExperienceCard.astro";
 import BackLink from "../components/BackLink.astro";
 
-const experiences = [
-  {
-    slug: "backend-developer",
-    date: "2023 — Present",
-    title: "Backend Developer",
-    description:
-      "Full-stack developer mainly focused on backend architecture and API integrations.",
-    points: [
-      "API integrations with external platforms",
-      "Backend development with PHP",
-      "Maintaining and evolving legacy systems",
-      "Working on business-critical production systems"
-    ],
-    skills: ["PHP", "APIs", "Integrations", "Architecture"],
-    size: "large"
-  },
+import { getLangFromUrl } from "../i18n/getLang";
+import { getTranslations } from "../i18n";
 
-  {
-    slug: "previous-experience",
-    date: "Previous experience",
-    title: "Professional background",
-    description:
-      "Over 10 years of experience in other professional fields that helped shape my problem-solving mindset.",
-    skills: ["Problem solving", "Responsibility", "Analytical thinking"],
-    size: "normal"
-  }
-];
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations(lang);
+
+const experiences = t.experience.experiences;
 ---
 
 <BaseLayout>
 
 <section>
 
-<BackLink href="/" label="Back to home" />
+<BackLink href="/" label={t.experience.back} />
 
 <header class="mb-16 max-w-2xl">
 
 <h1 class="text-3xl md:text-4xl font-bold mb-4">
-Experience
+  {t.experience.header.title}
 </h1>
 
 <p class="text-gray-600 dark:text-gray-400">
-My professional background combines backend development with over 10 years
-of experience in other professional fields that helped shape my
-problem-solving mindset.
+  {t.experience.header.description}
 </p>
 
 </header>
