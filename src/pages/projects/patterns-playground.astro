@@ -1,23 +1,27 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BackLink from "../../components/BackLink.astro";
+
+import { getLangFromUrl } from "../../i18n/getLang";
+import { getTranslations } from "../../i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations(lang);
 ---
 
 <BaseLayout>
     <article class="max-w-3xl mx-auto">
-        <BackLink href="/projects" label="Back to projects" />
+        <BackLink href="/projects" label={t.patternsPlayground.back} />
 
         <header class="mb-14">
-            <p class="text-sm text-gray-500 mb-2">Architecture Playground</p>
+            <p class="text-sm text-gray-500 mb-2">{t.patternsPlayground.header.label}</p>
 
             <h1 class="text-3xl md:text-4xl font-bold mb-4">
-                Patterns Playground
+                {t.patternsPlayground.header.title}
             </h1>
 
             <p class="text-lg text-gray-600 dark:text-gray-400">
-                A practical project designed to explore and understand common
-                software design patterns through real implementations in
-                Laravel.
+                {t.patternsPlayground.header.description}
             </p>
         </header>
 
@@ -29,12 +33,11 @@ import BackLink from "../../components/BackLink.astro";
                     <p
                         class="font-semibold text-gray-800 dark:text-gray-200 mb-1"
                     >
-                        Architecture Focus
+                        {t.patternsPlayground.highlights.architecture.title}
                     </p>
 
                     <p class="text-sm text-gray-500 dark:text-gray-400 mt-auto">
-                        Exploring structural and behavioral design patterns used
-                        in backend systems.
+                        {t.patternsPlayground.highlights.architecture.description}
                     </p>
                 </div>
 
@@ -44,12 +47,11 @@ import BackLink from "../../components/BackLink.astro";
                     <p
                         class="font-semibold text-gray-800 dark:text-gray-200 mb-1"
                     >
-                        Laravel Implementation
+                        {t.patternsPlayground.highlights.laravel.title}
                     </p>
 
                     <p class="text-sm text-gray-500 dark:text-gray-400 mt-auto">
-                        Patterns implemented within a real Laravel application
-                        environment.
+                        {t.patternsPlayground.highlights.laravel.description}
                     </p>
                 </div>
 
@@ -59,127 +61,104 @@ import BackLink from "../../components/BackLink.astro";
                     <p
                         class="font-semibold text-gray-800 dark:text-gray-200 mb-1"
                     >
-                        Learning by Building
+                        {t.patternsPlayground.highlights.learning.title}
                     </p>
 
                     <p class="text-sm text-gray-500 dark:text-gray-400 mt-auto">
-                        Understanding design patterns through concrete
-                        implementations and experiments.
+                        {t.patternsPlayground.highlights.learning.description}
                     </p>
                 </div>
             </div>
 
             <p class="text-gray-600 dark:text-gray-400 mb-4">
-                Design patterns are often easier to understand conceptually than
-                to apply correctly in real-world systems.
+                {t.patternsPlayground.intro.p1}
             </p>
 
             <p class="text-gray-600 dark:text-gray-400">
-                This project acts as a sandbox where different design patterns
-                can be implemented, tested and analyzed in isolation while still
-                remaining grounded in a realistic Laravel application structure.
+                {t.patternsPlayground.intro.p2}
             </p>
         </section>
 
         <section class="mb-16">
-            <h2 class="text-xl font-semibold mb-6">Project Goals</h2>
+            <h2 class="text-xl font-semibold mb-6">{t.patternsPlayground.goals_section.title}</h2>
 
             <p class="text-gray-600 dark:text-gray-400 mb-4">
-                The purpose of this project is to explore how different patterns
-                help structure backend systems and how they affect
-                maintainability, extensibility and readability of the codebase.
+                {t.patternsPlayground.goals_section.p1}
             </p>
 
             <ul
                 class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
             >
-                <li>Understand the intent behind common design patterns</li>
-                <li>Analyze their impact on code organization</li>
-                <li>
-                    Evaluate when patterns simplify complexity and when they
-                    introduce unnecessary abstraction
-                </li>
-                <li>
-                    Experiment with different approaches to solve the same
-                    problem
-                </li>
+                <li>{t.patternsPlayground.goals_section.items[0]}</li>
+                <li>{t.patternsPlayground.goals_section.items[1]}</li>
+                <li>{t.patternsPlayground.goals_section.items[2]}</li>
+                <li>{t.patternsPlayground.goals_section.items[3]}</li>
             </ul>
         </section>
 
         <section class="mb-16">
-            <h2 class="text-xl font-semibold mb-6">Patterns Implemented</h2>
+            <h2 class="text-xl font-semibold mb-6">{t.patternsPlayground.patterns_section.title}</h2>
 
             <p class="text-gray-600 dark:text-gray-400 mb-6">
-                The playground will progressively include implementations of
-                different categories of design patterns.
+                {t.patternsPlayground.patterns_section.intro}
             </p>
 
-            <h3 class="font-semibold mb-3">Creational Patterns</h3>
+            <h3 class="font-semibold mb-3">{t.patternsPlayground.patterns_section.creational.title}</h3>
 
             <ul
                 class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6 mb-6"
             >
-                <li>Factory</li>
-                <li>Abstract Factory</li>
-                <li>Builder</li>
+                <li>{t.patternsPlayground.patterns_section.creational.items[0]}</li>
+                <li>{t.patternsPlayground.patterns_section.creational.items[1]}</li>
+                <li>{t.patternsPlayground.patterns_section.creational.items[2]}</li>
             </ul>
 
-            <h3 class="font-semibold mb-3">Structural Patterns</h3>
+            <h3 class="font-semibold mb-3">{t.patternsPlayground.patterns_section.structural.title}</h3>
 
             <ul
                 class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6 mb-6"
             >
-                <li>Decorator</li>
-                <li>Adapter</li>
-                <li>Facade</li>
+                <li>{t.patternsPlayground.patterns_section.structural.items[0]}</li>
+                <li>{t.patternsPlayground.patterns_section.structural.items[1]}</li>
+                <li>{t.patternsPlayground.patterns_section.structural.items[2]}</li>
             </ul>
 
-            <h3 class="font-semibold mb-3">Behavioral Patterns</h3>
+            <h3 class="font-semibold mb-3">{t.patternsPlayground.patterns_section.behavioral.title}</h3>
 
             <ul
                 class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
             >
-                <li>Strategy</li>
-                <li>Observer</li>
-                <li>Command</li>
+                <li>{t.patternsPlayground.patterns_section.behavioral.items[0]}</li>
+                <li>{t.patternsPlayground.patterns_section.behavioral.items[1]}</li>
+                <li>{t.patternsPlayground.patterns_section.behavioral.items[2]}</li>
             </ul>
         </section>
 
         <section class="mb-16">
-            <h2 class="text-xl font-semibold mb-6">Why Laravel</h2>
+            <h2 class="text-xl font-semibold mb-6">{t.patternsPlayground.why_laravel_section.title}</h2>
 
             <p class="text-gray-600 dark:text-gray-400 mb-4">
-                Laravel provides a good environment to experiment with design
-                patterns because it already incorporates several of them in its
-                core architecture.
+                {t.patternsPlayground.why_laravel_section.p1}
             </p>
 
             <p class="text-gray-600 dark:text-gray-400 mb-4">
-                Concepts such as service containers, facades, event systems and
-                middleware pipelines offer a natural playground to observe how
-                patterns interact with a real framework ecosystem.
+                {t.patternsPlayground.why_laravel_section.p2}
             </p>
 
             <p class="text-gray-600 dark:text-gray-400">
-                By building small isolated examples within a Laravel
-                application, the project allows experimentation without the
-                complexity of a large production codebase.
+                {t.patternsPlayground.why_laravel_section.p3}
             </p>
         </section>
 
         <section>
-            <h2 class="text-xl font-semibold mb-6">Learning Approach</h2>
+            <h2 class="text-xl font-semibold mb-6">{t.patternsPlayground.learning_approach_section.title}</h2>
 
             <p class="text-gray-600 dark:text-gray-400 mb-4">
-                Each pattern implementation includes a small domain example that
-                demonstrates when the pattern becomes useful and what trade-offs
-                it introduces.
+                {t.patternsPlayground.learning_approach_section.p1}
             </p>
 
             <p class="text-gray-600 dark:text-gray-400">
-                The focus is not only on implementing patterns, but also on
-                understanding the reasoning behind them and identifying
-                scenarios where simpler solutions might be preferable.
+                {t.patternsPlayground.learning_approach_section.p2}
             </p>
         </section>
     </article>

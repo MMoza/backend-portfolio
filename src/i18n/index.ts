@@ -13,13 +13,17 @@ import { architectureComparison as architectureComparisonES } from "../translati
 import { apiBenchmark as apiBenchmarkEN } from "../translations/en/apiBenchmark";
 import { apiBenchmark as apiBenchmarkES } from "../translations/es/apiBenchmark";
 
+import { patternsPlayground as patternsPlaygroundEN } from "../translations/en/patternsPlayground";
+import { patternsPlayground as patternsPlaygroundES } from "../translations/es/patternsPlayground";
+
 export const translations = {
   en: {
     home: homeEN,
     header: headerEN,
     projects: projectsEN,
     architectureComparison: architectureComparisonEN,
-    apiBenchmark: apiBenchmarkEN
+    apiBenchmark: apiBenchmarkEN,
+    patternsPlayground: patternsPlaygroundEN
   },
 
   es: {
@@ -27,7 +31,8 @@ export const translations = {
     header: headerES,
     projects: projectsES,
     architectureComparison: architectureComparisonES,
-    apiBenchmark: apiBenchmarkES
+    apiBenchmark: apiBenchmarkES,
+    patternsPlayground: patternsPlaygroundES
   }
 };
 
