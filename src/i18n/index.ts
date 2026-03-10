@@ -25,6 +25,9 @@ import { experience as experienceES } from "../translations/es/experience";
 import { contact as contactEN } from "../translations/en/contact";
 import { contact as contactES } from "../translations/es/contact";
 
+import { about as aboutEN } from "../translations/en/about";
+import { about as aboutES } from "../translations/es/about";
+
 export const translations = {
   en: {
     home: homeEN,
@@ -35,7 +38,8 @@ export const translations = {
     patternsPlayground: patternsPlaygroundEN,
     randomuserTechnicalTest: randomuserTechnicalTestEN,
     experience: experienceEN,
-    contact: contactEN
+    contact: contactEN,
+    about: aboutEN
   },
 
   es: {
@@ -47,7 +51,8 @@ export const translations = {
     patternsPlayground: patternsPlaygroundES,
     randomuserTechnicalTest: randomuserTechnicalTestES,
     experience: experienceES,
-    contact: contactES
+    contact: contactES,
+    about: aboutES
   }
 };
 
