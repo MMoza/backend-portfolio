@@ -23,18 +23,17 @@ const t = getTranslations(lang);
             </h1>
 
             <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">
-                Working as a FullStack developer at
+                {t.backendDeveloper.header.introPart1}
                 <a
                     href={t.backendDeveloper.header.companyUrl}
                     target="_blank"
                     class="text-blue-600 hover:underline"
                 >
                     {t.backendDeveloper.header.companyName}
-                </a>, developing SaaS products in the tourism sector including
-                PMS systems, Channel Managers and booking engines managing more
-                than
+                </a>
+                {t.backendDeveloper.header.introPart2}
                 <strong class="text-blue-600"
-                    >2 million reservations per year</strong
+                    >{t.backendDeveloper.header.reservationsPerYear}</strong
                 >.
             </p>
 

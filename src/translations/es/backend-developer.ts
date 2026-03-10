@@ -2,17 +2,16 @@ export const backendDeveloper = {
   back: "Volver a experiencia",
 
   header: {
-    period: "Mayo 2023 — Presente",
-    title: "Desarrollador FullStack",
-    companyName: "MisterPlan S.L",
-    companyUrl: "https://www.mrplan.es",
-    intro:
-      "Trabajando como desarrollador FullStack en MisterPlan S.L, desarrollando productos SaaS en el sector turístico incluyendo sistemas PMS, Channel Managers y motores de reserva que gestionan más de 2 millones de reservas al año.",
-    focus:
-      "Mi trabajo se enfoca principalmente en arquitectura backend, integraciones y evolución de sistemas de dominio complejos, mientras contribuyo al frontend cuando es necesario. Trabajo diariamente con PHP, MySQL, Docker y JavaScript en un entorno orientado a productos donde la escalabilidad, confiabilidad y mantenibilidad son críticos.",
-    integrations:
-      "La plataforma se integra con múltiples proveedores terceros en diferentes dominios incluyendo plataformas de distribución, administraciones de facturación electrónica y sistemas de cerraduras inteligentes utilizados por hoteles y alquileres a corto plazo."
-  },
+      "period": "Mayo 2023 – Presente",
+      "title": "FullStack Developer",
+      "companyName": "MisterPlan S.L",
+      "companyUrl": "https://www.mrplan.es",
+      "introPart1": "Trabajo como desarrollador FullStack en ",
+      "introPart2": ", desarrollando productos SaaS en el sector turístico, incluyendo sistemas PMS, Channel Managers y motores de reservas que gestionan más de ",
+      "reservationsPerYear": "2 millones de reservas al año",
+      "focus": "Mi trabajo se centra principalmente en la arquitectura backend, integraciones y evolución de sistemas de dominio complejos, contribuyendo también al frontend cuando es necesario. Trabajo a diario con PHP, MySQL, Docker y JavaScript dentro de un entorno orientado a producto donde la escalabilidad, fiabilidad y mantenibilidad son críticas.",
+      "integrations": "La plataforma se integra con múltiples proveedores externos en diferentes dominios, incluyendo plataformas de distribución, administraciones de facturación electrónica y sistemas de cerraduras inteligentes utilizados por hoteles y alojamientos turísticos."
+    },
 
   about: {
     title: "Acerca del rol",

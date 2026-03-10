@@ -2,12 +2,13 @@ export const backendDeveloper = {
   back: "Back to experience",
 
   header: {
-    period: "May 2023 — Present",
+    period: "May 2023 – Present",
     title: "FullStack Developer",
     companyName: "MisterPlan S.L",
     companyUrl: "https://www.mrplan.es",
-    intro:
-      "Working as a FullStack developer at MisterPlan S.L, developing SaaS products in the tourism sector including PMS systems, Channel Managers and booking engines managing more than 2 million reservations per year.",
+    introPart1: "Working as a FullStack developer at ",
+    introPart2: ", developing SaaS products in the tourism sector including PMS systems, Channel Managers and booking engines managing more than ",
+    reservationsPerYear: "2 million reservations per year",
     focus:
       "My work is mainly focused on backend architecture, integrations and evolution of complex domain systems, while also contributing to the frontend when required. I work daily with PHP, MySQL, Docker and JavaScript within a product-oriented environment where scalability, reliability and maintainability are critical.",
     integrations:
