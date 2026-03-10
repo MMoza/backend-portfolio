@@ -1,0 +1,112 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BackLink from "../components/BackLink.astro";
+import { getLangFromUrl } from "../i18n/getLang";
+import { getTranslations } from "../i18n/index";
+
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations(lang);
+---
+
+<BaseLayout>
+  <article class="max-w-3xl mx-auto">
+
+    <BackLink href="/" label={t.portfolio.back} />
+
+    <!-- HERO -->
+
+    <header class="mb-14">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">
+        {t.portfolio.hero.title}
+      </h1>
+
+      <p class="text-gray-600 dark:text-gray-400 mb-4">
+        {t.portfolio.hero.intro}
+      </p>
+
+      <p class="text-gray-600 dark:text-gray-400">
+        {t.portfolio.hero.goal}
+      </p>
+    </header>
+
+
+    <!-- PURPOSE -->
+
+    <section class="mb-16">
+      <h2 class="text-xl font-semibold mb-6">
+        {t.portfolio.purpose.title}
+      </h2>
+
+      {t.portfolio.purpose.paragraphs.map((paragraph) => (
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          {paragraph}
+        </p>
+      ))}
+    </section>
+
+
+    <!-- DESIGN GOALS -->
+
+    <section class="mb-16">
+      <h2 class="text-xl font-semibold mb-6">
+        {t.portfolio.goals.title}
+      </h2>
+
+      <p class="text-gray-600 dark:text-gray-400 mb-6">
+        {t.portfolio.goals.intro}
+      </p>
+
+      <ul class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6">
+        {t.portfolio.goals.items.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </section>
+
+
+    <!-- TECHNOLOGY -->
+
+    <section class="mb-16">
+      <h2 class="text-xl font-semibold mb-6">
+        {t.portfolio.technology.title}
+      </h2>
+
+      {t.portfolio.technology.paragraphs.map((paragraph) => (
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          {paragraph}
+        </p>
+      ))}
+    </section>
+
+
+    <!-- CHALLENGES -->
+
+    <section class="mb-16">
+      <h2 class="text-xl font-semibold mb-6">
+        {t.portfolio.challenges.title}
+      </h2>
+
+      {t.portfolio.challenges.paragraphs.map((paragraph) => (
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          {paragraph}
+        </p>
+      ))}
+    </section>
+
+
+    <!-- DEPLOYMENT -->
+
+    <section>
+      <h2 class="text-xl font-semibold mb-6">
+        {t.portfolio.deployment.title}
+      </h2>
+
+      {t.portfolio.deployment.paragraphs.map((paragraph) => (
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          {paragraph}
+        </p>
+      ))}
+    </section>
+
+  </article>
+</BaseLayout>

@@ -43,6 +43,9 @@ import { channelManager as channelManagerES } from "../translations/es/channel-m
 import { smartLocks as smartLocksEN } from "../translations/en/smartLocks";
 import { smartLocks as smartLokcsES } from "../translations/es/smartLocks";
 
+import { portfolio as portfolioEN } from "../translations/en/portfolio";
+import { portfolio as portfolioES } from "../translations/es/portfolio";
+
 export const translations = {
   en: {
     home: homeEN,
@@ -59,7 +62,8 @@ export const translations = {
     previousExperience: previousExperienceEN,
     invoicing: invoicingEN,
     channelManager: channelManagerEN,
-    smartLocks: smartLocksEN
+    smartLocks: smartLocksEN,
+    portfolio: portfolioEN
   },
 
   es: {
@@ -77,7 +81,8 @@ export const translations = {
     previousExperience: previousExperienceES,
     invoicing: invoicingES,
     channelManager: channelManagerES,
-    smartLocks: smartLokcsES
+    smartLocks: smartLokcsES,
+    portfolio: portfolioES
   }
 };
 

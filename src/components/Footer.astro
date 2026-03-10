@@ -1,3 +1,13 @@
+---
+import { getLangFromUrl } from "../i18n/getLang";
+
+const lang = getLangFromUrl(Astro.url);
+
+const currentPath = Astro.url.pathname;
+
+const langPrefix = lang === "es" ? "/es" : "";
+---
+
 <footer class="relative border-t border-gray-200 dark:border-gray-800 mt-20">
 
   <!-- Accent line -->
@@ -8,10 +18,91 @@
 
   <div class="relative max-w-5xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
 
-    <!-- Copyright -->
-    <p class="text-gray-600 dark:text-gray-400">
-      © {new Date().getFullYear()} Miguel Ángel Moza Barquilla
-    </p>
+<div class="flex flex-col items-center text-center">
+
+  <p class="text-sm text-gray-500 dark:text-gray-400">
+    © {new Date().getFullYear()} Miguel Ángel Moza Barquilla
+  </p>
+
+  <div class="flex items-center gap-4 mt-2">
+
+    <!-- Astro -->
+    <a
+      href="https://astro.build"
+      target="_blank"
+      title="Astro"
+      class="opacity-70 hover:opacity-100 transition-opacity"
+    >
+      <img
+        src="https://cdn.simpleicons.org/astro"
+        alt="Astro"
+        class="w-4 h-4"
+      />
+    </a>
+
+    <!-- Tailwind -->
+    <a
+      href="https://tailwindcss.com"
+      target="_blank"
+      title="Tailwind CSS"
+      class="opacity-70 hover:opacity-100 transition-opacity"
+    >
+      <img
+        src="https://cdn.simpleicons.org/tailwindcss"
+        alt="Tailwind"
+        class="w-4 h-4"
+      />
+    </a>
+
+    <!-- GitHub Actions -->
+    <a
+      href="https://github.com/features/actions"
+      target="_blank"
+      title="GitHub Actions"
+      class="opacity-70 hover:opacity-100 transition-opacity"
+    >
+      <img
+        src="https://cdn.simpleicons.org/githubactions"
+        alt="GitHub Actions"
+        class="w-4 h-4"
+      />
+    </a>
+
+    <span class="opacity-40">|</span>
+
+    <a
+      href={`${langPrefix}/about-portfolio`}
+      class="group flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+    >
+
+      <!-- Eye icon -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M2.458 12C3.732 7.943 7.523 5 12 5
+            c4.477 0 8.268 2.943 9.542 7
+            -1.274 4.057-5.065 7-9.542 7
+            -4.477 0-8.268-2.943-9.542-7z" />
+      </svg>
+
+      <!-- Arrow -->
+      <span class="transition-transform duration-200 group-hover:translate-x-1">
+        →
+      </span>
+
+    </a>
+
+  </div>
+
+</div>
 
     <!-- Links -->
     <div class="flex items-center gap-8">
