@@ -39,8 +39,8 @@ export const previousExperience = {
       },
       {
         period: "2021 — 2023",
-        title: "Estudios de Desarrollo Web (DAW)",
-        description: "Formación formal en desarrollo web mientras trabajaba a tiempo completo en hostelería. Este período marcó la transición hacia mi carrera actual como desarrollador de software.",
+        title: "CFGS Desarrollo de Aplicaciones Web (DAW)",
+        description: "Formación Profesional de Grado Superior en Desarrollo de Aplicaciones Web mientras trabajaba a tiempo completo en hostelería. Este período marcó la transición hacia mi carrera actual como desarrollador de software.",
         highlight: true
       }
     ]
