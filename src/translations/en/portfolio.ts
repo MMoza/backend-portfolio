@@ -30,13 +30,24 @@ export const portfolio = {
   },
 
   technology: {
-    title: "Technology choices",
+    title: "Technology Choices",
     paragraphs: [
-      "For this project I decided to experiment with Astro, a framework I discovered through Midudev's content and that immediately caught my attention for projects like this.",
-      "Astro allows building reusable components while keeping the final output extremely lightweight, avoiding the need for heavier client-side frameworks like React when they are not really necessary.",
-      "This approach made it possible to build a modular and maintainable structure without adding unnecessary complexity to what is essentially a content-driven site."
+        {
+        beforeLink: "For this project I decided to experiment with Astro, a framework I discovered through the content of ",
+        linkText: "Midudev",
+        afterLink: ", which seemed particularly well suited for projects like this."
+        },
+        {
+        text: "Astro allows building reusable components while keeping the final result very lightweight, avoiding the need to rely on heavier client-side frameworks like React when they are not really necessary."
+        },
+        {
+        text: "It was also my first experience using Tailwind CSS, which allowed me to build the interface quickly while maintaining visual consistency and a fully responsive design."
+        },
+        {
+        text: "This approach allowed me to build a modular and maintainable structure without introducing unnecessary complexity to what is essentially a content-focused website."
+        }
     ]
-  },
+    },
 
   challenges: {
     title: "Technical challenges",

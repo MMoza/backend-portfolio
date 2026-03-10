@@ -32,11 +32,22 @@ export const portfolio = {
   technology: {
     title: "Elección de tecnologías",
     paragraphs: [
-      "Para este proyecto decidí experimentar con Astro, un framework que descubrí a través del contenido de Midudev y que me pareció especialmente interesante para proyectos como este.",
-      "Astro permite crear componentes reutilizables manteniendo un resultado final muy ligero, evitando la necesidad de utilizar frameworks de cliente más pesados como React cuando realmente no son necesarios.",
-      "Este enfoque me permitió construir una estructura modular y mantenible sin añadir complejidad innecesaria a lo que en esencia es un sitio centrado en contenido."
+        {
+        beforeLink: "Para este proyecto decidí experimentar con Astro, un framework que descubrí a través del contenido de ",
+        linkText: "Midudev",
+        afterLink: " y que me pareció especialmente interesante para proyectos como este."
+        },
+        {
+        text: "Astro permite crear componentes reutilizables manteniendo un resultado final muy ligero, evitando la necesidad de utilizar frameworks de cliente más pesados como React cuando realmente no son necesarios."
+        },
+        {
+        text: "También fue mi primera experiencia utilizando Tailwind CSS, lo que me permitió construir la interfaz de forma rápida manteniendo consistencia visual y un diseño completamente responsive."
+        },
+        {
+        text: "Este enfoque me permitió construir una estructura modular y mantenible sin añadir complejidad innecesaria a lo que en esencia es un sitio centrado en contenido."
+        }
     ]
-  },
+    },
 
   challenges: {
     title: "Retos técnicos",
@@ -50,9 +61,9 @@ export const portfolio = {
   deployment: {
     title: "Flujo de despliegue",
     paragraphs: [
-      "Otra parte interesante del proyecto fue el flujo de despliegue.",
-      "El sitio se construye en un repositorio independiente y se despliega automáticamente en mi repositorio existente de GitHub Pages mediante un workflow de GitHub Actions.",
-      "Esto me permitió mantener el portafolio anterior funcionando en producción mientras desarrollaba esta nueva versión de forma independiente hasta que todo estuvo listo para publicarse."
+        "Otra parte interesante del proyecto fue el flujo de despliegue.",
+        "La nueva versión del portafolio se desarrolló en un repositorio independiente, mientras que el sitio en producción seguía alojado en mi repositorio original de GitHub Pages.",
+        "Una vez que el proyecto alcanzó un estado funcional, configuré un workflow de GitHub Actions para construir el sitio y desplegarlo automáticamente en el repositorio de GitHub Pages existente, reemplazando así el portafolio anterior."
     ]
   }
 };

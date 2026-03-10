@@ -17,7 +17,7 @@ const t = getTranslations(lang);
 
     <header class="mb-14">
       <h1 class="text-3xl md:text-4xl font-bold mb-4">
-        {t.portfolio.hero.title}
+        👨‍💻 {t.portfolio.hero.title}
       </h1>
 
       <p class="text-gray-600 dark:text-gray-400 mb-4">
@@ -34,7 +34,7 @@ const t = getTranslations(lang);
 
     <section class="mb-16">
       <h2 class="text-xl font-semibold mb-6">
-        {t.portfolio.purpose.title}
+        🎯 {t.portfolio.purpose.title}
       </h2>
 
       {t.portfolio.purpose.paragraphs.map((paragraph) => (
@@ -49,7 +49,7 @@ const t = getTranslations(lang);
 
     <section class="mb-16">
       <h2 class="text-xl font-semibold mb-6">
-        {t.portfolio.goals.title}
+        🧭 {t.portfolio.goals.title}
       </h2>
 
       <p class="text-gray-600 dark:text-gray-400 mb-6">
@@ -67,15 +67,32 @@ const t = getTranslations(lang);
     <!-- TECHNOLOGY -->
 
     <section class="mb-16">
-      <h2 class="text-xl font-semibold mb-6">
-        {t.portfolio.technology.title}
-      </h2>
+        <h2 class="text-xl font-semibold mb-6">
+            🧰 {t.portfolio.technology.title}
+        </h2>
 
-      {t.portfolio.technology.paragraphs.map((paragraph) => (
-        <p class="text-gray-600 dark:text-gray-400 mb-4">
-          {paragraph}
-        </p>
-      ))}
+        {t.portfolio.technology.paragraphs.map((paragraph) => (
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+
+            {paragraph.beforeLink && (
+                <>
+                {paragraph.beforeLink}
+                <a
+                    href="https://midu.dev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-blue-600 dark:text-blue-400 hover:underline"
+                >
+                    {paragraph.linkText}
+                </a>
+                {paragraph.afterLink}
+                </>
+            )}
+
+            {paragraph.text && paragraph.text}
+
+            </p>
+        ))}
     </section>
 
 
@@ -83,7 +100,7 @@ const t = getTranslations(lang);
 
     <section class="mb-16">
       <h2 class="text-xl font-semibold mb-6">
-        {t.portfolio.challenges.title}
+        🧠 {t.portfolio.challenges.title}
       </h2>
 
       {t.portfolio.challenges.paragraphs.map((paragraph) => (
@@ -98,7 +115,7 @@ const t = getTranslations(lang);
 
     <section>
       <h2 class="text-xl font-semibold mb-6">
-        {t.portfolio.deployment.title}
+        🚀 {t.portfolio.deployment.title}
       </h2>
 
       {t.portfolio.deployment.paragraphs.map((paragraph) => (
