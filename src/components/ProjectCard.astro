@@ -54,11 +54,21 @@ const { project } = Astro.props;
 
   <!-- Image -->
   {project.image && (
-    <img
-      src={project.image}
-      alt={project.title}
-      class="absolute top-0 left-0 right-0 w-full h-50 object-cover rounded-t-lg transition-transform duration-300 group-hover:scale-105 origin-top z-0"
-    />
+    <>
+      <img
+        src={project.image}
+        alt={project.title}
+        class="absolute top-0 left-0 right-0 w-full h-50 object-cover rounded-t-lg transition-transform duration-300 group-hover:scale-105 origin-top z-0"
+      />
+      <!-- Mac header -->
+      <div class="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-gray-200 to-gray-100 dark:from-gray-700 dark:to-gray-600 flex items-center justify-start px-4 z-10 rounded-t-lg border-b border-gray-300/50 dark:border-gray-500/30">
+        <div class="flex gap-2">
+          <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+          <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+          <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+        </div>
+      </div>
+    </>
   )}
 
   <!-- Image spacing -->
