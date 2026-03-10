@@ -78,32 +78,29 @@ const t = getTranslations(lang);
                     class="border border-gray-200 dark:border-gray-800 rounded-xl p-6"
                 >
                     <h3 class="font-semibold mb-2">
-                        {t.architectureComparison.phases.title}
+                        {t.architectureComparison.architectures.a01.name}
                     </h3>
 
                     <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">
-                        Pure Active Record approach using Eloquent directly.
+                        {t.architectureComparison.architectures.a01.summary}
                     </p>
 
                     <p class="text-gray-600 dark:text-gray-400 text-sm">
-                        Fast to develop but tightly coupled to the framework.
-                        Complexity grows rapidly as domain rules increase.
+                        {t.architectureComparison.architectures.a01.description}
                     </p>
                 </div>
 
                 <div
                     class="border border-gray-200 dark:border-gray-800 rounded-xl p-6"
                 >
-                    <h3 class="font-semibold mb-2">A02 — Repository Pattern</h3>
+                    <h3 class="font-semibold mb-2">{t.architectureComparison.architectures.a02.name}</h3>
 
                     <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">
-                        Separation between controller, service layer and
-                        repository abstraction.
+                        {t.architectureComparison.architectures.a02.summary}
                     </p>
 
                     <p class="text-gray-600 dark:text-gray-400 text-sm">
-                        Introduces dependency inversion and improves testability
-                        while keeping a relatively simple domain model.
+                        {t.architectureComparison.architectures.a02.description}
                     </p>
                 </div>
 
@@ -111,33 +108,29 @@ const t = getTranslations(lang);
                     class="border border-gray-200 dark:border-gray-800 rounded-xl p-6"
                 >
                     <h3 class="font-semibold mb-2">
-                        A03 — Strategy + Polymorphism
+                        {t.architectureComparison.architectures.a03.name}
                     </h3>
 
                     <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">
-                        Reservation behaviour varies depending on reservation
-                        type.
+                        {t.architectureComparison.architectures.a03.summary}
                     </p>
 
                     <p class="text-gray-600 dark:text-gray-400 text-sm">
-                        Encapsulates business rules using polymorphism and
-                        strategy objects, making the domain model more
-                        expressive.
+                        {t.architectureComparison.architectures.a03.description}
                     </p>
                 </div>
 
                 <div
                     class="border border-gray-200 dark:border-gray-800 rounded-xl p-6"
                 >
-                    <h3 class="font-semibold mb-2">A04 — Decorator Domain</h3>
+                    <h3 class="font-semibold mb-2">{t.architectureComparison.architectures.a04.name}</h3>
 
                     <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">
-                        Behaviour is composed dynamically through decorators.
+                        {t.architectureComparison.architectures.a04.summary}
                     </p>
 
                     <p class="text-gray-600 dark:text-gray-400 text-sm">
-                        Applies the Open/Closed principle allowing rules and
-                        modifiers to be added without modifying existing logic.
+                        {t.architectureComparison.architectures.a04.description}
                     </p>
                 </div>
             </div>
@@ -148,22 +141,22 @@ const t = getTranslations(lang);
 
             <div class="space-y-4 text-gray-600 dark:text-gray-400">
                 <p>
-                    <strong>Phase 01 — Base Calculation</strong><br />
+                    <strong>{t.architectureComparison.phases.phase1Title}</strong><br />
                     {t.architectureComparison.phases.phase1}
                 </p>
 
                 <p>
-                    <strong>Phase 02 — Conditional Rules</strong><br />
+                    <strong>{t.architectureComparison.phases.phase2Title}</strong><br />
                     {t.architectureComparison.phases.phase2}
                 </p>
 
                 <p>
-                    <strong>Phase 03 — Polymorphic Behaviour</strong><br />
+                    <strong>{t.architectureComparison.phases.phase3Title}</strong><br />
                     {t.architectureComparison.phases.phase3}
                 </p>
 
                 <p>
-                    <strong>Phase 04 — Composable Rules</strong><br />
+                    <strong>{t.architectureComparison.phases.phase4Title}</strong><br />
                     {t.architectureComparison.phases.phase4}
                 </p>
             </div>

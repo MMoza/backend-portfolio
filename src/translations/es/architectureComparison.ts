@@ -38,14 +38,38 @@ export const architectureComparison = {
   },
 
   architectures: {
-    title: "Arquitecturas comparadas"
+    title: "Arquitecturas comparadas",
+    a01: {
+      name: "A01 — Monolithic Eloquent",
+      summary: "Enfoque de Active Record puro usando Eloquent directamente.",
+      description: "Rápido de desarrollar pero fuertemente acoplado al framework. La complejidad crece rápidamente a medida que aumentan las reglas del dominio."
+    },
+    a02: {
+      name: "A02 — Repository Pattern",
+      summary: "Separación entre controlador, capa de servicios y abstracción de repositorio.",
+      description: "Introduce inversión de dependencias y mejora la testeabilidad manteniendo un modelo de dominio relativamente simple."
+    },
+    a03: {
+      name: "A03 — Strategy + Polymorphism",
+      summary: "El comportamiento de la reserva varía según el tipo de reserva.",
+      description: "Encapsula reglas de negocio usando polimorfismo y objetos estrategia, haciendo el modelo de dominio más expresivo."
+    },
+    a04: {
+      name: "A04 — Decorator Domain",
+      summary: "El comportamiento se compone dinámicamente a través de decoradores.",
+      description: "Aplica el principio Open/Closed permitiendo que las reglas y modificadores se agreguen sin modificar la lógica existente."
+    }
   },
 
   phases: {
     title: "Fases de evolución",
+    phase1Title: "Fase 01 — Cálculo Base",
     phase1: "Precio base, extras y cálculo del total.",
+    phase2Title: "Fase 02 — Reglas Condicionales",
     phase2: "Descuentos por volumen, promociones y validaciones entre reglas.",
+    phase3Title: "Fase 03 — Comportamiento Polimórfico",
     phase3: "Diferentes tipos de reserva con lógica de precio específica.",
+    phase4Title: "Fase 04 — Reglas Componibles",
     phase4: "Modificadores dinámicos, reglas encadenadas e interacciones complejas."
   },
 

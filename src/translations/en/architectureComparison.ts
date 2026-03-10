@@ -38,14 +38,38 @@ export const architectureComparison = {
   },
 
   architectures: {
-    title: "Architectures Compared"
+    title: "Architectures Compared",
+    a01: {
+      name: "A01 — Monolithic Eloquent",
+      summary: "Pure Active Record approach using Eloquent directly.",
+      description: "Fast to develop but tightly coupled to the framework. Complexity grows rapidly as domain rules increase."
+    },
+    a02: {
+      name: "A02 — Repository Pattern",
+      summary: "Separation between controller, service layer and repository abstraction.",
+      description: "Introduces dependency inversion and improves testability while keeping a relatively simple domain model."
+    },
+    a03: {
+      name: "A03 — Strategy + Polymorphism",
+      summary: "Reservation behaviour varies depending on reservation type.",
+      description: "Encapsulates business rules using polymorphism and strategy objects, making the domain model more expressive."
+    },
+    a04: {
+      name: "A04 — Decorator Domain",
+      summary: "Behaviour is composed dynamically through decorators.",
+      description: "Applies the Open/Closed principle allowing rules and modifiers to be added without modifying existing logic."
+    }
   },
 
   phases: {
     title: "Evolution Phases",
+    phase1Title: "Phase 01 — Base Calculation",
     phase1: "Base price, extras and total calculation.",
+    phase2Title: "Phase 02 — Conditional Rules",
     phase2: "Volume discounts, promotions and cross-rule validations.",
+    phase3Title: "Phase 03 — Polymorphic Behaviour",
     phase3: "Different reservation types with distinct pricing logic.",
+    phase4Title: "Phase 04 — Composable Rules",
     phase4: "Dynamic modifiers, chained rules and complex interactions."
   },
 
