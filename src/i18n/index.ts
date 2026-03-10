@@ -40,6 +40,9 @@ import { invoicing as invoicingES } from "../translations/es/invoicing";
 import { channelManager as channelManagerEN } from "../translations/en/channel-manager";
 import { channelManager as channelManagerES } from "../translations/es/channel-manager";
 
+import { smartLocks as smartLocksEN } from "../translations/en/smartLocks";
+import { smartLocks as smartLokcsES } from "../translations/es/smartLocks";
+
 export const translations = {
   en: {
     home: homeEN,
@@ -55,7 +58,8 @@ export const translations = {
     backendDeveloper: backendDeveloperEN,
     previousExperience: previousExperienceEN,
     invoicing: invoicingEN,
-    channelManager: channelManagerEN
+    channelManager: channelManagerEN,
+    smartLocks: smartLocksEN
   },
 
   es: {
@@ -72,7 +76,8 @@ export const translations = {
     backendDeveloper: backendDeveloperES,
     previousExperience: previousExperienceES,
     invoicing: invoicingES,
-    channelManager: channelManagerES
+    channelManager: channelManagerES,
+    smartLocks: smartLokcsES
   }
 };
 
