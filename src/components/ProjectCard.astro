@@ -5,6 +5,22 @@ const { project } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
 const langPrefix = lang === "es" ? "/es" : "";
+
+const statusMap = {
+  in_progress: {
+    label: "IN PROGRESS",
+    class: "bg-yellow-500/90 text-black dark:text-black"
+  },
+  finished: {
+    label: "FINISHED",
+    class: "bg-emerald-500/90 text-white"
+  },
+  upcoming: {
+    label: "UPCOMING",
+    class: "bg-blue-500/90 text-white"
+  }
+};
+
 ---
 
 <style>
@@ -65,6 +81,21 @@ const langPrefix = lang === "es" ? "/es" : "";
         alt={project.title}
         class="absolute top-0 left-0 right-0 w-full h-50 object-cover rounded-t-lg transition-transform duration-300 group-hover:scale-105 origin-top z-0"
       />
+
+      {project.status && statusMap[project.status] && (
+        <span
+          class={`absolute top-10 right-3 z-20
+          text-[10px] font-semibold tracking-wider
+          px-2 py-1 rounded-md
+          backdrop-blur-md
+          border border-white/20 dark:border-white/10
+          shadow-md
+          ${statusMap[project.status].class}`}
+        >
+          {statusMap[project.status].label}
+        </span>
+      )}
+
       <!-- Mac header -->
       <div class="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-gray-200 to-gray-100 dark:from-gray-700 dark:to-gray-600 flex items-center justify-start px-4 z-10 rounded-t-lg border-b border-gray-300/50 dark:border-gray-500/30">
         <div class="flex gap-2">
