@@ -7,6 +7,8 @@ import { getTranslations } from "../i18n";
 
 const lang = getLangFromUrl(Astro.url);
 const t = getTranslations(lang);
+const startYear = 2023;
+const yearsExperience = new Date().getFullYear() - startYear;
 ---
 
 <BaseLayout>
@@ -54,6 +56,25 @@ const t = getTranslations(lang);
           {t.home.cta.contact}
         </a>
       </div>
+
+    <a
+      href="/experience"
+      class="group flex flex-col items-center mt-6 text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300 font-medium transition opacity-0 animate-slide-up-delay-2"
+    >
+      <span class="flex items-center">
+        {yearsExperience}+ {t.home.cta.experience}
+
+        <span class="inline-block ml-1 transition-transform duration-200 group-hover:translate-x-1">
+          →
+        </span>
+      </span>
+
+      <span
+        class="text-sm tracking-wide mt-1 opacity-0 translate-y-[-4px] transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 font-light"
+      >
+        {t.home.cta.viewExperience}
+      </span>
+    </a>
 
       <TechStackCarousel />
     </div>

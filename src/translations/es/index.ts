@@ -9,6 +9,8 @@ export const home = {
   },
 
   cta: {
+    experience: "años de experiencia",
+    viewExperience: "Ver experiencia",
     projects: "Ver proyectos",
     contact: "Contacto"
   }
