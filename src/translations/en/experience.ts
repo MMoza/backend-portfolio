@@ -11,7 +11,7 @@ export const experience = {
     {
       slug: "backend-developer",
       date: "2023 — Present",
-      title: "Backend Developer",
+      title: "FullStack Developer",
       description:
         "Full-stack developer mainly focused on backend architecture and API integrations.",
       points: [
@@ -20,13 +20,13 @@ export const experience = {
         "Maintaining and evolving legacy systems",
         "Working on business-critical production systems"
       ],
-      skills: ["PHP", "APIs", "Integrations", "Architecture"],
+      skills: ["PHP", "MySQL", "APIs", "Integrations", "Architecture"],
       size: "large"
     },
     {
       slug: "previous-experience",
-      date: "Previous experience",
-      title: "Professional background",
+      date: "2010 - 2023",
+      title: "Previous experience",
       description:
         "Over 10 years of experience in other professional fields that helped shape my problem-solving mindset.",
       skills: ["Problem solving", "Responsibility", "Analytical thinking"],
