@@ -1,0 +1,187 @@
+---
+// ResponsiveChart.astro - Theme-aware Chart.js component
+interface Props {
+  id: string;
+  type: 'line' | 'bar';
+  data: any;
+  options: any;
+  title?: string;
+  caption?: string;
+}
+
+const { id, type, data, options, title, caption } = Astro.props;
+
+// Serialize data as JSON for safe passing to client
+const chartConfig = JSON.stringify({
+  id,
+  type,
+  data,
+  options
+});
+---
+
+<div class="w-full">
+  {title && <h3 class="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">{title}</h3>}
+  
+  <div class="relative w-full bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-6">
+    <canvas id={id} style="max-height: 400px;"></canvas>
+  </div>
+  
+  {caption && <p class="mt-3 text-sm text-gray-600 dark:text-gray-400 italic">{caption}</p>}
+</div>
+
+<script define:vars={{ chartConfig }} type="module">
+  // Wait for Chart to be available
+  function waitForChart() {
+    return new Promise((resolve) => {
+      if (typeof window.Chart !== 'undefined') {
+        resolve(window.Chart);
+      } else {
+        // Import Chart.js dynamically
+        import('chart.js/auto').then(module => {
+          window.Chart = module.default;
+          resolve(module.default);
+        });
+      }
+    });
+  }
+
+  async function initChart() {
+    try {
+      const Chart = await waitForChart();
+      const config = JSON.parse(chartConfig);
+      const canvas = document.getElementById(config.id);
+      
+      if (!canvas) {
+        console.warn(`Canvas with id "${config.id}" not found`);
+        return;
+      }
+
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      // Detect dark mode from HTML element
+      const isDark = document.documentElement.classList.contains('dark');
+      
+      // Color scheme based on theme
+      const scheme = {
+        textColor: isDark ? '#9ca3af' : '#4b5563',
+        gridColor: isDark ? '#374151' : '#e5e7eb',
+        a01: '#3b82f6',
+        a02: '#a855f7',
+        a03: '#10b981',
+        a04: '#f59e0b'
+      };
+
+      // Process datasets with theme-aware colors
+      const datasets = config.data.datasets.map(dataset => {
+        const archId = dataset.archId;
+        const baseColor = scheme[archId] || '#3b82f6';
+        
+        return {
+          ...dataset,
+          borderColor: dataset.borderColor || baseColor,
+          backgroundColor: config.type === 'bar' 
+            ? (dataset.backgroundColor || baseColor)
+            : (dataset.backgroundColor || baseColor + '20'),
+          borderWidth: dataset.borderWidth !== undefined ? dataset.borderWidth : 2,
+          fill: dataset.fill !== undefined ? dataset.fill : (config.type !== 'bar'),
+          pointRadius: dataset.pointRadius !== undefined ? dataset.pointRadius : 4,
+          pointHoverRadius: 6,
+          pointBackgroundColor: baseColor,
+          pointBorderColor: isDark ? '#111827' : '#ffffff',
+          pointBorderWidth: 2,
+          tension: dataset.tension !== undefined ? dataset.tension : 0.4
+        };
+      });
+
+      // Build chart options with theme colors
+      const chartOptions = {
+        responsive: true,
+        maintainAspectRatio: true,
+        interaction: {
+          mode: 'index',
+          intersect: false
+        },
+        plugins: {
+          legend: {
+            position: 'top',
+            labels: {
+              color: scheme.textColor,
+              usePointStyle: true,
+              padding: 15,
+              font: {
+                size: 12,
+                weight: '500'
+              }
+            }
+          },
+          tooltip: {
+            backgroundColor: isDark ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.9)',
+            titleColor: '#fff',
+            bodyColor: '#fff',
+            borderColor: scheme.gridColor,
+            borderWidth: 1,
+            padding: 12,
+            displayColors: true,
+            callbacks: {
+              label: function(context) {
+                return context.dataset.label + ': ' + context.parsed.y;
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: {
+              color: scheme.textColor,
+              font: {
+                size: 11
+              }
+            },
+            grid: {
+              color: scheme.gridColor,
+              drawBorder: false
+            }
+          },
+          y: {
+            beginAtZero: true,
+            stacked: config.options?.scales?.y?.stacked || false,
+            ticks: {
+              color: scheme.textColor,
+              font: {
+                size: 11
+              }
+            },
+            grid: {
+              color: scheme.gridColor,
+              drawBorder: false
+            }
+          }
+        }
+      };
+
+      // Create the chart
+      new Chart(ctx, {
+        type: config.type,
+        data: {
+          labels: config.data.labels,
+          datasets: datasets
+        },
+        options: chartOptions
+      });
+    } catch (error) {
+      console.error('Error initializing chart:', error);
+    }
+  }
+
+  // Run when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initChart);
+  } else {
+    // Use requestAnimationFrame to ensure canvas is fully rendered
+    requestAnimationFrame(() => {
+      initChart();
+    });
+  }
+</script>

@@ -1,0 +1,118 @@
+---
+const { article } = Astro.props;
+
+const date = new Date(article.date).toLocaleDateString("es-ES");
+---
+
+<style>
+  .article-title {
+    transition: all 0.3s ease;
+  }
+
+  .group:hover .article-title {
+    background: linear-gradient(90deg, black, rgb(59,130,246), black);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shineTitle 0.8s ease forwards;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .group:hover .article-title {
+      background: linear-gradient(90deg, rgb(174,174,174), rgb(59,130,246), rgb(174,174,174));
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shineTitle 0.8s ease forwards;
+    }
+  }
+
+  @keyframes shineTitle {
+    0% { background-position: 200% center; }
+    100% { background-position: 0% center; }
+  }
+</style>
+
+<article
+class="relative group border border-gray-200 dark:border-gray-800 rounded-xl transition-all duration-300 hover:shadow-md hover:-translate-y-1 bg-white dark:bg-gray-900 cursor-pointer flex flex-col h-full overflow-hidden"
+>
+
+<!-- animated borders -->
+<div class="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500/60 to-transparent opacity-50 group-hover:opacity-100 transition"></div>
+<div class="absolute bottom-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500/60 to-transparent opacity-50 group-hover:opacity-100 transition"></div>
+<div class="absolute left-0 inset-y-0 w-[1px] bg-gradient-to-b from-transparent via-blue-500/60 to-transparent opacity-50 group-hover:opacity-100 transition"></div>
+<div class="absolute right-0 inset-y-0 w-[1px] bg-gradient-to-b from-transparent via-blue-500/60 to-transparent opacity-50 group-hover:opacity-100 transition"></div>
+
+<!-- overlay link -->
+<a
+href={`/articles/${article.slug}`}
+class="absolute inset-0 z-10"
+aria-label={article.title}
+></a>
+
+<!-- IMAGE -->
+{article.image && (
+  <div class="relative h-44 overflow-hidden">
+
+    <img
+      src={article.image}
+      alt={article.title}
+      class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+    />
+
+    <!-- editorial badge -->
+    {article.type && (
+      <span
+      class="absolute top-3 right-3 z-20
+      text-[10px] font-semibold tracking-wider
+      px-2 py-1 rounded-md
+      bg-blue-500/90 text-white
+      backdrop-blur-md
+      border border-white/20"
+      >
+      {article.type}
+      </span>
+    )}
+
+  </div>
+)}
+
+<!-- CONTENT -->
+<div class="p-6 flex flex-col h-full">
+
+  <!-- meta -->
+  <span class="text-xs text-gray-500">
+    {date} {article.readingTime && `· ${article.readingTime}`}
+  </span>
+
+  <!-- reading progress indicator -->
+    {article.readingTime && (
+    <div class="mt-2 h-[3px] w-20 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+        <div class="h-full bg-blue-500 w-1/2 transition-all duration-300 group-hover:w-full"></div>
+    </div>
+    )}
+
+  <!-- title -->
+  <h2 class="text-lg font-semibold mt-2 mb-3 article-title">
+    {article.title}
+  </h2>
+
+  <!-- description -->
+  <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 flex-grow">
+    {article.description}
+  </p>
+
+  <!-- footer -->
+  <div class="flex items-center justify-end">
+
+    <span class="text-sm text-blue-600 dark:text-blue-400 font-medium group-hover:translate-x-1 transition-transform">
+      Read →
+    </span>
+
+  </div>
+
+</div>
+
+</article>

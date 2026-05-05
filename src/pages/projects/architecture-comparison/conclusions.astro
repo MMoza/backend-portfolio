@@ -1,0 +1,385 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import BackLink from "../../../components/BackLink.astro";
+
+import { getLangFromUrl } from "../../../i18n/getLang";
+import { getTranslations } from "../../../i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations(lang);
+const langPrefix = lang === "es" ? "/es" : "";
+---
+
+<BaseLayout>
+  <article class="max-w-4xl mx-auto">
+    <BackLink href="/projects/architecture-comparison" label={t.architectureComparison.conclusionPage.backLabel} />
+
+    <!-- Hero Section -->
+    <header class="mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+        {t.architectureComparison.conclusionPage.title}
+      </h1>
+
+      <p class="text-lg text-gray-600 dark:text-gray-400">
+        Complete rankings, detailed analysis, and decision guidelines for each architecture.
+      </p>
+    </header>
+
+    <!-- Rankings Table -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-gray-100">
+        🏆 Final Rankings
+      </h2>
+
+      <div class="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-800">
+        <table class="w-full text-sm">
+          <thead class="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+            <tr>
+              <th class="px-6 py-3 text-left font-semibold text-gray-900 dark:text-gray-100">
+                Criterion
+              </th>
+              <th class="px-6 py-3 text-left font-semibold text-yellow-600 dark:text-yellow-400">
+                🥇 Gold
+              </th>
+              <th class="px-6 py-3 text-left font-semibold text-gray-400">
+                🥈 Silver
+              </th>
+              <th class="px-6 py-3 text-left font-semibold text-orange-600 dark:text-orange-400">
+                🥉 Bronze
+              </th>
+              <th class="px-6 py-3 text-left font-semibold text-red-600 dark:text-red-400">
+                ❌ Worst
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {Object.entries(t.architectureComparison.rankings.criteria).map(([key, criterion]: any) => (
+              <tr class="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/50">
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">
+                  {criterion.label}
+                </td>
+                <td class="px-6 py-4 text-gray-600 dark:text-gray-400">
+                  {criterion.gold}
+                </td>
+                <td class="px-6 py-4 text-gray-600 dark:text-gray-400">
+                  {criterion.silver}
+                </td>
+                <td class="px-6 py-4 text-gray-600 dark:text-gray-400">
+                  {criterion.bronze}
+                </td>
+                <td class="px-6 py-4 text-gray-600 dark:text-gray-400">
+                  {criterion.worst}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Detailed Conclusions Section -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-gray-100">
+        {t.architectureComparison.conclusionPage.detailed}
+      </h2>
+
+      <!-- A01 Conclusion -->
+      <div class="mb-8 rounded-lg border border-blue-200 dark:border-blue-900 bg-blue-50 dark:bg-blue-950/30">
+        <button
+          class="w-full p-6 flex items-center justify-between hover:bg-blue-100 dark:hover:bg-blue-950/50 transition-colors"
+          onclick="document.getElementById('a01-detail').classList.toggle('hidden')"
+        >
+          <h3 class="text-xl font-bold text-blue-900 dark:text-blue-200">
+            A01 — Monolithic Eloquent
+          </h3>
+          <svg id="a01-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-900 dark:text-blue-200 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </button>
+
+        <div id="a01-detail" class="hidden px-6 pb-6 border-t border-blue-200 dark:border-blue-900">
+          <p class="text-blue-900 dark:text-blue-200 mb-4">
+            <span class="font-semibold text-lg">{t.architectureComparison.conclusions.a01.title}</span>
+          </p>
+          <p class="text-blue-900 dark:text-blue-200 mb-4">
+            {t.architectureComparison.conclusions.a01.description}
+          </p>
+          <div class="mt-4 p-4 bg-blue-100 dark:bg-blue-900/50 rounded">
+            <p class="text-sm text-blue-900 dark:text-blue-200">
+              <span class="font-semibold">Final Verdict:</span> A01 is a trap. It seems cheap upfront but becomes exponentially expensive. Use only for short-lived prototypes or when you're absolutely certain complexity won't grow.
+            </p>
+          </div>
+          <a href={`${langPrefix}/projects/architecture-comparison/a01/`} class="mt-4 inline-block text-blue-600 dark:text-blue-400 hover:underline">
+            {t.architectureComparison.conclusionPage.seeArchitectureDetails} →
+          </a>
+        </div>
+      </div>
+
+      <!-- A02 Conclusion -->
+      <div class="mb-8 rounded-lg border border-purple-200 dark:border-purple-900 bg-purple-50 dark:bg-purple-950/30">
+        <button
+          class="w-full p-6 flex items-center justify-between hover:bg-purple-100 dark:hover:bg-purple-950/50 transition-colors"
+          onclick="document.getElementById('a02-detail').classList.toggle('hidden')"
+        >
+          <h3 class="text-xl font-bold text-purple-900 dark:text-purple-200">
+            A02 — Repository Pattern
+          </h3>
+          <svg id="a02-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-purple-900 dark:text-purple-200 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </button>
+
+        <div id="a02-detail" class="hidden px-6 pb-6 border-t border-purple-200 dark:border-purple-900">
+          <p class="text-purple-900 dark:text-purple-200 mb-4">
+            <span class="font-semibold text-lg">{t.architectureComparison.conclusions.a02.title}</span>
+          </p>
+          <p class="text-purple-900 dark:text-purple-200 mb-4">
+            {t.architectureComparison.conclusions.a02.description}
+          </p>
+          <div class="mt-4 p-4 bg-purple-100 dark:bg-purple-900/50 rounded">
+            <p class="text-sm text-purple-900 dark:text-purple-200">
+              <span class="font-semibold">Final Verdict:</span> A02 is a solid middle ground. It's better than A01 for testability, but you're still stuck with a monolithic service layer. Good for teams transitioning to cleaner architecture.
+            </p>
+          </div>
+          <a href={`${langPrefix}/projects/architecture-comparison/a02/`} class="mt-4 inline-block text-purple-600 dark:text-purple-400 hover:underline">
+            {t.architectureComparison.conclusionPage.seeArchitectureDetails} →
+          </a>
+        </div>
+      </div>
+
+      <!-- A03 Conclusion -->
+      <div class="mb-8 rounded-lg border border-emerald-200 dark:border-emerald-900 bg-emerald-50 dark:bg-emerald-950/30">
+        <button
+          class="w-full p-6 flex items-center justify-between hover:bg-emerald-100 dark:hover:bg-emerald-950/50 transition-colors"
+          onclick="document.getElementById('a03-detail').classList.toggle('hidden')"
+        >
+          <h3 class="text-xl font-bold text-emerald-900 dark:text-emerald-200">
+            A03 — Strategy + Polymorphism
+          </h3>
+          <svg id="a03-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-emerald-900 dark:text-emerald-200 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </button>
+
+        <div id="a03-detail" class="hidden px-6 pb-6 border-t border-emerald-200 dark:border-emerald-900">
+          <p class="text-emerald-900 dark:text-emerald-200 mb-4">
+            <span class="font-semibold text-lg">{t.architectureComparison.conclusions.a03.title}</span>
+          </p>
+          <p class="text-emerald-900 dark:text-emerald-200 mb-4">
+            {t.architectureComparison.conclusions.a03.description}
+          </p>
+          <div class="mt-4 p-4 bg-emerald-100 dark:bg-emerald-900/50 rounded">
+            <p class="text-sm text-emerald-900 dark:text-emerald-200">
+              <span class="font-semibold">Final Verdict:</span> A03 is the practical choice for many teams. It offers good testability, clear separation of concerns, and a structure that maps well to business concepts. Needs refactoring for phase-based evolution, but shows the value of strategy-based design.
+            </p>
+          </div>
+          <a href={`${langPrefix}/projects/architecture-comparison/a03/`} class="mt-4 inline-block text-emerald-600 dark:text-emerald-400 hover:underline">
+            {t.architectureComparison.conclusionPage.seeArchitectureDetails} →
+          </a>
+        </div>
+      </div>
+
+      <!-- A04 Conclusion -->
+      <div class="mb-8 rounded-lg border border-amber-200 dark:border-amber-900 bg-amber-50 dark:bg-amber-950/30">
+        <button
+          class="w-full p-6 flex items-center justify-between hover:bg-amber-100 dark:hover:bg-amber-950/50 transition-colors"
+          onclick="document.getElementById('a04-detail').classList.toggle('hidden')"
+        >
+          <h3 class="text-xl font-bold text-amber-900 dark:text-amber-200">
+            A04 — Decorator Domain
+          </h3>
+          <svg id="a04-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-amber-900 dark:text-amber-200 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </button>
+
+        <div id="a04-detail" class="hidden px-6 pb-6 border-t border-amber-200 dark:border-amber-900">
+          <p class="text-amber-900 dark:text-amber-200 mb-4">
+            <span class="font-semibold text-lg">{t.architectureComparison.conclusions.a04.title}</span>
+          </p>
+          <p class="text-amber-900 dark:text-amber-200 mb-4">
+            {t.architectureComparison.conclusions.a04.description}
+          </p>
+          <div class="mt-4 p-4 bg-amber-100 dark:bg-amber-900/50 rounded">
+            <p class="text-sm text-amber-900 dark:text-amber-200">
+              <span class="font-semibold">Final Verdict:</span> A04 is for domains with frequent rule changes and teams comfortable with design patterns. It delivers on the Open/Closed Principle, but requires discipline and architectural maturity. The investment pays off in systems that evolve over years.
+            </p>
+          </div>
+          <a href={`${langPrefix}/projects/architecture-comparison/a04/`} class="mt-4 inline-block text-amber-600 dark:text-amber-400 hover:underline">
+            {t.architectureComparison.conclusionPage.seeArchitectureDetails} →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Decision Matrix -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-gray-100">
+        ⚡ {t.architectureComparison.useCases.title}
+      </h2>
+
+      <p class="text-gray-600 dark:text-gray-400 mb-8 text-lg">
+        {t.architectureComparison.useCases.description}
+      </p>
+
+      <div class="space-y-4">
+        {t.architectureComparison.useCases.scenarios.map((scenario: any) => (
+          <div
+            class="flex flex-col md:flex-row md:items-center gap-4 rounded-lg border border-gray-200 dark:border-gray-800 p-6 hover:shadow-md transition-shadow"
+          >
+            <div class="md:flex-1">
+              <p class="font-semibold text-gray-900 dark:text-gray-100">
+                {scenario.condition}
+              </p>
+            </div>
+            <div class="md:flex-1">
+              <p class="text-blue-600 dark:text-blue-400 font-medium">
+                → {scenario.recommendation}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Key Insights -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-gray-100">
+        💡 Key Insights
+      </h2>
+
+      <div class="space-y-6">
+        <div class="rounded-lg border border-gray-200 dark:border-gray-800 p-6">
+          <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2 text-lg">
+            1. Cost Distribution Matters
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            A01 looks cheap initially (6 files) but concentrates all cost in one fragile point. A04 looks expensive (22 files) but distributes cost across independent units. The question is: where do you want the complexity to live?
+          </p>
+        </div>
+
+        <div class="rounded-lg border border-gray-200 dark:border-gray-800 p-6">
+          <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2 text-lg">
+            2. Controllers Are Not the Bottleneck
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            A02, A03, and A04 all keep controllers thin. The real challenge is where business logic lives. Moving logic out of controllers to services doesn't reduce algorithmic complexity—it just relocates it.
+          </p>
+        </div>
+
+        <div class="rounded-lg border border-gray-200 dark:border-gray-800 p-6">
+          <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2 text-lg">
+            3. Extensibility vs. Simplicity Is the Core Trade-off
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            A01 is simple but brittle. A04 is complex but extensible. A02 and A03 sit in the middle. Choose based on your domain's mutation rate and team's architectural maturity.
+          </p>
+        </div>
+
+        <div class="rounded-lg border border-gray-200 dark:border-gray-800 p-6">
+          <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2 text-lg">
+            4. No Silver Bullet
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Each architecture makes trade-offs. A01 trades long-term maintainability for speed. A04 trades initial complexity for long-term flexibility. The "best" architecture depends on your specific context.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recommendations by Team Size -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-gray-100">
+        👥 Recommendations by Team Context
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="rounded-lg border border-blue-200 dark:border-blue-900 bg-blue-50 dark:bg-blue-950/30 p-6">
+          <h3 class="font-semibold text-blue-900 dark:text-blue-200 mb-3">
+            Startup / MVP Phase
+          </h3>
+          <p class="text-blue-900 dark:text-blue-200 text-sm mb-3">
+            Use A01 or A02. Speed matters more than perfect architecture. Iterate quickly, refactor later.
+          </p>
+        </div>
+
+        <div class="rounded-lg border border-purple-200 dark:border-purple-900 bg-purple-50 dark:bg-purple-950/30 p-6">
+          <h3 class="font-semibold text-purple-900 dark:text-purple-200 mb-3">
+            Growing Product
+          </h3>
+          <p class="text-purple-900 dark:text-purple-200 text-sm mb-3">
+            Use A02 or A03. You need better testability and clearer code organization. Domain is getting complex.
+          </p>
+        </div>
+
+        <div class="rounded-lg border border-emerald-200 dark:border-emerald-900 bg-emerald-50 dark:bg-emerald-950/30 p-6">
+          <h3 class="font-semibold text-emerald-900 dark:text-emerald-200 mb-3">
+            Business Rule Variability
+          </h3>
+          <p class="text-emerald-900 dark:text-emerald-200 text-sm mb-3">
+            Use A03. Business rules vary by product type or context. You want to map code to business concepts.
+          </p>
+        </div>
+
+        <div class="rounded-lg border border-amber-200 dark:border-amber-900 bg-amber-50 dark:bg-amber-950/30 p-6">
+          <h3 class="font-semibold text-amber-900 dark:text-amber-200 mb-3">
+            Rapidly Evolving Rules
+          </h3>
+          <p class="text-amber-900 dark:text-amber-200 text-sm mb-3">
+            Use A04. Rules change frequently. You need zero-modification extensibility and strong design discipline.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="text-center p-8 rounded-lg bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-gray-200 dark:border-gray-800">
+      <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+        Explore Each Architecture in Detail
+      </h2>
+      <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+        {t.architectureComparison.conclusionPage.exploreArchitectures}
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        {["a01", "a02", "a03", "a04"].map((archId) => {
+          const arch = t.architectureComparison.architectures[archId];
+          const colors = {
+            a01: "bg-blue-600 hover:bg-blue-700",
+            a02: "bg-purple-600 hover:bg-purple-700",
+            a03: "bg-emerald-600 hover:bg-emerald-700",
+            a04: "bg-amber-600 hover:bg-amber-700"
+          };
+
+          return (
+            <a
+              href={`${langPrefix}/projects/architecture-comparison/${archId}/`}
+              class={`px-6 py-3 text-white font-medium rounded-lg ${colors[archId]} transition-colors`}
+            >
+              {arch.name}
+            </a>
+          );
+        })}
+      </div>
+
+      <a
+        href={`${langPrefix}/projects/architecture-comparison/`}
+        class="mt-6 inline-block px-6 py-3 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
+      >
+        ← Back to Main Comparison
+      </a>
+    </section>
+  </article>
+</BaseLayout>
+
+<script>
+  // Add click handlers for expandable sections (optional enhanced version)
+  document.querySelectorAll('button[onclick*="classList.toggle"]').forEach(button => {
+    button.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        button.click();
+      }
+    });
+  });
+</script>

@@ -1,0 +1,79 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BackLink from "../components/BackLink.astro";
+import ArticleCard from "../components/ArticleCard.astro";
+
+import { getLangFromUrl } from "../i18n/getLang";
+import { getTranslations } from "../i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations(lang);
+
+// TEMPORAL DATA
+const articles = [
+  {
+    title: "How software evolves as business rules grow",
+    description:
+      "Why backend systems become more complex over time and why that complexity often reflects the evolution of the business domain.",
+    slug: "software-evolves-business-rules",
+    date: "2026-04-10",
+    readingTime: "5 min read",
+    type: "Architecture",
+    image: "/images/articles/software-evolution.jpg"
+  },
+  {
+    title: "When simple backend systems stop being simple",
+    description:
+      "A look at how small applications gradually accumulate rules, exceptions and integrations until complexity becomes unavoidable.",
+    slug: "when-simple-systems-grow",
+    date: "2026-03-18",
+    readingTime: "4 min read",
+    type: "Insight",
+    image: "/images/articles/system-complexity.jpg"
+  },
+  {
+    title: "Designing backend systems that survive change",
+    description:
+      "Some practical ideas for structuring backend logic so systems can evolve without collapsing under growing business rules.",
+    slug: "designing-systems-for-change",
+    date: "2026-02-05",
+    readingTime: "6 min read",
+    type: "Notes",
+    image: "/images/articles/system-evolution.jpg"
+  }
+];
+---
+
+<BaseLayout>
+
+<section>
+
+  <BackLink href="/" label={t.experience.back} />
+
+  <header class="mb-16 max-w-2xl">
+
+    <h1 class="text-3xl md:text-4xl font-bold mb-4">
+      Articles
+    </h1>
+
+    <p class="text-gray-600 dark:text-gray-400">
+      Thoughts on backend development, software architecture and how systems evolve over time.
+    </p>
+
+  </header>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+    {articles.map((article) => (
+
+      <div class={article.size === "large" ? "md:col-span-2" : "md:col-span-1"}>
+        <ArticleCard article={article} />
+      </div>
+
+    ))}
+
+  </div>
+
+</section>
+
+</BaseLayout>
