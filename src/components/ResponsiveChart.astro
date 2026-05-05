@@ -1,5 +1,5 @@
 ---
-// ResponsiveChart.astro - Theme-aware Chart.js component
+// ResponsiveChart.astro - Theme-aware Chart.js component using CDN
 interface Props {
   id: string;
   type: 'line' | 'bar';
@@ -30,25 +30,17 @@ const chartConfig = JSON.stringify({
   {caption && <p class="mt-3 text-sm text-gray-600 dark:text-gray-400 italic">{caption}</p>}
 </div>
 
-<script define:vars={{ chartConfig }} type="module">
-  // Wait for Chart to be available
-  function waitForChart() {
-    return new Promise((resolve) => {
-      if (typeof window.Chart !== 'undefined') {
-        resolve(window.Chart);
-      } else {
-        // Import Chart.js dynamically
-        import('chart.js/auto').then(module => {
-          window.Chart = module.default;
-          resolve(module.default);
-        });
-      }
-    });
-  }
+<script is:inline src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  async function initChart() {
+<script define:vars={{ chartConfig }}>
+  function initChart() {
     try {
-      const Chart = await waitForChart();
+      if (!window.Chart) {
+        // Chart.js not loaded yet, retry in 100ms
+        setTimeout(initChart, 100);
+        return;
+      }
+
       const config = JSON.parse(chartConfig);
       const canvas = document.getElementById(config.id);
       
@@ -162,7 +154,7 @@ const chartConfig = JSON.stringify({
       };
 
       // Create the chart
-      new Chart(ctx, {
+      new window.Chart(ctx, {
         type: config.type,
         data: {
           labels: config.data.labels,
@@ -175,13 +167,10 @@ const chartConfig = JSON.stringify({
     }
   }
 
-  // Run when DOM is ready
+  // Wait for DOM and Chart.js to be ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initChart);
   } else {
-    // Use requestAnimationFrame to ensure canvas is fully rendered
-    requestAnimationFrame(() => {
-      initChart();
-    });
+    initChart();
   }
 </script>
