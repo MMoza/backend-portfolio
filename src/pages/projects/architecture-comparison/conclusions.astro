@@ -333,41 +333,41 @@ const langPrefix = lang === "es" ? "/es" : "";
     </section>
 
     <!-- CTA Section -->
-    <section class="text-center p-8 rounded-lg bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-gray-200 dark:border-gray-800">
-      <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-        Explore Each Architecture in Detail
-      </h2>
-      <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-        {t.architectureComparison.conclusionPage.exploreArchitectures}
-      </p>
-
-      <div class="flex flex-wrap justify-center gap-4">
+    <section class="pt-8 border-t border-gray-200 dark:border-gray-800">
+      <div class="space-y-3 mb-6">
         {["a01", "a02", "a03", "a04"].map((archId) => {
           const arch = t.architectureComparison.architectures[archId];
-          const colors = {
-            a01: "bg-blue-600 hover:bg-blue-700",
-            a02: "bg-purple-600 hover:bg-purple-700",
-            a03: "bg-emerald-600 hover:bg-emerald-700",
-            a04: "bg-amber-600 hover:bg-amber-700"
+          const gradients = {
+            a01: "from-blue-500/10 to-blue-400/5",
+            a02: "from-purple-500/10 to-purple-400/5",
+            a03: "from-emerald-500/10 to-emerald-400/5",
+            a04: "from-amber-500/10 to-amber-400/5"
+          };
+          const textColors = {
+            a01: "text-blue-600 dark:text-blue-400",
+            a02: "text-purple-600 dark:text-purple-400",
+            a03: "text-emerald-600 dark:text-emerald-400",
+            a04: "text-amber-600 dark:text-amber-400"
           };
 
           return (
             <a
               href={`${langPrefix}/projects/architecture-comparison/${archId}/`}
-              class={`px-6 py-3 text-white font-medium rounded-lg ${colors[archId]} transition-colors`}
+              class={`group arch-gradient flex items-center justify-between rounded-lg border border-gray-200 dark:border-gray-800 p-4 bg-gradient-to-br ${gradients[archId]} hover:shadow-md transition-all`}
             >
-              {arch.name}
+              <span class="font-medium text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{arch.name}</span>
+              <span class={`text-sm font-medium ${textColors[archId]}`}>
+                {arch.link}
+                <svg class="inline-block w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
             </a>
           );
         })}
       </div>
 
-      <a
-        href={`${langPrefix}/projects/architecture-comparison/`}
-        class="mt-6 inline-block px-6 py-3 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
-      >
-        ← Back to Main Comparison
-      </a>
+      <BackLink href="/projects/architecture-comparison" label={t.architectureComparison.architectureDetail.back} />
     </section>
   </article>
 </BaseLayout>

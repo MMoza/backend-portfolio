@@ -109,17 +109,9 @@ export const architectureComparison = {
   },
 
   charts: {
-    lineOfCode: {
-      title: "Lines of Code by Phase",
-      caption: "A04 diverges significantly in P04, but the cost is in reusable abstractions."
-    },
-    controllerSize: {
-      title: "Controller Size by Phase",
-      caption: "A01's controller grew 122% while A02/A03/A04 remained unchanged."
-    },
-    accumulatedGrowth: {
-      title: "Accumulated Growth: Phase 01 → Phase 04",
-      caption: "A01 looks cheap but concentrates all cost in one fragile point."
+    quadrant: {
+      title: "Architecture Trade-off Map",
+      caption: "Where does each architecture live in the simplicity vs fragility space? The ideal is bottom-left (simple AND robust), but reality forces trade-offs."
     }
   },
 
@@ -219,6 +211,7 @@ export const architectureComparison = {
   // Individual architecture pages
   architectureDetail: {
     back: "Back to Comparison",
+    backToComparison: "← Back to Comparison",
     pattern: "Pattern",
     philosophy: "Philosophy",
     description: "Description",
@@ -229,14 +222,239 @@ export const architectureComparison = {
       files: "Files",
       lines: "Lines of Code",
       controller: "Controller (lines)",
-      serviceLayer: "Service Layer (lines)"
+      serviceLayer: "Service Layer (lines)",
+      phase01: "Phase 01",
+      phase02: "Phase 02",
+      phase03: "Phase 03",
+      phase04: "Phase 04"
     },
     conclusion: "Conclusion",
     source: "View Source on GitHub",
+    exploreCode: "Explore the Code",
     metrics_phase_01: "Base Calculation Phase",
     metrics_phase_02: "Conditional Rules Phase",
     metrics_phase_03: "Polymorphic Behavior Phase",
-    metrics_phase_04: "Composable Rules Phase"
+    metrics_phase_04: "Composable Rules Phase",
+    
+    // A01 - Monolithic Eloquent
+    a01: {
+      title: "A01 — Monolithic Eloquent",
+      subtitle: "Direct ORM usage with business logic in models and controllers",
+      patternValue: "Active Record / Monolithic",
+      philosophyValue: "Embrace ORM as the primary abstraction. Fast iteration, minimal boilerplate.",
+      description: "A01 uses Laravel Eloquent models directly in the controller layer. Business logic resides in model methods and controller actions. This approach prioritizes rapid development over long-term maintainability.",
+      strengths: {
+        header: "Strengths:",
+        items: [
+          "Minimal setup; start coding immediately",
+          "Leverage Eloquent's expressive query builder",
+          "Quick to add simple business logic",
+          "No abstraction overhead"
+        ]
+      },
+      weaknesses: {
+        header: "Weaknesses:",
+        items: [
+          "Tight coupling to the database layer",
+          "Logic scattered across models and controllers",
+          "Difficult to test without a database",
+          "Complexity grows exponentially with domain rules",
+          "Hard-coded business rules are brittle"
+        ]
+      },
+      warning: {
+        label: "Warning",
+        message: "Controller grew 122% (83 → 184 lines). All complexity concentrated in a single method handling 13 distinct responsibilities."
+      },
+      metrics: {
+        totalFiles: { label: "Total Files", value: "7", note: "No growth across phases" },
+        totalLines: { label: "Total Lines of Code", value: "466", note: "+114% growth P01→P04" },
+        controllerSize: { label: "Controller Size (Phase 04)", value: "184 lines", note: "+101 lines from Phase 01" },
+        testability: { label: "Testability Score", value: "Low", note: "Requires database mocking" }
+      },
+      conclusion: {
+        bold: "Simplicity has exponential cost.",
+        paragraphs: [
+          "A01 is fastest to start but becomes unwieldy as domain complexity grows. The controller handles multiple responsibilities with hard-coded business logic. Early booking discounts are parsed using string manipulation (str_starts_with + explode), creating fragile, difficult-to-maintain code.",
+          "By Phase 04, the single controller method has become impossible to test in isolation, and adding new pricing rules requires careful modifications to avoid breaking existing logic."
+        ]
+      },
+      whenToUse: {
+        title: "✓ When to Use A01",
+        items: [
+          "Prototype or proof-of-concept with stable, simple logic",
+          "Single developer, small team, short project timeline",
+          "When you're confident domain complexity will not grow significantly"
+        ]
+      }
+    },
+    
+    // A02 - Repository Pattern
+    a02: {
+      title: "A02 — Repository Pattern",
+      subtitle: "Service and Repository layers separate controllers from data access",
+      patternValue: "Service + Repository",
+      philosophyValue: "Invert dependencies, keep controllers thin, abstract data access.",
+      description: "A02 introduces a service layer and repository pattern. Controllers delegate to services, services contain business logic, and repositories abstract data access. This creates clear separation of concerns and improves testability.",
+      strengths: {
+        header: "Strengths:",
+        items: [
+          "Controllers remain thin (30 lines) across all phases",
+          "Dependency inversion through interfaces",
+          "Services are easier to test with mock repositories",
+          "Clear separation between infrastructure and logic",
+          "Good balance between structure and pragmatism"
+        ]
+      },
+      weaknesses: {
+        header: "Weaknesses:",
+        items: [
+          "All complexity migrates to 'God Service' (172 lines)",
+          "Service still coupled to business logic implementation details",
+          "No reduction in algorithmic complexity",
+          "Adding new pricing rules still requires modifying the service",
+          "Service layer can become a catch-all for logic"
+        ]
+      },
+      warning: {
+        label: "God Service Pattern",
+        message: "Controller stays thin (30 lines) but service grew to 172 lines handling all pricing logic. Repository Pattern decouples data access but doesn't reduce algorithmic complexity."
+      },
+      metrics: {
+        totalFiles: { label: "Total Files", value: "10", note: "Stable across phases" },
+        totalLines: { label: "Total Lines of Code", value: "587", note: "+118% growth P01→P04" },
+        controllerSize: { label: "Controller Size (Phase 04)", value: "30 lines", note: "+1 line from Phase 01" },
+        testability: { label: "Testability Score", value: "Medium", note: "Services testable with mocks" }
+      },
+      conclusion: {
+        bold: "Repository Pattern solves the wrong problem.",
+        paragraphs: [
+          "While it decouples data access (good!), it doesn't address the core issue: algorithmic complexity. All pricing logic still lives in one 'God Service' that handles every pricing scenario. Adding new rules still requires modifying the service and understanding its entire logic flow.",
+          "A02 is better than A01, but it's a tactical improvement that doesn't tackle the structural problem of growing domain complexity."
+        ]
+      },
+      whenToUse: {
+        title: "✓ When to Use A02",
+        items: [
+          "You need testability but domain logic is still relatively simple",
+          "Team benefits from clear separation of concerns",
+          "Stable domain with infrequent business rule changes",
+          "Good stepping stone between A01 and more complex patterns"
+        ]
+      }
+    },
+    
+    // A03 - Strategy + Polymorphism
+    a03: {
+      title: "A03 — Strategy + Polymorphism",
+      subtitle: "Encapsulate behaviors through polymorphic strategy objects",
+      patternValue: "Strategy Pattern + Polymorphism",
+      philosophyValue: "Encapsulate varying behaviors. Each strategy type implements its own pricing rules.",
+      description: "A03 uses the Strategy Pattern to encapsulate different pricing behaviors. Each reservation type (Hotel, Event, etc.) has its own Strategy class implementing pricing logic. This makes the domain model more expressive and aligns code structure with business concepts.",
+      strengths: {
+        header: "Strengths:",
+        items: [
+          "Clear mapping between business types and code",
+          "Easy to test individual strategies in isolation",
+          "New reservation types require new strategy classes, not modifications",
+          "Good balance between structure and complexity",
+          "Controllers and services remain thin (30-32 lines)"
+        ]
+      },
+      weaknesses: {
+        header: "Weaknesses:",
+        items: [
+          "More files (14) than simpler approaches",
+          "Phase04PricingStrategy duplicates logic from BasicPricingStrategy",
+          "Creating a new phase creates a new strategy duplicating prior logic",
+          "Needs better refactoring to handle shared behavior between strategies",
+          "Still requires understanding strategy hierarchy"
+        ]
+      },
+      warning: {
+        label: "Strategy Duplication",
+        message: "Phase04PricingStrategy duplicates logic from BasicPricingStrategy to add 3 new methods. Shows the pattern works but needs refactoring for phase-based evolution."
+      },
+      metrics: {
+        totalFiles: { label: "Total Files", value: "14", note: "Stable across phases" },
+        totalLines: { label: "Total Lines of Code", value: "775", note: "+109% growth P01→P04" },
+        controllerSize: { label: "Controller Size (Phase 04)", value: "32 lines", note: "+1 line from Phase 01" },
+        testability: { label: "Testability Score", value: "Good", note: "Strategies are testable units" }
+      },
+      conclusion: {
+        bold: "Good balance with room for refinement.",
+        paragraphs: [
+          "A03 strikes a solid middle ground. Controllers stay thin, strategies are cohesive and testable, and the domain model clearly expresses business intent. However, it shows the risk of strategy duplication: adding a new phase requires copying prior strategy logic and extending it.",
+          "With better refactoring (composition over inheritance, shared trait methods), this pattern scales much better. It's an excellent choice when you have distinct product types with varying behaviors."
+        ]
+      },
+      whenToUse: {
+        title: "✓ When to Use A03",
+        items: [
+          "Product types or contexts have different calculation rules",
+          "Business domains map naturally to different strategies",
+          "You want good testability with clear behavior encapsulation",
+          "Teams benefit from seeing strategy-to-business mapping"
+        ]
+      }
+    },
+    
+    // A04 - Decorator Domain
+    a04: {
+      title: "A04 — Decorator Domain",
+      subtitle: "Compose behaviors dynamically through decorators without modification",
+      patternValue: "Builder + Decorator Pattern",
+      philosophyValue: "Open/Closed Principle. Add behavior through composition, never modification.",
+      description: "A04 applies the Decorator Pattern with a Builder to compose pricing rules dynamically. Each pricing rule (discount, tax, surcharge) is a separate decorator wrapping the previous one. New rules require new decorator files, not modification of existing code.",
+      strengths: {
+        header: "Strengths:",
+        items: [
+          "Open/Closed Principle: extend through composition, not modification",
+          "Each decorator is a single responsibility: apply one rule",
+          "Pure domain logic, highly testable without database",
+          "Scales horizontally: new rules = new files, existing code untouched",
+          "Phase 05 would barely require changes to existing code",
+          "Chainable rules allow complex pricing scenarios"
+        ]
+      },
+      weaknesses: {
+        header: "Weaknesses:",
+        items: [
+          "Highest initial cost (22 files, 1139 lines in Phase 04)",
+          "Steep learning curve for decorator composition concept",
+          "Debugging can be complex: decorators are wrapped inside each other",
+          "Builder configuration must be precise to get correct rule order",
+          "Over-engineering for simple, stable domains"
+        ]
+      },
+      warning: {
+        label: "Horizontal Scalability",
+        message: "Controller never changes (32 lines). New files added (+9) but existing code untouched. Each decorator is a focused, testable unit. Higher initial cost pays dividends as domain evolves."
+      },
+      metrics: {
+        totalFiles: { label: "Total Files (Phase 04)", value: "22", note: "+9 files, all new decorators" },
+        totalLines: { label: "Total Lines of Code", value: "1139", note: "+169% growth P01→P04" },
+        controllerSize: { label: "Controller Size (All Phases)", value: "32 lines", note: "Zero growth across all phases" },
+        testability: { label: "Testability Score", value: "Excellent", note: "Pure domain, no DB needed" }
+      },
+      conclusion: {
+        bold: "Horizontal scalability at a cost.",
+        paragraphs: [
+          "A04 is the most sophisticated approach. It delivers on the promise of the Open/Closed Principle: the system grows through new files, not modifications. Each decorator is focused, testable, and independent. Phase 05 would add a few new decorators without touching existing code.",
+          "The trade-off is significant upfront complexity: 22 files and 1139 lines for Phase 04. This investment is justified when rules change frequently, but overkill for stable domains. This is the pattern to reach for when you know your domain will evolve rapidly and needs protection against fragility."
+        ]
+      },
+      whenToUse: {
+        title: "✓ When to Use A04",
+        items: [
+          "Pricing rules change frequently and unpredictably",
+          "Business expects long-term maintenance and evolution",
+          "Team has experience with design patterns and composition",
+          "Each rule should be independently testable and deployable",
+          "You need zero-modification extensibility"
+        ]
+      }
+    }
   },
 
   // Conclusions page

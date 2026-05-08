@@ -20,21 +20,21 @@ const langPrefix = lang === "es" ? "/es" : "";
         class="rounded-xl p-8 md:p-12 bg-gradient-to-br from-purple-500/10 via-transparent to-purple-400/5 border border-purple-200 dark:border-purple-900"
       >
         <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-          A02 — Repository Pattern
+          {t.architectureComparison.architectureDetail.a02.title}
         </h1>
 
         <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
-          Service and Repository layers separate controllers from data access
+          {t.architectureComparison.architectureDetail.a02.subtitle}
         </p>
 
         <div class="space-y-2">
           <p class="text-sm">
             <span class="font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.pattern}:</span>
-            <span class="text-gray-600 dark:text-gray-400">Service + Repository</span>
+            <span class="text-gray-600 dark:text-gray-400">{t.architectureComparison.architectureDetail.a02.patternValue}</span>
           </p>
           <p class="text-sm">
             <span class="font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.philosophy}:</span>
-            <span class="text-gray-600 dark:text-gray-400">Invert dependencies, keep controllers thin, abstract data access.</span>
+            <span class="text-gray-600 dark:text-gray-400">{t.architectureComparison.architectureDetail.a02.philosophyValue}</span>
           </p>
         </div>
       </div>
@@ -48,29 +48,25 @@ const langPrefix = lang === "es" ? "/es" : "";
 
       <div class="prose dark:prose-invert max-w-none">
         <p class="text-gray-600 dark:text-gray-400 mb-4">
-          A02 introduces a service layer and repository pattern. Controllers delegate to services, services contain business logic, and repositories abstract data access. This creates clear separation of concerns and improves testability.
+          {t.architectureComparison.architectureDetail.a02.description}
         </p>
 
         <p class="text-gray-600 dark:text-gray-400 mb-4">
-          <span class="font-semibold text-gray-900 dark:text-gray-100">Strengths:</span>
+          <span class="font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.a02.strengths.header}</span>
         </p>
         <ul class="list-disc pl-6 text-gray-600 dark:text-gray-400 mb-4 space-y-2">
-          <li>Controllers remain thin (30 lines) across all phases</li>
-          <li>Dependency inversion through interfaces</li>
-          <li>Services are easier to test with mock repositories</li>
-          <li>Clear separation between infrastructure and logic</li>
-          <li>Good balance between structure and pragmatism</li>
+          {t.architectureComparison.architectureDetail.a02.strengths.items.map((item: string) => (
+            <li>{item}</li>
+          ))}
         </ul>
 
         <p class="text-gray-600 dark:text-gray-400 mb-4">
-          <span class="font-semibold text-gray-900 dark:text-gray-100">Weaknesses:</span>
+          <span class="font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.a02.weaknesses.header}</span>
         </p>
         <ul class="list-disc pl-6 text-gray-600 dark:text-gray-400 mb-4 space-y-2">
-          <li>All complexity migrates to "God Service" (172 lines)</li>
-          <li>Service still coupled to business logic implementation details</li>
-          <li>No reduction in algorithmic complexity</li>
-          <li>Adding new pricing rules still requires modifying the service</li>
-          <li>Service layer can become a catch-all for logic</li>
+          {t.architectureComparison.architectureDetail.a02.weaknesses.items.map((item: string) => (
+            <li>{item}</li>
+          ))}
         </ul>
       </div>
     </section>
@@ -104,28 +100,28 @@ const langPrefix = lang === "es" ? "/es" : "";
           </thead>
           <tbody>
             <tr class="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/50">
-              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">Phase 01</td>
+              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.metricsTable.phase01}</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">10</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">269</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">29</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">72</td>
             </tr>
             <tr class="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/50">
-              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">Phase 02</td>
+              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.metricsTable.phase02}</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">10</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">407</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">30</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">120</td>
             </tr>
             <tr class="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/50">
-              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">Phase 03</td>
+              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.metricsTable.phase03}</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">10</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">503</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">30</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">143</td>
             </tr>
             <tr class="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/50">
-              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">Phase 04</td>
+              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.metricsTable.phase04}</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">10</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">587</td>
               <td class="px-6 py-4 text-green-600 dark:text-green-400">30</td>
@@ -136,7 +132,7 @@ const langPrefix = lang === "es" ? "/es" : "";
       </div>
 
       <p class="mt-6 p-4 rounded-lg bg-yellow-50 dark:bg-yellow-950/30 border border-yellow-200 dark:border-yellow-900 text-yellow-900 dark:text-yellow-200">
-        <span class="font-semibold">God Service Pattern:</span> Controller stays thin (30 lines) but service grew to 172 lines handling all pricing logic. Repository Pattern decouples data access but doesn't reduce algorithmic complexity.
+        <span class="font-semibold">{t.architectureComparison.architectureDetail.a02.warning.label}:</span> {t.architectureComparison.architectureDetail.a02.warning.message}
       </p>
     </section>
 
@@ -148,27 +144,27 @@ const langPrefix = lang === "es" ? "/es" : "";
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="rounded-lg border border-gray-200 dark:border-gray-800 p-6">
-          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">Total Files</p>
-          <p class="text-3xl font-bold text-gray-900 dark:text-gray-100">10</p>
-          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">Stable across phases</p>
+          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">{t.architectureComparison.architectureDetail.a02.metrics.totalFiles.label}</p>
+          <p class="text-3xl font-bold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.a02.metrics.totalFiles.value}</p>
+          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">{t.architectureComparison.architectureDetail.a02.metrics.totalFiles.note}</p>
         </div>
 
         <div class="rounded-lg border border-gray-200 dark:border-gray-800 p-6">
-          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">Total Lines of Code</p>
-          <p class="text-3xl font-bold text-gray-900 dark:text-gray-100">587</p>
-          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">+118% growth P01→P04</p>
+          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">{t.architectureComparison.architectureDetail.a02.metrics.totalLines.label}</p>
+          <p class="text-3xl font-bold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.a02.metrics.totalLines.value}</p>
+          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">{t.architectureComparison.architectureDetail.a02.metrics.totalLines.note}</p>
         </div>
 
         <div class="rounded-lg border border-gray-200 dark:border-gray-800 p-6">
-          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">Controller Size (Phase 04)</p>
-          <p class="text-3xl font-bold text-green-600 dark:text-green-400">30 lines</p>
-          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">+1 line from Phase 01</p>
+          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">{t.architectureComparison.architectureDetail.a02.metrics.controllerSize.label}</p>
+          <p class="text-3xl font-bold text-green-600 dark:text-green-400">{t.architectureComparison.architectureDetail.a02.metrics.controllerSize.value}</p>
+          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">{t.architectureComparison.architectureDetail.a02.metrics.controllerSize.note}</p>
         </div>
 
         <div class="rounded-lg border border-gray-200 dark:border-gray-800 p-6">
-          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">Testability Score</p>
-          <p class="text-3xl font-bold text-gray-900 dark:text-gray-100">Medium</p>
-          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">Services testable with mocks</p>
+          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">{t.architectureComparison.architectureDetail.a02.metrics.testability.label}</p>
+          <p class="text-3xl font-bold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.a02.metrics.testability.value}</p>
+          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">{t.architectureComparison.architectureDetail.a02.metrics.testability.note}</p>
         </div>
       </div>
     </section>
@@ -181,41 +177,35 @@ const langPrefix = lang === "es" ? "/es" : "";
 
       <div class="rounded-lg border border-purple-200 dark:border-purple-900 bg-purple-50 dark:bg-purple-950/30 p-6">
         <p class="text-purple-900 dark:text-purple-200 mb-4">
-          <span class="font-semibold">Repository Pattern solves the wrong problem.</span>
+          <span class="font-semibold">{t.architectureComparison.architectureDetail.a02.conclusion.bold}</span>
         </p>
-        <p class="text-purple-900 dark:text-purple-200 mb-4">
-          While it decouples data access (good!), it doesn't address the core issue: algorithmic complexity. All pricing logic still lives in one "God Service" that handles every pricing scenario. Adding new rules still requires modifying the service and understanding its entire logic flow.
-        </p>
-        <p class="text-purple-900 dark:text-purple-200">
-          A02 is better than A01, but it's a tactical improvement that doesn't tackle the structural problem of growing domain complexity.
-        </p>
+        {t.architectureComparison.architectureDetail.a02.conclusion.paragraphs.map((paragraph: string) => (
+          <p class="text-purple-900 dark:text-purple-200 mb-4">{paragraph}</p>
+        ))}
       </div>
     </section>
 
     <!-- When to Use Section -->
     <section class="mb-12 p-6 rounded-lg bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900">
       <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-200 mb-4">
-        ✓ When to Use A02
+        {t.architectureComparison.architectureDetail.a02.whenToUse.title}
       </h3>
       <ul class="list-disc pl-6 text-blue-900 dark:text-blue-200 space-y-2">
-        <li>You need testability but domain logic is still relatively simple</li>
-        <li>Team benefits from clear separation of concerns</li>
-        <li>Stable domain with infrequent business rule changes</li>
-        <li>Good stepping stone between A01 and more complex patterns</li>
+        {t.architectureComparison.architectureDetail.a02.whenToUse.items.map((item: string) => (
+          <li>{item}</li>
+        ))}
       </ul>
     </section>
 
-    <!-- CTA Section -->
-    <section class="text-center">
-      <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-        Explore the Code
-      </h2>
+    <!-- Footer -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-gray-200 dark:border-gray-800">
+      <BackLink href="/projects/architecture-comparison" label={t.architectureComparison.architectureDetail.back} />
 
       <a
-        href="https://github.com/MMoza/reservations/tree/main/src/Arch02"
+        href="https://github.com/MMoza/reservations/tree/main/app/Architectures/A02_RepositoryPattern"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 transition-colors"
+        class="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -225,15 +215,8 @@ const langPrefix = lang === "es" ? "/es" : "";
         >
           <path d="M12 0C5.37 0 0 5.37 0 12a12 12 0 008.21 11.38c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.33-1.75-1.33-1.75-1.09-.75.08-.74.08-.74 1.2.08 1.84 1.23 1.84 1.23 1.07 1.84 2.8 1.31 3.48 1 .11-.77.42-1.31.76-1.61-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.4 11.4 0 016 0C17.3 3.6 18.3 3.92 18.3 3.92c.65 1.66.24 2.88.12 3.18.76.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.47 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.83.58A12 12 0 0024 12c0-6.63-5.37-12-12-12z"/>
         </svg>
-        {t.architectureComparison.architectureDetail.source}
+        <span class="text-sm">{t.architectureComparison.architectureDetail.source}</span>
       </a>
-
-      <a
-        href={`${langPrefix}/projects/architecture-comparison/`}
-        class="mt-6 block px-6 py-3 border border-purple-600 text-purple-600 dark:text-purple-400 font-medium rounded-lg hover:bg-purple-50 dark:hover:bg-purple-950/30 transition-colors"
-      >
-        ← Back to Comparison
-      </a>
-    </section>
+    </div>
   </article>
 </BaseLayout>

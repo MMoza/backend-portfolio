@@ -20,21 +20,21 @@ const langPrefix = lang === "es" ? "/es" : "";
         class="rounded-xl p-8 md:p-12 bg-gradient-to-br from-emerald-500/10 via-transparent to-emerald-400/5 border border-emerald-200 dark:border-emerald-900"
       >
         <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-          A03 — Strategy + Polymorphism
+          {t.architectureComparison.architectureDetail.a03.title}
         </h1>
 
         <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
-          Encapsulate behaviors through polymorphic strategy objects
+          {t.architectureComparison.architectureDetail.a03.subtitle}
         </p>
 
         <div class="space-y-2">
           <p class="text-sm">
             <span class="font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.pattern}:</span>
-            <span class="text-gray-600 dark:text-gray-400">Strategy Pattern + Polymorphism</span>
+            <span class="text-gray-600 dark:text-gray-400">{t.architectureComparison.architectureDetail.a03.patternValue}</span>
           </p>
           <p class="text-sm">
             <span class="font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.philosophy}:</span>
-            <span class="text-gray-600 dark:text-gray-400">Encapsulate varying behaviors. Each strategy type implements its own pricing rules.</span>
+            <span class="text-gray-600 dark:text-gray-400">{t.architectureComparison.architectureDetail.a03.philosophyValue}</span>
           </p>
         </div>
       </div>
@@ -48,29 +48,25 @@ const langPrefix = lang === "es" ? "/es" : "";
 
       <div class="prose dark:prose-invert max-w-none">
         <p class="text-gray-600 dark:text-gray-400 mb-4">
-          A03 uses the Strategy Pattern to encapsulate different pricing behaviors. Each reservation type (Hotel, Event, etc.) has its own Strategy class implementing pricing logic. This makes the domain model more expressive and aligns code structure with business concepts.
+          {t.architectureComparison.architectureDetail.a03.description}
         </p>
 
         <p class="text-gray-600 dark:text-gray-400 mb-4">
-          <span class="font-semibold text-gray-900 dark:text-gray-100">Strengths:</span>
+          <span class="font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.a03.strengths.header}</span>
         </p>
         <ul class="list-disc pl-6 text-gray-600 dark:text-gray-400 mb-4 space-y-2">
-          <li>Clear mapping between business types and code</li>
-          <li>Easy to test individual strategies in isolation</li>
-          <li>New reservation types require new strategy classes, not modifications</li>
-          <li>Good balance between structure and complexity</li>
-          <li>Controllers and services remain thin (30-32 lines)</li>
+          {t.architectureComparison.architectureDetail.a03.strengths.items.map((item: string) => (
+            <li>{item}</li>
+          ))}
         </ul>
 
         <p class="text-gray-600 dark:text-gray-400 mb-4">
-          <span class="font-semibold text-gray-900 dark:text-gray-100">Weaknesses:</span>
+          <span class="font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.a03.weaknesses.header}</span>
         </p>
         <ul class="list-disc pl-6 text-gray-600 dark:text-gray-400 mb-4 space-y-2">
-          <li>More files (14) than simpler approaches</li>
-          <li>Phase04PricingStrategy duplicates logic from BasicPricingStrategy</li>
-          <li>Creating a new phase creates a new strategy duplicating prior logic</li>
-          <li>Needs better refactoring to handle shared behavior between strategies</li>
-          <li>Still requires understanding strategy hierarchy</li>
+          {t.architectureComparison.architectureDetail.a03.weaknesses.items.map((item: string) => (
+            <li>{item}</li>
+          ))}
         </ul>
       </div>
     </section>
@@ -101,25 +97,25 @@ const langPrefix = lang === "es" ? "/es" : "";
           </thead>
           <tbody>
             <tr class="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/50">
-              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">Phase 01</td>
+              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.metricsTable.phase01}</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">14</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">371</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">31</td>
             </tr>
             <tr class="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/50">
-              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">Phase 02</td>
+              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.metricsTable.phase02}</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">14</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">523</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">32</td>
             </tr>
             <tr class="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/50">
-              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">Phase 03</td>
+              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.metricsTable.phase03}</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">14</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">727</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">32</td>
             </tr>
             <tr class="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/50">
-              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">Phase 04</td>
+              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.metricsTable.phase04}</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">14</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">775</td>
               <td class="px-6 py-4 text-green-600 dark:text-green-400">32</td>
@@ -129,7 +125,7 @@ const langPrefix = lang === "es" ? "/es" : "";
       </div>
 
       <p class="mt-6 p-4 rounded-lg bg-yellow-50 dark:bg-yellow-950/30 border border-yellow-200 dark:border-yellow-900 text-yellow-900 dark:text-yellow-200">
-        <span class="font-semibold">Strategy Duplication:</span> Phase04PricingStrategy duplicates logic from BasicPricingStrategy to add 3 new methods. Shows the pattern works but needs refactoring for phase-based evolution.
+        <span class="font-semibold">{t.architectureComparison.architectureDetail.a03.warning.label}:</span> {t.architectureComparison.architectureDetail.a03.warning.message}
       </p>
     </section>
 
@@ -141,27 +137,27 @@ const langPrefix = lang === "es" ? "/es" : "";
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="rounded-lg border border-gray-200 dark:border-gray-800 p-6">
-          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">Total Files</p>
-          <p class="text-3xl font-bold text-gray-900 dark:text-gray-100">14</p>
-          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">Stable across phases</p>
+          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">{t.architectureComparison.architectureDetail.a03.metrics.totalFiles.label}</p>
+          <p class="text-3xl font-bold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.a03.metrics.totalFiles.value}</p>
+          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">{t.architectureComparison.architectureDetail.a03.metrics.totalFiles.note}</p>
         </div>
 
         <div class="rounded-lg border border-gray-200 dark:border-gray-800 p-6">
-          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">Total Lines of Code</p>
-          <p class="text-3xl font-bold text-gray-900 dark:text-gray-100">775</p>
-          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">+109% growth P01→P04</p>
+          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">{t.architectureComparison.architectureDetail.a03.metrics.totalLines.label}</p>
+          <p class="text-3xl font-bold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.a03.metrics.totalLines.value}</p>
+          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">{t.architectureComparison.architectureDetail.a03.metrics.totalLines.note}</p>
         </div>
 
         <div class="rounded-lg border border-gray-200 dark:border-gray-800 p-6">
-          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">Controller Size (Phase 04)</p>
-          <p class="text-3xl font-bold text-green-600 dark:text-green-400">32 lines</p>
-          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">+1 line from Phase 01</p>
+          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">{t.architectureComparison.architectureDetail.a03.metrics.controllerSize.label}</p>
+          <p class="text-3xl font-bold text-green-600 dark:text-green-400">{t.architectureComparison.architectureDetail.a03.metrics.controllerSize.value}</p>
+          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">{t.architectureComparison.architectureDetail.a03.metrics.controllerSize.note}</p>
         </div>
 
         <div class="rounded-lg border border-gray-200 dark:border-gray-800 p-6">
-          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">Testability Score</p>
-          <p class="text-3xl font-bold text-gray-900 dark:text-gray-100">Good</p>
-          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">Strategies are testable units</p>
+          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">{t.architectureComparison.architectureDetail.a03.metrics.testability.label}</p>
+          <p class="text-3xl font-bold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.a03.metrics.testability.value}</p>
+          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">{t.architectureComparison.architectureDetail.a03.metrics.testability.note}</p>
         </div>
       </div>
     </section>
@@ -174,41 +170,35 @@ const langPrefix = lang === "es" ? "/es" : "";
 
       <div class="rounded-lg border border-emerald-200 dark:border-emerald-900 bg-emerald-50 dark:bg-emerald-950/30 p-6">
         <p class="text-emerald-900 dark:text-emerald-200 mb-4">
-          <span class="font-semibold">Good balance with room for refinement.</span>
+          <span class="font-semibold">{t.architectureComparison.architectureDetail.a03.conclusion.bold}</span>
         </p>
-        <p class="text-emerald-900 dark:text-emerald-200 mb-4">
-          A03 strikes a solid middle ground. Controllers stay thin, strategies are cohesive and testable, and the domain model clearly expresses business intent. However, it shows the risk of strategy duplication: adding a new phase requires copying prior strategy logic and extending it.
-        </p>
-        <p class="text-emerald-900 dark:text-emerald-200">
-          With better refactoring (composition over inheritance, shared trait methods), this pattern scales much better. It's an excellent choice when you have distinct product types with varying behaviors.
-        </p>
+        {t.architectureComparison.architectureDetail.a03.conclusion.paragraphs.map((paragraph: string) => (
+          <p class="text-emerald-900 dark:text-emerald-200 mb-4">{paragraph}</p>
+        ))}
       </div>
     </section>
 
     <!-- When to Use Section -->
     <section class="mb-12 p-6 rounded-lg bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900">
       <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-200 mb-4">
-        ✓ When to Use A03
+        {t.architectureComparison.architectureDetail.a03.whenToUse.title}
       </h3>
       <ul class="list-disc pl-6 text-blue-900 dark:text-blue-200 space-y-2">
-        <li>Product types or contexts have different calculation rules</li>
-        <li>Business domains map naturally to different strategies</li>
-        <li>You want good testability with clear behavior encapsulation</li>
-        <li>Teams benefit from seeing strategy-to-business mapping</li>
+        {t.architectureComparison.architectureDetail.a03.whenToUse.items.map((item: string) => (
+          <li>{item}</li>
+        ))}
       </ul>
     </section>
 
-    <!-- CTA Section -->
-    <section class="text-center">
-      <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-        Explore the Code
-      </h2>
+    <!-- Footer -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-gray-200 dark:border-gray-800">
+      <BackLink href="/projects/architecture-comparison" label={t.architectureComparison.architectureDetail.back} />
 
       <a
-        href="https://github.com/MMoza/reservations/tree/main/src/Arch03"
+        href="https://github.com/MMoza/reservations/tree/main/app/Architectures/A03_StrategyPolymorphism"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 text-white font-medium rounded-lg hover:bg-emerald-700 transition-colors"
+        class="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -218,15 +208,8 @@ const langPrefix = lang === "es" ? "/es" : "";
         >
           <path d="M12 0C5.37 0 0 5.37 0 12a12 12 0 008.21 11.38c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.33-1.75-1.33-1.75-1.09-.75.08-.74.08-.74 1.2.08 1.84 1.23 1.84 1.23 1.07 1.84 2.8 1.31 3.48 1 .11-.77.42-1.31.76-1.61-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.4 11.4 0 016 0C17.3 3.6 18.3 3.92 18.3 3.92c.65 1.66.24 2.88.12 3.18.76.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.47 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.83.58A12 12 0 0024 12c0-6.63-5.37-12-12-12z"/>
         </svg>
-        {t.architectureComparison.architectureDetail.source}
+        <span class="text-sm">{t.architectureComparison.architectureDetail.source}</span>
       </a>
-
-      <a
-        href={`${langPrefix}/projects/architecture-comparison/`}
-        class="mt-6 block px-6 py-3 border border-emerald-600 text-emerald-600 dark:text-emerald-400 font-medium rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-950/30 transition-colors"
-      >
-        ← Back to Comparison
-      </a>
-    </section>
+    </div>
   </article>
 </BaseLayout>

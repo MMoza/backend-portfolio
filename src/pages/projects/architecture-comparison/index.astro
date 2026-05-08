@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import BackLink from "../../../components/BackLink.astro";
-import ResponsiveChart from "../../../components/ResponsiveChart.astro";
 
 import { getLangFromUrl } from "../../../i18n/getLang";
 import { getTranslations } from "../../../i18n";
@@ -10,151 +9,6 @@ const lang = getLangFromUrl(Astro.url);
 const t = getTranslations(lang);
 const langPrefix = lang === "es" ? "/es" : "";
 
-// Chart data
-const linesOfCodeData = {
-  labels: ["Phase 01", "Phase 02", "Phase 03", "Phase 04"],
-  datasets: [
-    {
-      label: "A01 — Monolithic",
-      archId: "a01",
-      data: [218, 326, 398, 466],
-      borderColor: "#3b82f6",
-      backgroundColor: "#3b82f620"
-    },
-    {
-      label: "A02 — Repository",
-      archId: "a02",
-      data: [269, 407, 503, 587],
-      borderColor: "#a855f7",
-      backgroundColor: "#a855f720"
-    },
-    {
-      label: "A03 — Strategy",
-      archId: "a03",
-      data: [371, 523, 727, 775],
-      borderColor: "#10b981",
-      backgroundColor: "#10b98120"
-    },
-    {
-      label: "A04 — Decorator",
-      archId: "a04",
-      data: [423, 671, 878, 1139],
-      borderColor: "#f59e0b",
-      backgroundColor: "#f59e0b20"
-    }
-  ]
-};
-
-const controllerSizeData = {
-  labels: ["Phase 01", "Phase 02", "Phase 03", "Phase 04"],
-  datasets: [
-    {
-      label: "A01 — Monolithic",
-      archId: "a01",
-      data: [83, 123, 141, 184],
-      borderColor: "#3b82f6",
-      backgroundColor: "#3b82f620"
-    },
-    {
-      label: "A02 — Repository",
-      archId: "a02",
-      data: [29, 30, 30, 30],
-      borderColor: "#a855f7",
-      backgroundColor: "#a855f720"
-    },
-    {
-      label: "A03 — Strategy",
-      archId: "a03",
-      data: [31, 32, 32, 32],
-      borderColor: "#10b981",
-      backgroundColor: "#10b98120"
-    },
-    {
-      label: "A04 — Decorator",
-      archId: "a04",
-      data: [32, 32, 32, 32],
-      borderColor: "#f59e0b",
-      backgroundColor: "#f59e0b20"
-    }
-  ]
-};
-
-const accumulatedGrowthData = {
-  labels: ["+Files", "+Lines (%)", "+Controller (lines)"],
-  datasets: [
-    {
-      label: "A01",
-      archId: "a01",
-      data: [1, 114, 101],
-      backgroundColor: "#3b82f6"
-    },
-    {
-      label: "A02",
-      archId: "a02",
-      data: [2, 118, 1],
-      backgroundColor: "#a855f7"
-    },
-    {
-      label: "A03",
-      archId: "a03",
-      data: [1, 109, 1],
-      backgroundColor: "#10b981"
-    },
-    {
-      label: "A04",
-      archId: "a04",
-      data: [9, 169, 0],
-      backgroundColor: "#f59e0b"
-    }
-  ]
-};
-
-const lineChartOptions = {
-  responsive: true,
-  maintainAspectRatio: true,
-  plugins: {
-    legend: {
-      position: "top" as const
-    }
-  },
-  scales: {
-    y: {
-      beginAtZero: true,
-      grid: {
-        drawBorder: false
-      }
-    },
-    x: {
-      grid: {
-        display: false
-      }
-    }
-  }
-};
-
-const barChartOptions = {
-  responsive: true,
-  maintainAspectRatio: true,
-  plugins: {
-    legend: {
-      position: "top" as const
-    }
-  },
-  scales: {
-    y: {
-      beginAtZero: true,
-      stacked: false,
-      grid: {
-        drawBorder: false
-      }
-    },
-    x: {
-      grid: {
-        display: false
-      }
-    }
-  }
-};
 ---
 
 <BaseLayout>
@@ -215,16 +69,14 @@ const barChartOptions = {
         {t.architectureComparison.experiment.description}
       </p>
 
-      <div
-        class="rounded-lg border border-blue-200 dark:border-blue-900 bg-blue-50 dark:bg-blue-950/30 p-6 mb-8"
-      >
-        <p class="text-blue-900 dark:text-blue-200 font-semibold text-lg">
+      <blockquote class="border-l-4 border-blue-500 pl-6 py-4 mb-8">
+        <p class="text-xl font-medium text-gray-900 dark:text-gray-100 italic">
           {t.architectureComparison.experiment.question}
         </p>
-      </div>
+      </blockquote>
 
-      <!-- Architecture Cards Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Architecture Cards - Horizontal Scroll -->
+      <div class="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory">
         {["a01", "a02", "a03", "a04"].map((archId) => {
           const arch = t.architectureComparison.architectures[archId];
           const gradients = {
@@ -237,25 +89,27 @@ const barChartOptions = {
           return (
             <a
               href={`${langPrefix}/projects/architecture-comparison/${archId}/`}
-              class={`group arch-gradient rounded-xl border border-gray-200 dark:border-gray-800 p-6 bg-gradient-to-br ${gradients[archId]} hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer`}
+              class={`group arch-gradient flex-shrink-0 w-72 md:w-80 snap-start flex flex-col justify-between rounded-xl border border-gray-200 dark:border-gray-800 p-6 bg-gradient-to-br ${gradients[archId]} hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer`}
             >
-              <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                {arch.name}
-              </h3>
+              <div>
+                <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  {arch.name}
+                </h3>
 
-              <p class="text-sm text-gray-500 dark:text-gray-500 mb-3">
-                {arch.pattern}
-              </p>
+                <p class="text-sm text-gray-500 dark:text-gray-500 mb-3">
+                  {arch.pattern}
+                </p>
 
-              <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                <span class="font-medium">Philosophy:</span> {arch.philosophy}
-              </p>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                  <span class="font-medium">Philosophy:</span> {arch.philosophy}
+                </p>
 
-              <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                <span class="font-medium">Strength:</span> {arch.strength}
-              </p>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                  <span class="font-medium">Strength:</span> {arch.strength}
+                </p>
+              </div>
 
-              <div class="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-medium group-hover:gap-3 transition-all">
+              <div class="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-medium group-hover:gap-3 transition-all mt-4">
                 {arch.link}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -392,39 +246,202 @@ const barChartOptions = {
 
     <!-- Charts Section -->
     <section class="mb-16">
-      <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-gray-100">
-        📊 Visual Evolution
+      <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+        {t.architectureComparison.charts.quadrant.title}
       </h2>
 
-      <div class="space-y-12">
-        <ResponsiveChart
-          id="linesOfCodeChart"
-          type="line"
-          data={linesOfCodeData}
-          options={lineChartOptions}
-          title={t.architectureComparison.charts.lineOfCode.title}
-          caption={t.architectureComparison.charts.lineOfCode.caption}
-        />
+      <p class="text-gray-600 dark:text-gray-400 mb-8 text-lg">
+        {t.architectureComparison.charts.quadrant.caption}
+      </p>
 
-        <ResponsiveChart
-          id="controllerSizeChart"
-          type="line"
-          data={controllerSizeData}
-          options={lineChartOptions}
-          title={t.architectureComparison.charts.controllerSize.title}
-          caption={t.architectureComparison.charts.controllerSize.caption}
-        />
-
-        <ResponsiveChart
-          id="accumulatedGrowthChart"
-          type="bar"
-          data={accumulatedGrowthData}
-          options={barChartOptions}
-          title={t.architectureComparison.charts.accumulatedGrowth.title}
-          caption={t.architectureComparison.charts.accumulatedGrowth.caption}
-        />
+      <div class="relative w-full bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-4 md:p-6">
+        <canvas id="quadrantChart" style="max-height: 400px;"></canvas>
       </div>
+
+      <p class="mt-3 text-sm text-gray-600 dark:text-gray-400 italic">
+        {t.architectureComparison.charts.quadrant.caption}
+      </p>
     </section>
+
+    <script is:inline src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3"></script>
+
+    <script define:vars={{ currentLang: lang }}>
+      function initQuadrantChart() {
+        if (!window.Chart) {
+          setTimeout(initQuadrantChart, 100);
+          return;
+        }
+
+        const canvas = document.getElementById('quadrantChart');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        const isDark = document.documentElement.classList.contains('dark');
+        const textColor = isDark ? '#9ca3af' : '#4b5563';
+        const gridColor = isDark ? '#374151' : '#e5e7eb';
+        const isEs = currentLang === 'es';
+
+        const xAxisTitle = isEs ? 'Simplicidad' : 'Simplicity';
+        const yAxisTitle = isEs ? 'Fragilidad' : 'Fragility';
+        const tooltipFiles = isEs ? 'archivos' : 'files';
+        const tooltipFragility = isEs ? 'Fragilidad' : 'Fragility';
+
+        const chartData = {
+          datasets: [
+            {
+              label: 'A01',
+              data: [{ x: 6, y: 10 }],
+              borderColor: '#3b82f6',
+              backgroundColor: '#3b82f6',
+              pointRadius: 10,
+              pointHoverRadius: 12,
+              pointBorderWidth: 3,
+              pointBorderColor: isDark ? '#111827' : '#ffffff'
+            },
+            {
+              label: 'A02',
+              data: [{ x: 10, y: 7 }],
+              borderColor: '#a855f7',
+              backgroundColor: '#a855f7',
+              pointRadius: 10,
+              pointHoverRadius: 12,
+              pointBorderWidth: 3,
+              pointBorderColor: isDark ? '#111827' : '#ffffff'
+            },
+            {
+              label: 'A03',
+              data: [{ x: 14, y: 5.5 }],
+              borderColor: '#10b981',
+              backgroundColor: '#10b981',
+              pointRadius: 10,
+              pointHoverRadius: 12,
+              pointBorderWidth: 3,
+              pointBorderColor: isDark ? '#111827' : '#ffffff'
+            },
+            {
+              label: 'A04',
+              data: [{ x: 22, y: 2 }],
+              borderColor: '#f59e0b',
+              backgroundColor: '#f59e0b',
+              pointRadius: 10,
+              pointHoverRadius: 12,
+              pointBorderWidth: 3,
+              pointBorderColor: isDark ? '#111827' : '#ffffff'
+            }
+          ]
+        };
+
+        new window.Chart(ctx, {
+          type: 'scatter',
+          data: chartData,
+          options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+              legend: {
+                position: 'top',
+                labels: {
+                  color: textColor,
+                  usePointStyle: true,
+                  padding: 8,
+                  font: { size: 11, weight: '600' },
+                  boxWidth: 8,
+                  boxHeight: 8
+                }
+              },
+              tooltip: {
+                backgroundColor: isDark ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.9)',
+                titleColor: '#fff',
+                bodyColor: '#fff',
+                borderColor: gridColor,
+                borderWidth: 1,
+                padding: 10,
+                titleFont: { size: 12, weight: 'bold' },
+                bodyFont: { size: 11 },
+                callbacks: {
+                  title: function(context) {
+                    return context[0].dataset.label;
+                  },
+                  label: function(context) {
+                    const point = context.raw;
+                    return `${point.x} ${tooltipFiles} · ${tooltipFragility} ${point.y}/10`;
+                  }
+                }
+              },
+              annotation: {
+                annotations: {
+                  midlineX: {
+                    type: 'line',
+                    xMin: 14,
+                    xMax: 14,
+                    borderColor: gridColor,
+                    borderWidth: 2,
+                    borderDash: [6, 6]
+                  },
+                  midlineY: {
+                    type: 'line',
+                    yMin: 6,
+                    yMax: 6,
+                    borderColor: gridColor,
+                    borderWidth: 2,
+                    borderDash: [6, 6]
+                  }
+                }
+              }
+            },
+            scales: {
+              x: {
+                title: {
+                  display: true,
+                  text: xAxisTitle,
+                  color: textColor,
+                  font: { size: 12, weight: 'bold' }
+                },
+                min: 0,
+                max: 28,
+                ticks: {
+                  color: textColor,
+                  stepSize: 4,
+                  font: { size: 10 }
+                },
+                grid: {
+                  color: gridColor,
+                  drawBorder: false
+                }
+              },
+              y: {
+                title: {
+                  display: true,
+                  text: yAxisTitle,
+                  color: textColor,
+                  font: { size: 12, weight: 'bold' }
+                },
+                min: 0,
+                max: 12,
+                ticks: {
+                  color: textColor,
+                  stepSize: 2,
+                  font: { size: 10 }
+                },
+                grid: {
+                  color: gridColor,
+                  drawBorder: false
+                }
+              }
+            }
+          }
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initQuadrantChart);
+      } else {
+        initQuadrantChart();
+      }
+    </script>
 
     <!-- Rankings Section -->
     <section class="mb-16">
@@ -545,34 +562,63 @@ const barChartOptions = {
     </section>
 
     <!-- CTA Section -->
-    <section class="text-center">
-      <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+    <section>
+      <h2 class="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-gray-100">
         {t.architectureComparison.cta.title}
       </h2>
-      <p class="text-gray-600 dark:text-gray-400 mb-8 text-lg max-w-2xl mx-auto">
-        {t.architectureComparison.cta.description}
-      </p>
 
-      <div class="flex flex-wrap justify-center gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {["a01", "a02", "a03", "a04"].map((archId) => {
           const arch = t.architectureComparison.architectures[archId];
+          const gradients = {
+            a01: "from-blue-500/10 to-blue-400/5",
+            a02: "from-purple-500/10 to-purple-400/5",
+            a03: "from-emerald-500/10 to-emerald-400/5",
+            a04: "from-amber-500/10 to-amber-400/5"
+          };
+          const textColors = {
+            a01: "text-blue-600 dark:text-blue-400",
+            a02: "text-purple-600 dark:text-purple-400",
+            a03: "text-emerald-600 dark:text-emerald-400",
+            a04: "text-amber-600 dark:text-amber-400"
+          };
           return (
             <a
               href={`${langPrefix}/projects/architecture-comparison/${archId}/`}
-              class="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+              class={`group arch-gradient flex flex-col justify-between rounded-xl border border-gray-200 dark:border-gray-800 p-6 bg-gradient-to-br ${gradients[archId]} hover:shadow-lg hover:-translate-y-1 transition-all`}
             >
-              {arch.name}
+              <div>
+                <h3 class="text-lg font-bold mb-2 text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{arch.name}</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-500">{arch.pattern}</p>
+              </div>
+              <span class={`inline-flex items-center gap-2 text-sm font-medium ${textColors[archId]}`}>
+                {arch.link}
+                <svg
+                  class="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
             </a>
           );
         })}
       </div>
 
-      <a
-        href={`${langPrefix}/projects/architecture-comparison/conclusions/`}
-        class="mt-6 inline-block px-6 py-3 border border-blue-600 text-blue-600 dark:text-blue-400 font-medium rounded-lg hover:bg-blue-50 dark:hover:bg-blue-950/30 transition-colors"
-      >
-        View Complete Rankings
-      </a>
+      <div class="text-center">
+        <a
+          href={`${langPrefix}/projects/architecture-comparison/conclusions/`}
+          class="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 font-semibold rounded-xl hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+          </svg>
+          View Complete Rankings
+        </a>
+      </div>
     </section>
   </article>
 </BaseLayout>

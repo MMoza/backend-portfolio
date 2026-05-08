@@ -20,21 +20,21 @@ const langPrefix = lang === "es" ? "/es" : "";
         class="rounded-xl p-8 md:p-12 bg-gradient-to-br from-blue-500/10 via-transparent to-blue-400/5 border border-blue-200 dark:border-blue-900"
       >
         <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-          A01 — Monolithic Eloquent
+          {t.architectureComparison.architectureDetail.a01.title}
         </h1>
 
         <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
-          Direct ORM usage with business logic in models and controllers
+          {t.architectureComparison.architectureDetail.a01.subtitle}
         </p>
 
         <div class="space-y-2">
           <p class="text-sm">
             <span class="font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.pattern}:</span>
-            <span class="text-gray-600 dark:text-gray-400">Active Record / Monolithic</span>
+            <span class="text-gray-600 dark:text-gray-400">{t.architectureComparison.architectureDetail.a01.patternValue}</span>
           </p>
           <p class="text-sm">
             <span class="font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.philosophy}:</span>
-            <span class="text-gray-600 dark:text-gray-400">Embrace ORM as the primary abstraction. Fast iteration, minimal boilerplate.</span>
+            <span class="text-gray-600 dark:text-gray-400">{t.architectureComparison.architectureDetail.a01.philosophyValue}</span>
           </p>
         </div>
       </div>
@@ -48,28 +48,25 @@ const langPrefix = lang === "es" ? "/es" : "";
 
       <div class="prose dark:prose-invert max-w-none">
         <p class="text-gray-600 dark:text-gray-400 mb-4">
-          A01 uses Laravel Eloquent models directly in the controller layer. Business logic resides in model methods and controller actions. This approach prioritizes rapid development over long-term maintainability.
+          {t.architectureComparison.architectureDetail.a01.description}
         </p>
 
         <p class="text-gray-600 dark:text-gray-400 mb-4">
-          <span class="font-semibold text-gray-900 dark:text-gray-100">Strengths:</span>
+          <span class="font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.a01.strengths.header}</span>
         </p>
         <ul class="list-disc pl-6 text-gray-600 dark:text-gray-400 mb-4 space-y-2">
-          <li>Minimal setup; start coding immediately</li>
-          <li>Leverage Eloquent's expressive query builder</li>
-          <li>Quick to add simple business logic</li>
-          <li>No abstraction overhead</li>
+          {t.architectureComparison.architectureDetail.a01.strengths.items.map((item: string) => (
+            <li>{item}</li>
+          ))}
         </ul>
 
         <p class="text-gray-600 dark:text-gray-400 mb-4">
-          <span class="font-semibold text-gray-900 dark:text-gray-100">Weaknesses:</span>
+          <span class="font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.a01.weaknesses.header}</span>
         </p>
         <ul class="list-disc pl-6 text-gray-600 dark:text-gray-400 mb-4 space-y-2">
-          <li>Tight coupling to the database layer</li>
-          <li>Logic scattered across models and controllers</li>
-          <li>Difficult to test without a database</li>
-          <li>Complexity grows exponentially with domain rules</li>
-          <li>Hard-coded business rules are brittle</li>
+          {t.architectureComparison.architectureDetail.a01.weaknesses.items.map((item: string) => (
+            <li>{item}</li>
+          ))}
         </ul>
       </div>
     </section>
@@ -100,25 +97,25 @@ const langPrefix = lang === "es" ? "/es" : "";
           </thead>
           <tbody>
             <tr class="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/50">
-              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">Phase 01</td>
+              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.metricsTable.phase01}</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">6</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">218</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">83</td>
             </tr>
             <tr class="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/50">
-              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">Phase 02</td>
+              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.metricsTable.phase02}</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">6</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">326</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">123</td>
             </tr>
             <tr class="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/50">
-              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">Phase 03</td>
+              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.metricsTable.phase03}</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">6</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">398</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">141</td>
             </tr>
             <tr class="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/50">
-              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">Phase 04</td>
+              <td class="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.metricsTable.phase04}</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">7</td>
               <td class="px-6 py-4 text-gray-600 dark:text-gray-400">466</td>
               <td class="px-6 py-4 font-semibold text-red-600 dark:text-red-400">184</td>
@@ -128,7 +125,7 @@ const langPrefix = lang === "es" ? "/es" : "";
       </div>
 
       <p class="mt-6 p-4 rounded-lg bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900 text-red-900 dark:text-red-200">
-        <span class="font-semibold">Warning:</span> Controller grew 122% (83 → 184 lines). All complexity concentrated in a single method handling 13 distinct responsibilities.
+        <span class="font-semibold">{t.architectureComparison.architectureDetail.a01.warning.label}:</span> {t.architectureComparison.architectureDetail.a01.warning.message}
       </p>
     </section>
 
@@ -140,27 +137,27 @@ const langPrefix = lang === "es" ? "/es" : "";
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="rounded-lg border border-gray-200 dark:border-gray-800 p-6">
-          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">Total Files</p>
-          <p class="text-3xl font-bold text-gray-900 dark:text-gray-100">7</p>
-          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">No growth across phases</p>
+          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">{t.architectureComparison.architectureDetail.a01.metrics.totalFiles.label}</p>
+          <p class="text-3xl font-bold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.a01.metrics.totalFiles.value}</p>
+          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">{t.architectureComparison.architectureDetail.a01.metrics.totalFiles.note}</p>
         </div>
 
         <div class="rounded-lg border border-gray-200 dark:border-gray-800 p-6">
-          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">Total Lines of Code</p>
-          <p class="text-3xl font-bold text-gray-900 dark:text-gray-100">466</p>
-          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">+114% growth P01→P04</p>
+          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">{t.architectureComparison.architectureDetail.a01.metrics.totalLines.label}</p>
+          <p class="text-3xl font-bold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.a01.metrics.totalLines.value}</p>
+          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">{t.architectureComparison.architectureDetail.a01.metrics.totalLines.note}</p>
         </div>
 
         <div class="rounded-lg border border-gray-200 dark:border-gray-800 p-6">
-          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">Controller Size (Phase 04)</p>
-          <p class="text-3xl font-bold text-red-600 dark:text-red-400">184 lines</p>
-          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">+101 lines from Phase 01</p>
+          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">{t.architectureComparison.architectureDetail.a01.metrics.controllerSize.label}</p>
+          <p class="text-3xl font-bold text-red-600 dark:text-red-400">{t.architectureComparison.architectureDetail.a01.metrics.controllerSize.value}</p>
+          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">{t.architectureComparison.architectureDetail.a01.metrics.controllerSize.note}</p>
         </div>
 
         <div class="rounded-lg border border-gray-200 dark:border-gray-800 p-6">
-          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">Testability Score</p>
-          <p class="text-3xl font-bold text-gray-900 dark:text-gray-100">Low</p>
-          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">Requires database mocking</p>
+          <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">{t.architectureComparison.architectureDetail.a01.metrics.testability.label}</p>
+          <p class="text-3xl font-bold text-gray-900 dark:text-gray-100">{t.architectureComparison.architectureDetail.a01.metrics.testability.value}</p>
+          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">{t.architectureComparison.architectureDetail.a01.metrics.testability.note}</p>
         </div>
       </div>
     </section>
@@ -173,40 +170,35 @@ const langPrefix = lang === "es" ? "/es" : "";
 
       <div class="rounded-lg border border-blue-200 dark:border-blue-900 bg-blue-50 dark:bg-blue-950/30 p-6">
         <p class="text-blue-900 dark:text-blue-200 mb-4">
-          <span class="font-semibold">Simplicity has exponential cost.</span>
+          <span class="font-semibold">{t.architectureComparison.architectureDetail.a01.conclusion.bold}</span>
         </p>
-        <p class="text-blue-900 dark:text-blue-200 mb-4">
-          A01 is fastest to start but becomes unwieldy as domain complexity grows. The controller handles multiple responsibilities with hard-coded business logic. Early booking discounts are parsed using string manipulation (str_starts_with + explode), creating fragile, difficult-to-maintain code.
-        </p>
-        <p class="text-blue-900 dark:text-blue-200">
-          By Phase 04, the single controller method has become impossible to test in isolation, and adding new pricing rules requires careful modifications to avoid breaking existing logic.
-        </p>
+        {t.architectureComparison.architectureDetail.a01.conclusion.paragraphs.map((paragraph: string) => (
+          <p class="text-blue-900 dark:text-blue-200 mb-4">{paragraph}</p>
+        ))}
       </div>
     </section>
 
     <!-- When to Use Section -->
     <section class="mb-12 p-6 rounded-lg bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-900">
       <h3 class="text-lg font-semibold text-green-900 dark:text-green-200 mb-4">
-        ✓ When to Use A01
+        {t.architectureComparison.architectureDetail.a01.whenToUse.title}
       </h3>
       <ul class="list-disc pl-6 text-green-900 dark:text-green-200 space-y-2">
-        <li>Prototype or proof-of-concept with stable, simple logic</li>
-        <li>Single developer, small team, short project timeline</li>
-        <li>When you're confident domain complexity will not grow significantly</li>
+        {t.architectureComparison.architectureDetail.a01.whenToUse.items.map((item: string) => (
+          <li>{item}</li>
+        ))}
       </ul>
     </section>
 
-    <!-- CTA Section -->
-    <section class="text-center">
-      <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-        Explore the Code
-      </h2>
+    <!-- Footer -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-gray-200 dark:border-gray-800">
+      <BackLink href="/projects/architecture-comparison" label={t.architectureComparison.architectureDetail.back} />
 
       <a
-        href="https://github.com/MMoza/reservations/tree/main/src/Arch01"
+        href="https://github.com/MMoza/reservations/tree/main/app/Architectures/A01_MonolithicEloquent"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+        class="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -216,15 +208,8 @@ const langPrefix = lang === "es" ? "/es" : "";
         >
           <path d="M12 0C5.37 0 0 5.37 0 12a12 12 0 008.21 11.38c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.33-1.75-1.33-1.75-1.09-.75.08-.74.08-.74 1.2.08 1.84 1.23 1.84 1.23 1.07 1.84 2.8 1.31 3.48 1 .11-.77.42-1.31.76-1.61-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.4 11.4 0 016 0C17.3 3.6 18.3 3.92 18.3 3.92c.65 1.66.24 2.88.12 3.18.76.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.47 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.83.58A12 12 0 0024 12c0-6.63-5.37-12-12-12z"/>
         </svg>
-        {t.architectureComparison.architectureDetail.source}
+        <span class="text-sm">{t.architectureComparison.architectureDetail.source}</span>
       </a>
-
-      <a
-        href={`${langPrefix}/projects/architecture-comparison/`}
-        class="mt-6 block px-6 py-3 border border-blue-600 text-blue-600 dark:text-blue-400 font-medium rounded-lg hover:bg-blue-50 dark:hover:bg-blue-950/30 transition-colors"
-      >
-        ← Back to Comparison
-      </a>
-    </section>
+    </div>
   </article>
 </BaseLayout>
