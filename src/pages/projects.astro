@@ -9,7 +9,7 @@ import { getTranslations } from "../i18n";
 const lang = getLangFromUrl(Astro.url);
 const t = getTranslations(lang);
 
-const projects = [
+const backendProjects = [
   {
     slug: "architecture-comparison",
     date: "2026",
@@ -43,6 +43,33 @@ const projects = [
     image: "/randomuser-technical-test.webp"
   }
 ];
+
+const webProjects = [
+  {
+    slug: "personal-portfolio",
+    date: "2025",
+    tech: ["Astro", "Tailwind CSS", "TypeScript"],
+    github: "https://github.com/MMoza/portfolio",
+    status: "finished",
+    image: "/personal-portfolio.webp"
+  },
+  {
+    slug: "interactive-dashboard",
+    date: "2025",
+    tech: ["React", "Node.js", "Express", "PostgreSQL"],
+    github: "https://github.com/MMoza/dashboard",
+    status: "in_progress",
+    image: "/interactive-dashboard.webp"
+  },
+  {
+    slug: "fullstack-ecommerce",
+    date: "2026",
+    tech: ["Next.js", "Stripe", "Prisma", "Tailwind CSS"],
+    github: "https://github.com/MMoza/ecommerce",
+    status: "upcoming",
+    image: "/fullstack-ecommerce.webp"
+  }
+];
 ---
 
 <BaseLayout>
@@ -64,25 +91,64 @@ const projects = [
   </header>
 
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<style>
+  .scroll-section::-webkit-scrollbar {
+    height: 6px;
+  }
+  .scroll-section::-webkit-scrollbar-track {
+    background: rgba(156, 163, 175, 0.2);
+    border-radius: 3px;
+  }
+  .scroll-section::-webkit-scrollbar-thumb {
+    background: rgba(59, 130, 246, 0.5);
+    border-radius: 3px;
+  }
+  .scroll-section::-webkit-scrollbar-thumb:hover {
+    background: rgba(59, 130, 246, 0.7);
+  }
+</style>
 
-{projects.map((project) => {
+<section class="mb-16">
+  <h2 class="text-2xl font-bold mb-6">{t.projects.sections.backend.title}</h2>
+  <p class="text-gray-600 dark:text-gray-400 mb-6">{t.projects.sections.backend.description}</p>
+  <div class="scroll-section flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory">
+    {backendProjects.map((project) => {
+      const translation = t.projects.items[project.slug];
+      return (
+        <div class="flex-shrink-0 w-80 md:w-96 snap-start">
+          <ProjectCard
+            project={{
+              ...project,
+              title: translation.title,
+              description: translation.description
+            }}
+          />
+        </div>
+      );
+    })}
+  </div>
+</section>
 
-  const translation = t.projects.items[project.slug];
-
-  return (
-    <ProjectCard
-      project={{
-        ...project,
-        title: translation.title,
-        description: translation.description
-      }}
-    />
-  );
-
-})}
-
-</div>
+<section class="mb-16">
+  <h2 class="text-2xl font-bold mb-6">{t.projects.sections.web.title}</h2>
+  <p class="text-gray-600 dark:text-gray-400 mb-6">{t.projects.sections.web.description}</p>
+  <div class="scroll-section flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory">
+    {webProjects.map((project) => {
+      const translation = t.projects.items[project.slug];
+      return (
+        <div class="flex-shrink-0 w-80 md:w-96 snap-start">
+          <ProjectCard
+            project={{
+              ...project,
+              title: translation.title,
+              description: translation.description
+            }}
+          />
+        </div>
+      );
+    })}
+  </div>
+</section>
 
 </section>
 

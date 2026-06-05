@@ -5,6 +5,17 @@ export const projectsPage = {
 
   back: "Back to home",
 
+  sections: {
+    backend: {
+      title: "Backend Projects",
+      description: "Server-side architecture, APIs and system design experiments."
+    },
+    web: {
+      title: "Web & Full-Stack Projects",
+      description: "Complete web applications and interactive interfaces."
+    }
+  },
+
   items: {
     "architecture-comparison": {
       title: "Architecture Comparison Lab",
@@ -28,6 +39,24 @@ export const projectsPage = {
       title: "First Technical Test",
       description:
         "This project represents the technical test I completed during the selection process for my first professional role as a web developer."
+    },
+
+    "personal-portfolio": {
+      title: "Personal Portfolio",
+      description:
+        "A modern portfolio website built with Astro and Tailwind CSS showcasing projects and skills with optimized performance."
+    },
+
+    "interactive-dashboard": {
+      title: "Interactive Dashboard",
+      description:
+        "Full-stack dashboard application with real-time data visualization, user management and analytics using React and Node.js."
+    },
+
+    "fullstack-ecommerce": {
+      title: "Full-Stack E-Commerce",
+      description:
+        "Complete e-commerce platform with payment integration, inventory management and responsive design using Next.js and Stripe."
     }
   }
 };
