@@ -41,6 +41,18 @@ export const projectsPage = {
         "This project represents the technical test I completed during the selection process for my first professional role as a web developer."
     },
 
+    "laravel-ddd": {
+      title: "Laravel DDD Package",
+      description:
+        "Composer package that converts Laravel's default MVC scaffolding into a DDD structure. Includes CLI commands, AGENTS.md for AI agent integration, and comprehensive documentation."
+    },
+
+    "design-antipatterns": {
+      title: "Design Antipatterns Catalog",
+      description:
+        "A comprehensive catalog identifying over 100 design antipatterns and bad practices, each with practical solutions and best practice alternatives."
+    },
+
     "personal-portfolio": {
       title: "Personal Portfolio",
       description:

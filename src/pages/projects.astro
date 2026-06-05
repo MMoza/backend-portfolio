@@ -16,15 +16,15 @@ const backendProjects = [
     tech: ["PHP", "Laravel", "Architecture"],
     github: "https://github.com/MMoza/reservations",
     status: "finished",
-    image: "/architecture-comparison.webp"
+    image: "/arhitecture-lab.png"
   },
   {
     slug: "api-benchmark",
     date: "2026",
     tech: ["PHP", "Symfony", "Laravel", "REST", "API"],
     github: "https://github.com/MMoza/api-benchmark",
-    status: "upcoming",
-    image: "/api-benchmark.webp"
+    status: "in_progress",
+    image: "/api-benchmark.png"
   },
   {
     slug: "patterns-playground",
@@ -32,7 +32,7 @@ const backendProjects = [
     tech: ["PHP", "Design Patterns"],
     github: "https://github.com/MMoza/design-patterns",
     status: "upcoming",
-    image: "/patterns-playground.webp"
+    image: "/patterns.png"
   },
   {
     slug: "randomuser-technical-test",
@@ -40,7 +40,23 @@ const backendProjects = [
     tech: ["PHP", "Ajax", "JQuery"],
     github: "https://github.com/MMoza/pruebaAjax",
     status: "finished",
-    image: "/randomuser-technical-test.webp"
+    image: "/random-user.png"
+  },
+  {
+    slug: "laravel-ddd",
+    date: "2025",
+    tech: ["PHP", "Laravel", "DDD", "Composer"],
+    github: "https://github.com/MMoza/laravel-ddd",
+    status: "finished",
+    image: "/laravel-ddd.png"
+  },
+  {
+    slug: "design-antipatterns",
+    date: "2026",
+    tech: ["PHP", "Software Design", "Best Practices"],
+    github: "https://github.com/MMoza/design-antipatterns",
+    status: "in_progress",
+    image: "/design-antipatterns.png"
   }
 ];
 
@@ -115,7 +131,7 @@ const webProjects = [
     {backendProjects.map((project) => {
       const translation = t.projects.items[project.slug];
       return (
-        <div class="flex-shrink-0 w-80 md:w-96 snap-start">
+        <div class="flex-shrink-0 w-80 snap-start">
           <ProjectCard
             project={{
               ...project,
@@ -136,7 +152,7 @@ const webProjects = [
     {webProjects.map((project) => {
       const translation = t.projects.items[project.slug];
       return (
-        <div class="flex-shrink-0 w-80 md:w-96 snap-start">
+        <div class="flex-shrink-0 w-80 snap-start">
           <ProjectCard
             project={{
               ...project,

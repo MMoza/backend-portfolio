@@ -41,6 +41,18 @@ export const projectsPage = {
         "Proyecto realizado durante el proceso de selección para mi primer puesto profesional como desarrollador web."
     },
 
+    "laravel-ddd": {
+      title: "Paquete Laravel DDD",
+      description:
+        "Paquete de Composer que convierte la estructura MVC por defecto de Laravel en una arquitectura DDD. Incluye comandos CLI, AGENTS.md para integración con agentes IA y documentación completa."
+    },
+
+    "design-antipatterns": {
+      title: "Catálogo de Antipatrones de Diseño",
+      description:
+        "Un catálogo exhaustivo que identifica más de 100 antipatrones de diseño y malas prácticas, cada uno con soluciones prácticas y alternativas basadas en buenas prácticas."
+    },
+
     "personal-portfolio": {
       title: "Portfolio Personal",
       description:
