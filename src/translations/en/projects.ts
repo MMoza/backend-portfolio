@@ -53,19 +53,19 @@ export const projectsPage = {
         "A comprehensive catalog identifying over 100 design antipatterns and bad practices, each with practical solutions and best practice alternatives."
     },
 
-    "personal-portfolio": {
+    "milon-ai": {
       title: "milonAI",
       description:
         "Web portal with an integrated AI chat powered by Gemini Nano via Prompt API. Simulates a real AI chat interface and is fully functional."
     },
 
-    "interactive-dashboard": {
+    "mmodula": {
       title: "mmodula",
       description:
         "Modular platform for freelancers and small businesses. Includes invoicing with Verifactu and blockchain, plus HR module with time tracking and blockchain compliance. Designed to be extensible with business-specific modules."
     },
 
-    "fullstack-ecommerce": {
+    "social-drum": {
       title: "Social Drum",
       description:
         "Web application built with React and Laravel that connects to an electronic drum kit via MIDI interface. Plays sheet music and aims to become a Guitar Hero-style game for drummers."
