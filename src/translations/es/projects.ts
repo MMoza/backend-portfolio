@@ -69,6 +69,12 @@ export const projectsPage = {
       title: "Social Drum",
       description:
         "Aplicación web construida con React y Laravel que se conecta a una batería electrónica mediante interfaz MIDI. Reproduce partituras y tiene como objetivo convertirse en un juego estilo Guitar Hero para bateristas."
+    },
+
+    "pura-vida": {
+      title: "Pura Vida",
+      description:
+        "Web del restaurante Pura Vida - Piscinas Bar. Incluye una carta dinámica conectada a Google Sheets API, permitiendo que el local actualice su oferta directamente."
     }
   }
 };

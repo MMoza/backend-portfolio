@@ -69,6 +69,12 @@ export const projectsPage = {
       title: "Social Drum",
       description:
         "Web application built with React and Laravel that connects to an electronic drum kit via MIDI interface. Plays sheet music and aims to become a Guitar Hero-style game for drummers."
+    },
+
+    "pura-vida": {
+      title: "Pura Vida",
+      description:
+        "Restaurant website for Pura Vida - Piscinas Bar. Features a dynamic menu powered by Google Sheets API, allowing the venue to update their offerings directly."
     }
   }
 };
