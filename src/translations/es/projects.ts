@@ -54,21 +54,21 @@ export const projectsPage = {
     },
 
     "personal-portfolio": {
-      title: "Portfolio Personal",
+      title: "milonAI",
       description:
-        "Un sitio web portfolio moderno construido con Astro y Tailwind CSS que muestra proyectos y habilidades con rendimiento optimizado."
+        "Portal web con un chat de IA integrado impulsado por Gemini Nano a través de Prompt API. Simula una interfaz de chat IA real y es totalmente funcional."
     },
 
     "interactive-dashboard": {
-      title: "Dashboard Interactivo",
+      title: "mmodula",
       description:
-        "Aplicación dashboard full-stack con visualización de datos en tiempo real, gestión de usuarios y analíticas usando React y Node.js."
+        "Plataforma modular para autónomos y pequeños negocios. Incluye módulo de facturación con Verifactu y blockchain, y módulo de RRHH con control de fichajes y cumplimiento normativo mediante blockchain. Diseñada para ser extensible con módulos específicos por tipo de negocio."
     },
 
     "fullstack-ecommerce": {
-      title: "E-Commerce Full-Stack",
+      title: "Social Drum",
       description:
-        "Plataforma de comercio electrónico completa con integración de pagos, gestión de inventario y diseño responsive usando Next.js y Stripe."
+        "Aplicación web construida con React y Laravel que se conecta a una batería electrónica mediante interfaz MIDI. Reproduce partituras y tiene como objetivo convertirse en un juego estilo Guitar Hero para bateristas."
     }
   }
 };
