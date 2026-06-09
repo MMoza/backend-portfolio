@@ -19,3 +19,8 @@
   background-size: 200% 200%;
   animation: subtleGradientMove 18s ease infinite;
 }
+
+/* Scroll margin for sections with sticky header */
+.scroll-mt-28 {
+  scroll-margin-top: 7rem;
+}

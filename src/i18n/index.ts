@@ -55,6 +55,9 @@ import { designAntipatterns as designAntipatternsES } from "../translations/es/d
 import { underConstruction as underConstructionEN } from "../translations/en/underConstruction";
 import { underConstruction as underConstructionES } from "../translations/es/underConstruction";
 
+import { puraVida as puraVidaEN } from "../translations/en/puraVida";
+import { puraVida as puraVidaES } from "../translations/es/puraVida";
+
 export const translations = {
   en: {
     home: homeEN,
@@ -75,7 +78,8 @@ export const translations = {
     portfolio: portfolioEN,
     laravelDDD: laravelDDDEN,
     designAntipatterns: designAntipatternsEN,
-    underConstruction: underConstructionEN
+    underConstruction: underConstructionEN,
+    puraVida: puraVidaEN
   },
 
   es: {
@@ -97,7 +101,8 @@ export const translations = {
     portfolio: portfolioES,
     laravelDDD: laravelDDDES,
     designAntipatterns: designAntipatternsES,
-    underConstruction: underConstructionES
+    underConstruction: underConstructionES,
+    puraVida: puraVidaES
   }
 };
 

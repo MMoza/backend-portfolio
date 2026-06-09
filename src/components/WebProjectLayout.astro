@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BackLink from "../components/BackLink.astro";
+import SideMenu from "./SideMenu.astro";
+
+const { sections, backHref = "/projects", children } = Astro.props;
+---
+
+<BaseLayout>
+  <div class="flex gap-8 lg:gap-12 max-w-6xl mx-auto">
+    <!-- Side Menu - hidden on mobile, sticky on desktop -->
+    <aside class="hidden lg:block w-52 xl:w-64 flex-shrink-0">
+      <div class="sticky top-24">
+        <SideMenu sections={sections} />
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <article class="flex-1 min-w-0">
+      <BackLink href={backHref} />
+      <slot />
+    </article>
+  </div>
+</BaseLayout>
