@@ -52,6 +52,9 @@ import { laravelDDD as laravelDDDES } from "../translations/es/laravelDDD";
 import { designAntipatterns as designAntipatternsEN } from "../translations/en/designAntipatterns";
 import { designAntipatterns as designAntipatternsES } from "../translations/es/designAntipatterns";
 
+import { underConstruction as underConstructionEN } from "../translations/en/underConstruction";
+import { underConstruction as underConstructionES } from "../translations/es/underConstruction";
+
 export const translations = {
   en: {
     home: homeEN,
@@ -71,7 +74,8 @@ export const translations = {
     smartLocks: smartLocksEN,
     portfolio: portfolioEN,
     laravelDDD: laravelDDDEN,
-    designAntipatterns: designAntipatternsEN
+    designAntipatterns: designAntipatternsEN,
+    underConstruction: underConstructionEN
   },
 
   es: {
@@ -92,7 +96,8 @@ export const translations = {
     smartLocks: smartLokcsES,
     portfolio: portfolioES,
     laravelDDD: laravelDDDES,
-    designAntipatterns: designAntipatternsES
+    designAntipatterns: designAntipatternsES,
+    underConstruction: underConstructionES
   }
 };
 
