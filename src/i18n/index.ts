@@ -46,6 +46,12 @@ import { smartLocks as smartLokcsES } from "../translations/es/smartLocks";
 import { portfolio as portfolioEN } from "../translations/en/portfolio";
 import { portfolio as portfolioES } from "../translations/es/portfolio";
 
+import { laravelDDD as laravelDDDEN } from "../translations/en/laravelDDD";
+import { laravelDDD as laravelDDDES } from "../translations/es/laravelDDD";
+
+import { designAntipatterns as designAntipatternsEN } from "../translations/en/designAntipatterns";
+import { designAntipatterns as designAntipatternsES } from "../translations/es/designAntipatterns";
+
 export const translations = {
   en: {
     home: homeEN,
@@ -63,7 +69,9 @@ export const translations = {
     invoicing: invoicingEN,
     channelManager: channelManagerEN,
     smartLocks: smartLocksEN,
-    portfolio: portfolioEN
+    portfolio: portfolioEN,
+    laravelDDD: laravelDDDEN,
+    designAntipatterns: designAntipatternsEN
   },
 
   es: {
@@ -82,7 +90,9 @@ export const translations = {
     invoicing: invoicingES,
     channelManager: channelManagerES,
     smartLocks: smartLokcsES,
-    portfolio: portfolioES
+    portfolio: portfolioES,
+    laravelDDD: laravelDDDES,
+    designAntipatterns: designAntipatternsES
   }
 };
 

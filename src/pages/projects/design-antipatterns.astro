@@ -1,0 +1,404 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BackLink from "../../components/BackLink.astro";
+
+import { getLangFromUrl } from "../../i18n/getLang";
+import { getTranslations } from "../../i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations(lang);
+---
+
+<BaseLayout>
+    <article class="max-w-3xl mx-auto">
+        <BackLink href="/projects" label={t.designAntipatterns.back} />
+
+        <header class="mb-14">
+            <div
+                class="rounded-xl p-6
+  bg-gradient-to-br
+  from-white/80 via-white/50 to-transparent
+  dark:from-gray-900/80 dark:via-gray-900/50 dark:to-transparent
+  backdrop-blur-md"
+            >
+                <p class="text-sm text-gray-500 mb-2">
+                    {t.designAntipatterns.header.label}
+                </p>
+
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">
+                    {t.designAntipatterns.header.title}
+                </h1>
+
+                <p class="text-lg text-gray-600 dark:text-gray-400">
+                    {t.designAntipatterns.header.description}
+                </p>
+            </div>
+        </header>
+
+        <section class="mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+                <div
+                    class="border border-gray-200 dark:border-gray-800 rounded-lg p-5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-blue-500/40"
+                >
+                    <p
+                        class="font-semibold text-gray-800 dark:text-gray-200 mb-1"
+                    >
+                        {t.designAntipatterns.highlights.categories.title}
+                    </p>
+
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-auto">
+                        {
+                            t.designAntipatterns.highlights.categories
+                                .description
+                        }
+                    </p>
+                </div>
+
+                <div
+                    class="border border-gray-200 dark:border-gray-800 rounded-lg p-5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-blue-500/40"
+                >
+                    <p
+                        class="font-semibold text-gray-800 dark:text-gray-200 mb-1"
+                    >
+                        {t.designAntipatterns.highlights.antipatterns.title}
+                    </p>
+
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-auto">
+                        {
+                            t.designAntipatterns.highlights.antipatterns
+                                .description
+                        }
+                    </p>
+                </div>
+
+                <div
+                    class="border border-gray-200 dark:border-gray-800 rounded-lg p-5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-blue-500/40"
+                >
+                    <p
+                        class="font-semibold text-gray-800 dark:text-gray-200 mb-1"
+                    >
+                        {t.designAntipatterns.highlights.approach.title}
+                    </p>
+
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-auto">
+                        {t.designAntipatterns.highlights.approach.description}
+                    </p>
+                </div>
+            </div>
+
+            <div class="mb-10 pl-6 border-l-2 border-blue-500/30 space-y-3">
+                <p
+                    class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
+                >
+                    {t.designAntipatterns.intro.p1}
+                </p>
+
+                <p
+                    class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
+                >
+                    {t.designAntipatterns.intro.p2}
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">
+                {t.designAntipatterns.purpose_section.title}
+            </h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                {t.designAntipatterns.purpose_section.p1}
+            </p>
+
+            <ul
+                class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+            >
+                <li>{t.designAntipatterns.purpose_section.items[0]}</li>
+                <li>{t.designAntipatterns.purpose_section.items[1]}</li>
+                <li>{t.designAntipatterns.purpose_section.items[2]}</li>
+                <li>{t.designAntipatterns.purpose_section.items[3]}</li>
+            </ul>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">
+                {t.designAntipatterns.categories_section.title}
+            </h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-8">
+                {t.designAntipatterns.categories_section.intro}
+            </p>
+
+            <div class="space-y-10">
+                <div>
+                    <h3 class="font-semibold mb-3 text-blue-600 dark:text-blue-400">
+                        {t.designAntipatterns.categories_section.structure.title}
+                    </h3>
+                    <ul
+                        class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+                    >
+                        {t.designAntipatterns.categories_section.structure.items.map((item) => (
+                            <li>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-3 text-blue-600 dark:text-blue-400">
+                        {t.designAntipatterns.categories_section.state.title}
+                    </h3>
+                    <ul
+                        class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+                    >
+                        {t.designAntipatterns.categories_section.state.items.map((item) => (
+                            <li>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-3 text-blue-600 dark:text-blue-400">
+                        {t.designAntipatterns.categories_section.modeling.title}
+                    </h3>
+                    <ul
+                        class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+                    >
+                        {t.designAntipatterns.categories_section.modeling.items.map((item) => (
+                            <li>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-3 text-blue-600 dark:text-blue-400">
+                        {t.designAntipatterns.categories_section.security.title}
+                    </h3>
+                    <ul
+                        class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+                    >
+                        {t.designAntipatterns.categories_section.security.items.map((item) => (
+                            <li>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-3 text-blue-600 dark:text-blue-400">
+                        {t.designAntipatterns.categories_section.errors.title}
+                    </h3>
+                    <ul
+                        class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+                    >
+                        {t.designAntipatterns.categories_section.errors.items.map((item) => (
+                            <li>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-3 text-blue-600 dark:text-blue-400">
+                        {t.designAntipatterns.categories_section.code.title}
+                    </h3>
+                    <ul
+                        class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+                    >
+                        {t.designAntipatterns.categories_section.code.items.map((item) => (
+                            <li>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-3 text-blue-600 dark:text-blue-400">
+                        {t.designAntipatterns.categories_section.presentation.title}
+                    </h3>
+                    <ul
+                        class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+                    >
+                        {t.designAntipatterns.categories_section.presentation.items.map((item) => (
+                            <li>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-3 text-blue-600 dark:text-blue-400">
+                        {t.designAntipatterns.categories_section.database.title}
+                    </h3>
+                    <ul
+                        class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+                    >
+                        {t.designAntipatterns.categories_section.database.items.map((item) => (
+                            <li>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-3 text-blue-600 dark:text-blue-400">
+                        {t.designAntipatterns.categories_section.naming.title}
+                    </h3>
+                    <ul
+                        class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+                    >
+                        {t.designAntipatterns.categories_section.naming.items.map((item) => (
+                            <li>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-3 text-blue-600 dark:text-blue-400">
+                        {t.designAntipatterns.categories_section.integrations.title}
+                    </h3>
+                    <ul
+                        class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+                    >
+                        {t.designAntipatterns.categories_section.integrations.items.map((item) => (
+                            <li>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-3 text-blue-600 dark:text-blue-400">
+                        {t.designAntipatterns.categories_section.concurrency.title}
+                    </h3>
+                    <ul
+                        class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+                    >
+                        {t.designAntipatterns.categories_section.concurrency.items.map((item) => (
+                            <li>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-3 text-blue-600 dark:text-blue-400">
+                        {t.designAntipatterns.categories_section.performance.title}
+                    </h3>
+                    <ul
+                        class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+                    >
+                        {t.designAntipatterns.categories_section.performance.items.map((item) => (
+                            <li>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-3 text-blue-600 dark:text-blue-400">
+                        {t.designAntipatterns.categories_section.observability.title}
+                    </h3>
+                    <ul
+                        class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+                    >
+                        {t.designAntipatterns.categories_section.observability.items.map((item) => (
+                            <li>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-3 text-blue-600 dark:text-blue-400">
+                        {t.designAntipatterns.categories_section.framework.title}
+                    </h3>
+                    <ul
+                        class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+                    >
+                        {t.designAntipatterns.categories_section.framework.items.map((item) => (
+                            <li>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-3 text-blue-600 dark:text-blue-400">
+                        {t.designAntipatterns.categories_section.deployment.title}
+                    </h3>
+                    <ul
+                        class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+                    >
+                        {t.designAntipatterns.categories_section.deployment.items.map((item) => (
+                            <li>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-3 text-blue-600 dark:text-blue-400">
+                        {t.designAntipatterns.categories_section.testing.title}
+                    </h3>
+                    <ul
+                        class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+                    >
+                        {t.designAntipatterns.categories_section.testing.items.map((item) => (
+                            <li>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-3 text-blue-600 dark:text-blue-400">
+                        {t.designAntipatterns.categories_section.domain.title}
+                    </h3>
+                    <ul
+                        class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+                    >
+                        {t.designAntipatterns.categories_section.domain.items.map((item) => (
+                            <li>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-3 text-blue-600 dark:text-blue-400">
+                        {t.designAntipatterns.categories_section.sociotechnical.title}
+                    </h3>
+                    <ul
+                        class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+                    >
+                        {t.designAntipatterns.categories_section.sociotechnical.items.map((item) => (
+                            <li>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">
+                {t.designAntipatterns.methodology_section.title}
+            </h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                {t.designAntipatterns.methodology_section.p1}
+            </p>
+
+            <p class="text-gray-600 dark:text-gray-400">
+                {t.designAntipatterns.methodology_section.p2}
+            </p>
+        </section>
+
+        <section>
+            <h2 class="text-xl font-semibold mb-6">
+                {t.designAntipatterns.next_steps_section.title}
+            </h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                {t.designAntipatterns.next_steps_section.p1}
+            </p>
+
+            <ul
+                class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+            >
+                <li>{t.designAntipatterns.next_steps_section.items[0]}</li>
+                <li>{t.designAntipatterns.next_steps_section.items[1]}</li>
+                <li>{t.designAntipatterns.next_steps_section.items[2]}</li>
+                <li>{t.designAntipatterns.next_steps_section.items[3]}</li>
+                <li>{t.designAntipatterns.next_steps_section.items[4]}</li>
+                <li>{t.designAntipatterns.next_steps_section.items[5]}</li>
+            </ul>
+        </section>
+    </article>
+</BaseLayout>

@@ -1,0 +1,304 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BackLink from "../../components/BackLink.astro";
+
+import { getLangFromUrl } from "../../i18n/getLang";
+import { getTranslations } from "../../i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations(lang);
+---
+
+<BaseLayout>
+    <article class="max-w-3xl mx-auto">
+        <BackLink href="/projects" label={t.laravelDDD.back} />
+
+        <header class="mb-14">
+            <div
+                class="rounded-xl p-6
+                    bg-gradient-to-br
+                    from-white/80 via-white/50 to-transparent
+                    dark:from-gray-900/80 dark:via-gray-900/50 dark:to-transparent
+                    backdrop-blur-md"
+            >
+                <p class="text-sm text-gray-500 mb-2">
+                    {t.laravelDDD.header.label}
+                </p>
+
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">
+                    {t.laravelDDD.header.title}
+                </h1>
+
+                <p class="text-lg text-gray-600 dark:text-gray-400">
+                    {t.laravelDDD.header.description}
+                </p>
+            </div>
+        </header>
+
+        <section class="mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+                <div
+                    class="border border-gray-200 dark:border-gray-800 rounded-lg p-5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm"
+                >
+                    <p class="font-semibold mb-1">
+                        {t.laravelDDD.highlights.structure.title}
+                    </p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        {t.laravelDDD.highlights.structure.description}
+                    </p>
+                </div>
+
+                <div
+                    class="border border-gray-200 dark:border-gray-800 rounded-lg p-5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm"
+                >
+                    <p class="font-semibold mb-1">
+                        {t.laravelDDD.highlights.commands.title}
+                    </p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        {t.laravelDDD.highlights.commands.description}
+                    </p>
+                </div>
+
+                <div
+                    class="border border-gray-200 dark:border-gray-800 rounded-lg p-5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm"
+                >
+                    <p class="font-semibold mb-1">
+                        {t.laravelDDD.highlights.tests.title}
+                    </p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        {t.laravelDDD.highlights.tests.description}
+                    </p>
+                </div>
+            </div>
+
+            <div class="mb-10 pl-5 border-l-2 border-blue-500/40">
+                <p class="text-lg text-gray-700 dark:text-gray-300 mb-3">
+                    {t.laravelDDD.intro.p1}
+                </p>
+
+                <p class="text-lg text-gray-700 dark:text-gray-300">
+                    {t.laravelDDD.intro.p2}
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">
+                {t.laravelDDD.features_section.title}
+            </h2>
+
+            <ul
+                class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+            >
+                <li>{t.laravelDDD.features_section.items[0]}</li>
+                <li>{t.laravelDDD.features_section.items[1]}</li>
+                <li>{t.laravelDDD.features_section.items[2]}</li>
+                <li>{t.laravelDDD.features_section.items[3]}</li>
+                <li>{t.laravelDDD.features_section.items[4]}</li>
+                <li>{t.laravelDDD.features_section.items[5]}</li>
+                <li>{t.laravelDDD.features_section.items[6]}</li>
+                <li>{t.laravelDDD.features_section.items[7]}</li>
+                <li>{t.laravelDDD.features_section.items[8]}</li>
+                <li>{t.laravelDDD.features_section.items[9]}</li>
+            </ul>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">
+                {t.laravelDDD.structure_section.title}
+            </h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                {t.laravelDDD.structure_section.description}
+            </p>
+
+            <ul class="space-y-3 text-gray-600 dark:text-gray-400">
+                <li>
+                    <strong>Domains/</strong> — {t.laravelDDD.structure_section.domains}
+                </li>
+                <li>
+                    <strong>Application/</strong> — {t.laravelDDD.structure_section.application}
+                </li>
+                <li>
+                    <strong>Infrastructure/</strong> — {t.laravelDDD.structure_section.infrastructure}
+                </li>
+                <li>
+                    <strong>Support/</strong> — {t.laravelDDD.structure_section.support}
+                </li>
+                <li>
+                    <strong>Models/</strong> — {t.laravelDDD.structure_section.models}
+                </li>
+                <li>
+                    <strong>routes/domains/</strong> — {t.laravelDDD.structure_section.routes}
+                </li>
+                <li>
+                    <strong>tests/</strong> — {t.laravelDDD.structure_section.tests}
+                </li>
+            </ul>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">
+                {t.laravelDDD.commands_section.title}
+            </h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                {t.laravelDDD.commands_section.description}
+            </p>
+
+            <ul
+                class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"
+            >
+                <li>{t.laravelDDD.commands_section.items[0]}</li>
+                <li>{t.laravelDDD.commands_section.items[1]}</li>
+                <li>{t.laravelDDD.commands_section.items[2]}</li>
+                <li>{t.laravelDDD.commands_section.items[3]}</li>
+                <li>{t.laravelDDD.commands_section.items[4]}</li>
+                <li>{t.laravelDDD.commands_section.items[5]}</li>
+                <li>{t.laravelDDD.commands_section.items[6]}</li>
+                <li>{t.laravelDDD.commands_section.items[7]}</li>
+                <li>{t.laravelDDD.commands_section.items[8]}</li>
+                <li>{t.laravelDDD.commands_section.items[9]}</li>
+                <li>{t.laravelDDD.commands_section.items[10]}</li>
+                <li>{t.laravelDDD.commands_section.items[11]}</li>
+            </ul>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">
+                {t.laravelDDD.architecture_section.title}
+            </h2>
+
+            <div class="space-y-4">
+                <div
+                    class="border border-gray-200 dark:border-gray-800 rounded-lg p-5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm"
+                >
+                    <p class="font-semibold mb-1">
+                        {t.laravelDDD.architecture_section.entity.title}
+                    </p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        {t.laravelDDD.architecture_section.entity.description}
+                    </p>
+                </div>
+
+                <div
+                    class="border border-gray-200 dark:border-gray-800 rounded-lg p-5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm"
+                >
+                    <p class="font-semibold mb-1">
+                        {t.laravelDDD.architecture_section.value_object.title}
+                    </p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        {t.laravelDDD.architecture_section.value_object.description}
+                    </p>
+                </div>
+
+                <div
+                    class="border border-gray-200 dark:border-gray-800 rounded-lg p-5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm"
+                >
+                    <p class="font-semibold mb-1">
+                        {t.laravelDDD.architecture_section.repository.title}
+                    </p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        {t.laravelDDD.architecture_section.repository.description}
+                    </p>
+                </div>
+
+                <div
+                    class="border border-gray-200 dark:border-gray-800 rounded-lg p-5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm"
+                >
+                    <p class="font-semibold mb-1">
+                        {t.laravelDDD.architecture_section.service.title}
+                    </p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        {t.laravelDDD.architecture_section.service.description}
+                    </p>
+                </div>
+
+                <div
+                    class="border border-gray-200 dark:border-gray-800 rounded-lg p-5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm"
+                >
+                    <p class="font-semibold mb-1">
+                        {t.laravelDDD.architecture_section.controller.title}
+                    </p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        {t.laravelDDD.architecture_section.controller.description}
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">
+                {t.laravelDDD.installation_section.title}
+            </h2>
+
+            <ol
+                class="space-y-3 text-gray-600 dark:text-gray-400 list-decimal pl-6"
+            >
+                <li>{t.laravelDDD.installation_section.steps[0]}</li>
+                <li>{t.laravelDDD.installation_section.steps[1]}</li>
+                <li>{t.laravelDDD.installation_section.steps[2]}</li>
+                <li>{t.laravelDDD.installation_section.steps[3]}</li>
+            </ol>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-xl font-semibold mb-6">
+                {t.laravelDDD.example_section.title}
+            </h2>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                {t.laravelDDD.example_section.description}
+            </p>
+
+            <ol
+                class="space-y-3 text-gray-600 dark:text-gray-400 list-decimal pl-6"
+            >
+                <li>{t.laravelDDD.example_section.steps[0]}</li>
+                <li>{t.laravelDDD.example_section.steps[1]}</li>
+                <li>{t.laravelDDD.example_section.steps[2]}</li>
+                <li>{t.laravelDDD.example_section.steps[3]}</li>
+                <li>{t.laravelDDD.example_section.steps[4]}</li>
+                <li>{t.laravelDDD.example_section.steps[5]}</li>
+            </ol>
+        </section>
+
+        <section>
+            <div
+                class="rounded-xl p-8 text-center
+                    bg-gradient-to-br
+                    from-blue-500/10 to-purple-500/10
+                    dark:from-blue-500/5 dark:to-purple-500/5
+                    border border-gray-200 dark:border-gray-800"
+            >
+                <h2 class="text-2xl font-bold mb-3">
+                    {t.laravelDDD.cta_section.title}
+                </h2>
+
+                <p class="text-gray-600 dark:text-gray-400 mb-6">
+                    {t.laravelDDD.cta_section.description}
+                </p>
+
+                <div class="flex gap-4 justify-center">
+                    <a
+                        href="https://github.com/laravel-ddd/starter"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="px-6 py-3 rounded-lg bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-medium hover:opacity-90 transition-opacity"
+                    >
+                        {t.laravelDDD.cta_section.github}
+                    </a>
+
+                    <a
+                        href="https://github.com/laravel-ddd/starter#documentation"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="px-6 py-3 rounded-lg border border-gray-300 dark:border-gray-700 font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    >
+                        {t.laravelDDD.cta_section.docs}
+                    </a>
+                </div>
+            </div>
+        </section>
+    </article>
+</BaseLayout>
